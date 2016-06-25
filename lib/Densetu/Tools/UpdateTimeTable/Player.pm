@@ -1,4 +1,4 @@
-package Densetu::Tool::UpdateList::Player {
+package Densetu::Tools::UpdateTimeTable::Player {
 
   use v5.18;
   use warnings;
