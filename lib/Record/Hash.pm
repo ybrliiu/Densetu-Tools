@@ -31,6 +31,14 @@ package Record::Hash {
       $code->($_, $data{$_});
     }
   }
+
+  sub map {
+    my ($self, $code) = @_;
+    my $hash = $self->Data;
+    my @result;
+    push @result, $code->($_, $hash->{$_}) for keys %$hash;
+    return @result;
+  }
   
   # データ追加
   sub add {

@@ -120,6 +120,7 @@ package Densetu::Tools::UpdateTimeTable::Player {
     my $self = shift;
     if (@_) {
       $self->{mark} = shift;
+      return $self;
     }
     return $self->{mark};
   }

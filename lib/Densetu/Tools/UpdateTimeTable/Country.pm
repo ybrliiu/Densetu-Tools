@@ -3,6 +3,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
   use v5.14;
   use warnings;
   use utf8;
+  no warnings 'utf8';
   use Carp qw/croak confess/;
   use Class::Accessor::Lite new => 0;
 
@@ -64,6 +65,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
 
   sub create_member_info {
     my ($self) = @_;
+
     my $member_line = $self->extract_member_line;
     my $html = HTML::TreeBuilder->new();
     my $root = $html->parse($member_line);
@@ -88,7 +90,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
         $player->country($self->{name}) if $player->country ne $self->{name};
       } else {
         say "不明な武将データが発見されました($player_name)。新規武将データを作成します。";
-        $player = 'Densetu::Tool::UpdateList::Player'->new("<\/font>[仕官]新しく$player_name\が@{[ $self->{name} ]}に仕官しました。(01日00時00分00秒)");
+        $player = 'Densetu::Tools::UpdateTimeTable::Player'->new("<\/font>[仕官]新しく$player_name\が@{[ $self->{name} ]}に仕官しました。(01日00時00分00秒)");
         $player->name($player_name);
         $record->Data->{$player_name} = $player;
       }
@@ -100,3 +102,5 @@ package Densetu::Tools::UpdateTimeTable::Country {
   }
 
 }
+
+1;
