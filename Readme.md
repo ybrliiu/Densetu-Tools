@@ -2,8 +2,11 @@
 
 ## Densetu::Tools::PlayerInfo
 
+### 概要
+過去ログから対戦相手の情報を引っ張り出してきて表示
+
 ### 使い方
-` perl
+```perl
 
 my $info = Densetu::Tools::PlayerInfo->new(
   id => 'ID',
@@ -21,4 +24,4 @@ while ( chomp(my $line = <STDIN>) ) {
 $log = Encode::decode('utf8', $log);
 Densetu::Tools::PlayerInfo->output($log);
 
-`
+```
