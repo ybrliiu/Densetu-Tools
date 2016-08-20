@@ -5,32 +5,13 @@ package Densetu::Tools::UpdateTimeTable {
   use utf8;
   use Carp qw/croak confess/;
 
-  use Encode;
-  use LWP::UserAgent;
-
   use Record::Hash;
+  use Densetu::Tools::Util qw/get_data/;
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
 
   use constant RECORD => Record::Hash->new(File => 'etc/record/player_map_log.dat');
   
-  sub get_data {
-    my ($class, $url) = @_;
-
-    my $ua = LWP::UserAgent->new();
-    $ua->timeout(60);
-
-    say '情報取得中...';
-    my $response = $ua->get($url);
-
-    if ($response->is_success) {
-      say '完了';
-      return Encode::decode('shift-jis', $response->content);
-    } else {
-      die 'ログ情報の取得に失敗、', $response->status_line;
-    }
-  }
-
   sub _extract_update_time {
     my ($class, $map_log) = @_;
     my @lines = split /\n/, $map_log;
@@ -41,7 +22,7 @@ package Densetu::Tools::UpdateTimeTable {
   sub new_update_time_table {
     my ($class) = @_;
 
-    my $map_log = $class->get_data('http://densetu.sakura.ne.jp/map.cgi');
+    my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
     my $player_info = $class->_extract_update_time($map_log);
 
     # プレイヤーオブジェクト生成
@@ -72,7 +53,7 @@ package Densetu::Tools::UpdateTimeTable {
   sub create_country_list {
     my ($class) = @_;
 
-    my $ranking_log = $class->get_data('http://densetu.sakura.ne.jp/ranking.cgi');
+    my $ranking_log = get_data('http://densetu.sakura.ne.jp/ranking.cgi');
     my @country_line = $class->_extract_country_line($ranking_log);
 
     my %countries = map {

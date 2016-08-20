@@ -6,10 +6,9 @@ package Densetu::Tools::UpdateTimeTable::Country {
   use Carp qw/croak confess/;
   use Class::Accessor::Lite new => 0;
 
-  use LWP::UserAgent;
   use HTML::TreeBuilder;
-  use Encode qw/decode encode/;
   use Record::Hash;
+  use Densetu::Tools::Util qw/get_data/;
   use Densetu::Tools::UpdateTimeTable::Player;
 
   {
@@ -52,17 +51,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
 
   sub get_member_info {
     my ($self) = @_;
-    my $ua = LWP::UserAgent->new();
-    $ua->timeout(60);
-    say '情報取得中...';
-    my $response = $ua->get($self->member_url);
-
-    if ($response->is_success) {
-      say '完了';
-      return decode('shift-jis', $response->content);
-    } else {
-      die 'ログ情報の取得に失敗、', $response->status_line;
-    }
+    get_data($self->member_url);
   }
 
   sub extract_member_line {

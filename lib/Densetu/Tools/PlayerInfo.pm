@@ -5,18 +5,22 @@ package Densetu::Tools::PlayerInfo {
   use utf8;
   use Carp qw/croak confess/;
   use Class::Accessor::Lite new => 0;
-  Class::Accessor::Lite->mk_accessors(qw/id pass/);
 
+  use Densetu::Tools::Util qw/get_data/;
   use Densetu::Tools::PlayerInfo::Player;
-  use Encode qw/decode encode/;
-  use LWP::UserAgent;
 
-  sub new {
-    my ($class, %args) = @_;
-    for (qw/id pass/) {
-      confess $_ . 'が指定されていません' unless exists $args{$_};
+  {
+    my @attributes = qw/id pass/;
+
+    Class::Accessor::Lite->mk_accessors(@attributes);
+
+    sub new {
+      my ($class, %args) = @_;
+      for (@attributes) {
+        confess $_ . 'が指定されていません' unless exists $args{$_};
+      }
+      return bless \%args, $class;
     }
-    return bless \%args, $class;
   }
 
   sub output {
@@ -51,17 +55,7 @@ package Densetu::Tools::PlayerInfo {
 
   sub get_log {
     my ($self) = @_;
-
-    my $ua = LWP::UserAgent->new();
-    $ua->timeout(60);
-    say '取得中...';
-    my $response = $ua->get("http://densetu.sakura.ne.jp/mydata3.cgi?id=@{[ $self->{id} ]}&pass=@{[ $self->{pass} ]}=doodoo5&mode=STATUS");
-    if ($response->is_success) {
-      say '完了';
-      return decode('shift-jis', $response->content);
-    } else {
-      croak 'ログ情報の取得に失敗、', $response->status_line;
-    }
+    get_data("http://densetu.sakura.ne.jp/mydata3.cgi?id=@{[ $self->{id} ]}&pass=@{[ $self->{pass} ]}=doodoo5&mode=STATUS");
   }
 
   sub extraction {
