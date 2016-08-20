@@ -7,21 +7,21 @@ package Densetu::Tools::PlayerInfo::Player {
   use Class::Accessor::Lite new => 0;
 
   {
-    my %default = (
-      type      => '',
-      name      => '',
-      status    => '',
-      formation => '',
-      soldier   => '',
-      time      => '',
+    my %attributes = (
+      type      => undef,
+      name      => undef,
+      status    => undef,
+      formation => undef,
+      soldier   => undef,
+      time      => undef,
       skill     => [],
     );
 
-    Class::Accessor::Lite->mk_accessors(keys %default);
+    Class::Accessor::Lite->mk_accessors(keys %attributes);
 
     sub new {
       my ($class, %args) = @_;
-      my $self = {%default, %args};
+      my $self = {%attributes, %args};
       return bless $self, $class;
     }
   }

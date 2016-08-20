@@ -77,7 +77,9 @@ package Densetu::Tools::UpdateTimeTable {
     my @country_line = $class->_extract_country_line($ranking_log);
 
     my %countries = map {
-      my $country = 'Densetu::Tools::UpdateTimeTable::Country'->new($_);
+      my $line = $_;
+      my $country = 'Densetu::Tools::UpdateTimeTable::Country'->new();
+      $country->parse($line);
       $country->name => $country;
     } @country_line;
     return \%countries;

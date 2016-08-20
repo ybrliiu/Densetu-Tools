@@ -9,21 +9,21 @@ package Densetu::Tools::UpdateTimeTable::Player {
   use Time::Piece;
 
   {
-    my %default = (
-      name       => '',
-      time       => localtime,
-      country    => '',
+    my %attributes = (
+      name       => undef,
+      time       => '????',
+      country    => undef,
       force      => 0,
       intellect  => 0,
       leadership => 0,
       popular    => 0,
     );
 
-    Class::Accessor::Lite->mk_accessors(keys %default);
+    Class::Accessor::Lite->mk_accessors(keys %attributes);
 
     sub new {
       my ($class, %args) = @_;
-      my $self = {%default, %args};
+      my $self = {%attributes, %args};
       return bless $self, $class;
     }
   }
