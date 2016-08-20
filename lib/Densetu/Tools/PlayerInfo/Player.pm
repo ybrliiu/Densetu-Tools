@@ -79,7 +79,7 @@ package Densetu::Tools::PlayerInfo::Player {
     my ($self, $line) = @_;
     my $name = $self->{name};
     ($self->{formation}) = ($line =~ /$name（(.*?)）/);
-    $self->{formation} = '(' . $self->{formation} . ')';
+    $self->{formation} =~ s/の陣//;
   }
 
   sub extract_soldier {
@@ -87,8 +87,11 @@ package Densetu::Tools::PlayerInfo::Player {
     while (1) {
       $i--;
       if ($log->[$i] =~ /\|/ && $log->[$i] =~ /ターン/) {
-        my $name = $self->{name} . ' ';
-        ($self->{soldier}) = ($log->[$i] =~ /$name(.*?) /);
+        my $name         = $self->{name} . ' ';
+        (my $soldier)    = ($log->[$i] =~ /$name(.*?) /);
+        (my $lank)       = ($soldier =~ /【(.*?)ランク】/);
+        (my $type)       = ($soldier =~ /ランク】\((.*?)\)/);
+        $self->{soldier} = "$lank$type";
         last;
       }
     }
@@ -126,7 +129,19 @@ package Densetu::Tools::PlayerInfo::Player {
 
   sub output {
     my ($self) = @_;
-    return "$self->{status} $self->{soldier}　$self->{formation}　$self->{time}\n";
+    return sprintf(
+      "%-*s %-*s %-*s %-*s \n",
+      40 - multi_byte($self->{status}), $self->{status},
+      7 - multi_byte($self->{soldier}), $self->{soldier},
+      7 - multi_byte($self->{formation}), $self->{formation},
+      10 - multi_byte($self->{time}), $self->{time},
+    );
+  }
+
+  sub multi_byte {
+    my ($str) = @_;
+    my @multi = $str =~ m/\P{InBasicLatin}/g;
+    return scalar(@multi);
   }
 
 }
