@@ -3,7 +3,6 @@ package Densetu::Tools::UpdateTimeTable {
   use v5.14;
   use warnings;
   use utf8;
-  no warnings 'utf8';
   use Carp qw/croak confess/;
 
   use Encode;
@@ -48,7 +47,9 @@ package Densetu::Tools::UpdateTimeTable {
 
     # プレイヤーオブジェクト生成
     my %players = map {
-      my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new($_);
+      my $line = $_;
+      my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
+      $player->parse($line);
       $player->name => $player;
     } @$player_info;
 
@@ -84,15 +85,11 @@ package Densetu::Tools::UpdateTimeTable {
 
   sub update_player_country {
     my ($class, %args) = @_;
-    for (qw/country1 country2/) {
-      croak "$_\が指定されていません" unless exists $args{$_}
-    }
-
     my $countries = $class->create_country_list();
-    $countries->{$args{$_}}->create_member_info() for qw/country1 country2/;
+    $countries->{$args{$_}}->create_member_info() for (keys %args);
   }
 
-  sub output_update_time_table {
+  sub output_mix_table {
     my ($class, %args) = @_;
     for (qw/country1 country2/) {
       croak "$_\が指定されていません" unless exists $args{$_}
@@ -119,9 +116,27 @@ package Densetu::Tools::UpdateTimeTable {
     say $_->update_time_table for @output;
   }
 
+  sub output_table {
+    my ($class, %args) = @_;
+    croak "$_\が指定されていません" unless exists $args{country};
+
+    $class->update_player_country(%args);
+
+    my $record = RECORD->open;
+    my @collect = $record->map( sub {
+      my ($key, $value) = @_;
+      $value->country eq $args{country} ? $value->mark('') : ();
+    });
+    my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
+
+    say "【$args{country}更新表】";
+    say $_->update_time_table for @output;
+  }
+
   sub add_player {
     my ($class, $line) = @_;
-    my $player = Densetu::Tools::UpdateTimeTable::Player->new($line);
+    my $player = Densetu::Tools::UpdateTimeTable::Player->new();
+    $player->parse($line);
     my $record = RECORD->open('LOCK_EX');
     $record->Data->{$player->name} = $player;
     $record->close();
@@ -129,7 +144,7 @@ package Densetu::Tools::UpdateTimeTable {
 
   sub edit_player {
     my ($class, %args) = @_;
-    for (qw/name new_time/) {
+    for (qw/name time/) {
       confess "$_\が指定されていません" unless exists $args{$_}
     }
 
@@ -148,3 +163,5 @@ package Densetu::Tools::UpdateTimeTable {
 =encoding utf-8
 
 =head1
+
+=cut

@@ -5,6 +5,7 @@ package Densetu::Tools::PlayerInfo {
   use utf8;
   use Carp qw/croak confess/;
   use Class::Accessor::Lite new => 0;
+  Class::Accessor::Lite->mk_accessors(qw/id pass/);
 
   use Densetu::Tools::PlayerInfo::Player;
   use Encode qw/decode encode/;
@@ -17,8 +18,6 @@ package Densetu::Tools::PlayerInfo {
     }
     return bless \%args, $class;
   }
-
-  Class::Accessor::Lite->mk_accessors(qw/id pass/);
 
   sub output {
     my $self = shift;
@@ -49,7 +48,6 @@ package Densetu::Tools::PlayerInfo {
 
   sub get_log {
     my ($self) = @_;
-    no warnings 'utf8';
 
     my $ua = LWP::UserAgent->new();
     $ua->timeout(60);

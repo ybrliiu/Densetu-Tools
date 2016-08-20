@@ -8,20 +8,31 @@ package Densetu::Tools::UpdateTimeTable::Player {
 
   use Time::Piece;
 
-  my @ATTRIBUTE = qw/name time country force intellect leadership popular/;
-  Class::Accessor::Lite->mk_accessors(@ATTRIBUTE);
+  {
+    my %default = (
+      name       => '',
+      time       => localtime,
+      country    => '',
+      force      => 0,
+      intellect  => 0,
+      leadership => 0,
+      popular    => 0,
+    );
 
-  sub new {
-    my ($class, $line) = @_;
-    my $self = bless {}, $class;
-    $self->{name} = $self->extract_name($line);
-    $self->{time} = $self->extract_time($line);
+    Class::Accessor::Lite->mk_accessors(keys %default);
+
+    sub new {
+      my ($class, %args) = @_;
+      my $self = {%default, %args};
+      return bless $self, $class;
+    }
+  }
+
+  sub parse {
+    my ($self, $line) = @_;
+    $self->{name}    = $self->extract_name($line);
+    $self->{time}    = $self->extract_time($line);
     $self->{country} = $self->extract_country($line);
-    $self->{force} = 0;
-    $self->{intellect} = 0;
-    $self->{leadership} = 0;
-    $self->{popular} = 0;
-    return $self;
   }
 
   sub extract_name {

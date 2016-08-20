@@ -90,7 +90,11 @@ package Densetu::Tools::UpdateTimeTable::Country {
         $player->country($self->{name}) if $player->country ne $self->{name};
       } else {
         say "不明な武将データが発見されました($player_name)。新規武将データを作成します。";
-        $player = 'Densetu::Tools::UpdateTimeTable::Player'->new("<\/font>[仕官]新しく$player_name\が@{[ $self->{name} ]}に仕官しました。(01日00時??分??秒)");
+        $player = 'Densetu::Tools::UpdateTimeTable::Player'->new(
+          name    => $player_name,
+          country => $self->{name},
+          time    => '????',
+        );
         $player->name($player_name);
         $record->Data->{$player_name} = $player;
       }
