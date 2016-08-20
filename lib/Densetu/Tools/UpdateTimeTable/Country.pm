@@ -12,14 +12,25 @@ package Densetu::Tools::UpdateTimeTable::Country {
   use Record::Hash;
   use Densetu::Tools::UpdateTimeTable::Player;
 
-  Class::Accessor::Lite->mk_accessors(qw/name no/);
+  {
+    my %attributes = (
+      name => undef,
+      no   => undef,
+    );
 
-  sub new {
-    my ($class, $line) = @_;
-    my $self = bless {}, $class;
+    Class::Accessor::Lite->mk_accessors(keys %attributes);
+
+    sub new {
+      my ($class, %args) = @_;
+      my $self = {%attributes, %args};
+      return bless $self, $class;
+    }
+  }
+
+  sub parse {
+    my ($self, $line) = @_;
     $self->{name} = $self->extract_name($line);
-    $self->{no} = $self->extract_no($line);
-    return $self;
+    $self->{no}   = $self->extract_no($line);
   }
 
   sub extract_name {
