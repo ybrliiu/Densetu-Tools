@@ -33,17 +33,20 @@ package Densetu::Tools::PlayerInfo {
     confess 'ログの取得に失敗しました' unless defined $output;
     my $players = $self->extraction($output);
 
-    no warnings 'utf8';
     say "\n----------------------------------\n";
-    say 'こちら攻め';
+
+    my $result;
+    $result .= "こちら攻め\n";
     for my $player (values %$players) {
-      $player->output unless $player->is_attack;
+      $result .= $player->output unless $player->is_attack;
     }
 
-    say "\n相手攻め";
+    $result .= "\n相手攻め\n";
     for my $player (values %$players) {
-      $player->output if $player->is_attack;
+      $result .= $player->output if $player->is_attack;
     }
+
+    return $result;
   }
 
   sub get_log {

@@ -9,7 +9,7 @@
 ```perl
 
 my $info = Densetu::Tools::PlayerInfo->new(
-  id => 'ID',
+  id   => 'ID',
   pass => 'パスワード',
 );
 $info->output;

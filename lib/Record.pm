@@ -15,7 +15,7 @@ package Record 0.01 {
       unshift @INC, './t/lib'; # テストの時パス追加
     }
     $_->import for(qw/strict warnings utf8/);
-    feature->import(':5.18');
+    feature->import(':5.14');
   }
   
   # project_dir

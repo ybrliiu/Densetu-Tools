@@ -82,7 +82,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
     my @tr = $root->find('tr');
     shift @tr;
 
-    my $record = Record::Hash->new(File => 'player_map_log.dat');
+    my $record = Record::Hash->new(File => 'etc/record/player_map_log.dat');
     my %players = %{ $record->open('LOCK_EX')->Data };
 
     for my $tag (@tr) {

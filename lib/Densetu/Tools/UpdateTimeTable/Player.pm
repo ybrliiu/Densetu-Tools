@@ -124,7 +124,7 @@ package Densetu::Tools::UpdateTimeTable::Player {
 
   sub update_time_table {
     my ($self) = @_;
-    return "@{[ $self->{mark} ]} @{[ $self->show_time ]}　@{[ $self->type ]}　@{[ $self->name ]}";
+    return "@{[ $self->{mark} ]} @{[ $self->show_time ]}　@{[ $self->type ]}　@{[ $self->name ]}\n";
   }
 
   sub mark {

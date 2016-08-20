@@ -7,13 +7,12 @@ package Densetu::Tools::UpdateTimeTable {
 
   use Encode;
   use LWP::UserAgent;
-  use List::Util;
 
   use Record::Hash;
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
 
-  use constant RECORD => Record::Hash->new(File => 'player_map_log.dat');
+  use constant RECORD => Record::Hash->new(File => 'etc/record/player_map_log.dat');
   
   sub get_data {
     my ($class, $url) = @_;
@@ -113,9 +112,12 @@ package Densetu::Tools::UpdateTimeTable {
     });
     my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
 
-    say "【$args{country2}戦更新表】";
-    say "○=$args{country1},●=$args{country2}\n";
-    say $_->update_time_table for @output;
+    my $result;    
+    $result .= "【$args{country2}戦更新表】\n";
+    $result .= "○=$args{country1},●=$args{country2}\n\n";
+    $result .= $_->update_time_table for @output;
+
+    return $result;
   }
 
   sub output_table {
@@ -131,8 +133,11 @@ package Densetu::Tools::UpdateTimeTable {
     });
     my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
 
-    say "【$args{country}更新表】";
-    say $_->update_time_table for @output;
+    my $result;
+    $result .= "【$args{country}更新表】\n\n";
+    $result .= $_->update_time_table for @output;
+
+    return $result;
   }
 
   sub add_player {

@@ -126,8 +126,7 @@ package Densetu::Tools::PlayerInfo::Player {
 
   sub output {
     my ($self) = @_;
-    no warnings 'utf8';
-    say "$self->{status} $self->{soldier}　$self->{formation}　$self->{time}";
+    return "$self->{status} $self->{soldier}　$self->{formation}　$self->{time}\n";
   }
 
 }
