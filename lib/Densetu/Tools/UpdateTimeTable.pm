@@ -40,7 +40,7 @@ package Densetu::Tools::UpdateTimeTable {
   }
 
   sub new_update_time_table {
-    my $class = shift;
+    my ($class) = @_;
 
     my $map_log = $class->get_data('http://densetu.sakura.ne.jp/map.cgi');
     my $player_info = $class->_extract_update_time($map_log);
@@ -150,7 +150,7 @@ package Densetu::Tools::UpdateTimeTable {
 
     my $record = RECORD->open("LOCK_EX");
     my $player = $record->find($args{name});
-    $player->input_time($args{new_time});
+    $player->input_time($args{time});
     $record->close();
 
     say "$args{name}編集完了";

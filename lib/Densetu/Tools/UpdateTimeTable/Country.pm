@@ -3,7 +3,6 @@ package Densetu::Tools::UpdateTimeTable::Country {
   use v5.14;
   use warnings;
   use utf8;
-  no warnings 'utf8';
   use Carp qw/croak confess/;
   use Class::Accessor::Lite new => 0;
 

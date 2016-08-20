@@ -1,6 +1,6 @@
 package Densetu::Tools::UpdateTimeTable::Player {
 
-  use v5.18;
+  use v5.14;
   use warnings;
   use utf8;
   use Carp qw/croak/;

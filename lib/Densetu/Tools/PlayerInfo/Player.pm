@@ -5,7 +5,26 @@ package Densetu::Tools::PlayerInfo::Player {
   use utf8;
 
   use Class::Accessor::Lite new => 0;
-  Class::Accessor::Lite->mk_accessors(qw/type name status formation soldier time skill/);
+
+  {
+    my %default = (
+      type      => '',
+      name      => '',
+      status    => '',
+      formation => '',
+      soldier   => '',
+      time      => '',
+      skill     => [],
+    );
+
+    Class::Accessor::Lite->mk_accessors(keys %default);
+
+    sub new {
+      my ($class, %args) = @_;
+      my $self = {%default, %args};
+      return bless $self, $class;
+    }
+  }
 
   sub extract_attacker_name {
     my ($class, $log, $i) = @_;
@@ -38,20 +57,6 @@ package Densetu::Tools::PlayerInfo::Player {
     my ($class, $log, $i) = @_;
     my ($name, $type) = $class->extract_name_and_type($log, $i);
     return $name ? "$name($type)" : ();
-  }
-
-  sub new {
-    my ($class) = @_;
-    my $self = {
-      type => '',
-      name => '',
-      status => '',
-      formation => '',
-      soldier => '',
-      time => '',
-      skill => [],
-    };
-    return bless $self, $class;
   }
 
   sub parse {
