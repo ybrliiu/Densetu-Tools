@@ -3,8 +3,9 @@ package Densetu::Tools::PlayerInfo::Player {
   use v5.14;
   use warnings;
   use utf8;
-
   use Class::Accessor::Lite new => 0;
+
+  use Time::Piece;
 
   {
     my %attributes = (
@@ -14,6 +15,7 @@ package Densetu::Tools::PlayerInfo::Player {
       formation => undef,
       soldier   => undef,
       time      => undef,
+      time_obj  => undef,
       skill     => [],
     );
 
@@ -62,17 +64,20 @@ package Densetu::Tools::PlayerInfo::Player {
   sub parse {
     my ($self, $log, $i) = @_;
     ($self->{name}, $self->{type}) = $self->extract_name_and_type($log, $i);
-    $self->extract_time($log->[$i]);
+    $self->extract_time_and_time_obj($log->[$i]);
     $self->extract_formation($log->[$i]);
     $self->extract_soldier($log, $i);
     $self->extract_status($log, $i);
   }
 
-  sub extract_time {
+  sub extract_time_and_time_obj {
     my ($self, $line) = @_;
     ($self->{time}) = ($line =~ /！(.*?)\)/);
-    $self->{time} =~ s/！//;
-    $self->{time} = $self->{time} . '）';
+    $self->{time}   =~ s/！//;
+    $self->{time}   = $self->{time} . ')';
+    my $now  = localtime;
+    my $time = Time::Piece->strptime("@{[ $now->year ]}年@{[ $now->mon ]}月@{[ $self->{time} ]}", "%Y年%m月(%d日%H時%M分)");
+    $self->{time_obj} = $time;
   }
 
   sub extract_formation {

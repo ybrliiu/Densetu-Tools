@@ -35,18 +35,19 @@ package Densetu::Tools::PlayerInfo {
       }
     };
     confess 'ログの取得に失敗しました' unless defined $output;
-    my $players = $self->extraction($output);
+    my $players      = $self->extraction($output);
+    my @sort_players = sort { $b->time_obj <=> $a->time_obj } values %$players;
 
     say "\n----------------------------------\n";
 
     my $result;
     $result .= "こちら攻め\n";
-    for my $player (values %$players) {
+    for my $player (@sort_players) {
       $result .= $player->output unless $player->is_attack;
     }
 
     $result .= "\n相手攻め\n";
-    for my $player (values %$players) {
+    for my $player (@sort_players) {
       $result .= $player->output if $player->is_attack;
     }
 
