@@ -1,9 +1,5 @@
 % layout 'default';
 % title 'Welcome';
 <h2><%= $msg %></h2>
-This page was generated from the template "templates/example/welcome.html.ep"
-and the layout "templates/layouts/default.html.ep",
-<%= link_to 'click here' => url_for %> to reload the page or
-<%= link_to 'here' => '/index.html' %> to move forward to a static page. To
-learn more, you can also browse through the documentation
-<%= link_to 'here' => '/perldoc' %>.
+・<a href="/player_info">戦闘ログから武将情報抽出</a><br>
+・<a href="/update_time_table">更新表出力</a><br>
