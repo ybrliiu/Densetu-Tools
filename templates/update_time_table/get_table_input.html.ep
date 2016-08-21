@@ -1,0 +1,23 @@
+% layout 'update_time_table';
+      <div>
+        <h2>国を指定して出力</h2>
+        <div>
+            <label>国名</label>
+            <input id="country" class="form-control" type="text">
+        </div>
+        <input type="button" id="submit" class="btn btn-empty" value="出力">
+<pre id="result">
+ここに出力されます
+</pre>
+      </div>
+
+<script>
+
+  "use strict";
+
+  document.getElementById('submit').addEventListener('click', function(eve) {
+    var json = {country : document.getElementById('country').value};
+    sendJson(json, '/update_time_table/get_table');
+  }, false);
+
+</script>

@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/css/skyblue.min.css">
   <link rel="stylesheet" href="/css/docs.css">
   %= javascript '/js/jquery-3.1.0.min.js';
+  %= javascript '/js/send-json.js';
   <head>
     <title><%= $title %></title>
   </head>

@@ -471,3 +471,42 @@ Compilation failed in require at (eval 84) line 1, <DATA> line 2231.
 [Mon Aug 22 02:16:39 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
 [Mon Aug 22 02:16:39 2016] [debug] Rendering template "layouts/wrapper.html.ep"
 [Mon Aug 22 02:16:39 2016] [debug] 200 OK (1.323888s, 0.755/s)
+[Mon Aug 22 03:04:43 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 03:04:44 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 03:04:44 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 03:04:44 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:04:44 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:04:44 2016] [debug] 200 OK (1.054472s, 0.948/s)
+[Mon Aug 22 03:04:54 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 03:04:54 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 03:04:54 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 03:04:54 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:04:54 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:04:54 2016] [debug] 200 OK (0.042755s, 23.389/s)
+[Mon Aug 22 03:04:56 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 03:04:56 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 03:04:56 2016] [debug] Rendering cached template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 03:04:56 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:04:56 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:04:56 2016] [debug] 200 OK (0.014939s, 66.939/s)
+[Mon Aug 22 03:05:06 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 03:05:06 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 03:05:08 2016] [debug] 200 OK (2.362878s, 0.423/s)
+[Mon Aug 22 03:13:30 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 03:13:31 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 03:13:31 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 03:13:31 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:13:31 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:13:31 2016] [debug] 200 OK (0.876636s, 1.141/s)
+[Mon Aug 22 03:13:38 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 03:13:38 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 03:13:40 2016] [debug] 200 OK (2.011849s, 0.497/s)
+[Mon Aug 22 03:14:14 2016] [debug] GET "/player_info"
+[Mon Aug 22 03:14:14 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 03:14:14 2016] [debug] Rendering template "player_info/root.html.ep"
+[Mon Aug 22 03:14:14 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Mon Aug 22 03:14:14 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:14:14 2016] [debug] 200 OK (0.624059s, 1.602/s)
+[Mon Aug 22 03:14:18 2016] [debug] POST "/player_info/get_info"
+[Mon Aug 22 03:14:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Mon Aug 22 03:14:21 2016] [debug] 200 OK (2.937609s, 0.340/s)
