@@ -1,18 +1,27 @@
-package Densetu::Tools::Web;
-use Mojo::Base 'Mojolicious';
+package Densetu::Tools::Web {
 
-# This method will run once at server start
-sub startup {
-  my $self = shift;
+  use Mojo::Base 'Mojolicious';
 
-  # Documentation browser under "/perldoc"
-  $self->plugin('PODRenderer');
+  sub startup {
+    my ($self) = @_;
 
-  # Router
-  my $r = $self->routes;
+    # setup session
+    $self->secrets(['densetu-tools']);
+    $self->sessions->cookie_name('densetu-tools');
+    $self->sessions->default_expiration(3600000);
 
-  # Normal route to controller
-  $r->get('/')->to('example#welcome');
+    # Router
+    my $r = $self->routes;
+    $r->namespaces([qw/Densetu::Tools::Web::Controller/]);
+
+    # Normal route to controller
+    $r->get('/')->to('root#root');
+
+    # player-info
+    $r->get('/player-info')->to('player_info#root');
+    $r->any('/player-info/get_info')->to('player_info#get_info');
+  }
+
 }
 
 1;
