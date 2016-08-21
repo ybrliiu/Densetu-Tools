@@ -1,7 +1,7 @@
 % layout 'player_info';
-<div class="bg-dark padding-top-20">
+<div class="bg-main">
 	<div class="container text-center">
-		<h1>武将情報抽出</h1>
+		<h1 class="title">武将情報抽出</h1>
 	</div>
 </div>
 <div class="container">
@@ -18,10 +18,10 @@
       <input type="button" id="submit" class="btn btn-empty" value="送信">
 		</div>
 		<div class="col md-9 padding-y-20">
-      <pre id="result">
+<pre id="result">
 戦闘ログから対戦した武将の情報を抽出します。
 結果はここに出力されます。
-      </pre>
+</pre>
     </div>
   </div>
 </div>

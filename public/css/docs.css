@@ -2,6 +2,11 @@
   font-family: "monospace";
 }
 
+.title{
+  font-size: 2.0em;
+	padding-top: 15px;
+}
+
 .font-icon-detail{
 	padding-top: 12px;
 	height: 100px;
@@ -63,8 +68,4 @@
 .sidemenu a:hover{
 	background: #FaFaFc;
 	color: #000;
-}
-
-h2{
-	padding-top: 30px;
 }
