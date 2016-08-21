@@ -13,27 +13,35 @@
   <body>
     <div class="bg-dark padding-top-20">
     	<div class="container text-center">
-    		<h1>武将情報抽出</h1>
+    		<h1>更新表武将情報編集</h1>
     	</div>
     </div>
     <div class="container">
-    	<div class="row">
-    		<div class="col md-3 padding-y-20">
-          <div>
-            <label>ID</label>
-            <input class="form-control" type="text">
+      <div class="row">
+        <div class="col md-2">
+          <div class="sidemenu padding-y-20">
+            <a href="#about">トップ</a>
+            <a href="#grid">武将情報編集</a>
+            <a href="#typography">武将追加</a>
+            <a href="#tables">武将追加(行から)</a>
+            <a href="#forms">武将一覧</a>
+            <a href="#buttons">更新表リセット</a>
+            <a href="#helpers">ログアウト</a>
           </div>
+        </div>
+      	<div class="col md-10 padding-y-20">
           <div>
-            <label>PASSWORD</label>
-            <input class="form-control" type="text">
+            <label>編集する武将の情報を入力して下さい:</label>
+<pre class="prettyprint">
+【書式】
+名前1,xx分xx秒
+名前2,xx分xx秒
+...
+</pre>
+            <textarea class="form-control"></textarea>
           </div>
           <a class="btn btn-empty">送信</a>
-    		</div>
-    		<div class="col md-9 padding-y-20">
-          <pre>
-output
-          </pre>
-        </div>
+      	</div>
       </div>
     </div>
   </body>

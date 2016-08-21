@@ -420,3 +420,15 @@ Compilation failed in require at (eval 84) line 1, <DATA> line 2231.
 [Sun Aug 21 17:59:00 2016] [debug] POST "/player_info/get_info"
 [Sun Aug 21 17:59:00 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
 [Sun Aug 21 17:59:13 2016] [debug] 200 OK (12.973683s, 0.077/s)
+[Sun Aug 21 23:50:38 2016] [debug] GET "/"
+[Sun Aug 21 23:50:38 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Sun Aug 21 23:50:38 2016] [debug] Rendering template "root/root.html.ep"
+[Sun Aug 21 23:50:38 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 23:50:38 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 23:50:38 2016] [debug] 200 OK (0.520815s, 1.920/s)
+[Sun Aug 21 23:53:00 2016] [debug] GET "/player_info"
+[Sun Aug 21 23:53:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 23:53:01 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 23:53:01 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 23:53:01 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 23:53:01 2016] [debug] 200 OK (1.301506s, 0.768/s)

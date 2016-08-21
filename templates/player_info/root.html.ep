@@ -19,7 +19,8 @@
 		</div>
 		<div class="col md-9 padding-y-20">
       <pre id="result">
-ここに出力されます
+戦闘ログから対戦した武将の情報を抽出します。
+結果はここに出力されます。
       </pre>
     </div>
   </div>
