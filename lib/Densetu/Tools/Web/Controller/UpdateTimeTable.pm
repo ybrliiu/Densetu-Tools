@@ -39,7 +39,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable {
     my $json = $self->req->json;
     my $table;
     eval {
-      $table = Densetu::Tools::UpdateTimeTable->output_table(
+      $table = Densetu::Tools::UpdateTimeTable->output_mix_table(
         country1 => $json->{country1},
         country2 => $json->{country2},
       );

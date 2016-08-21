@@ -35,7 +35,7 @@ package Densetu::Tools::Web {
     $update_time_table->get( '/'                   )->to(action => 'root');
     $update_time_table->get( '/get_table_input'    )->to(action => 'get_table_input');
     $update_time_table->post('/get_table'          )->to(action => 'get_table');
-    $update_time_table->post('/get_mix_table_input')->to(action => 'get_mix_table_input');
+    $update_time_table->get( '/get_mix_table_input')->to(action => 'get_mix_table_input');
     $update_time_table->post('/get_mix_table'      )->to(action => 'get_mix_table');
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
     $admin->get( '/'                   )->to(action => 'root');

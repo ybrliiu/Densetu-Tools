@@ -510,3 +510,21 @@ Compilation failed in require at (eval 84) line 1, <DATA> line 2231.
 [Mon Aug 22 03:14:18 2016] [debug] POST "/player_info/get_info"
 [Mon Aug 22 03:14:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
 [Mon Aug 22 03:14:21 2016] [debug] 200 OK (2.937609s, 0.340/s)
+[Mon Aug 22 03:18:41 2016] [debug] GET "/update_time_table/get_mix_table_input"
+[Mon Aug 22 03:18:41 2016] [debug] Template "not_found.development.html.ep" not found
+[Mon Aug 22 03:18:41 2016] [debug] Template "not_found.html.ep" not found
+[Mon Aug 22 03:18:41 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Mon Aug 22 03:18:41 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Mon Aug 22 03:18:41 2016] [debug] 404 Not Found (0.265426s, 3.768/s)
+[Mon Aug 22 03:19:20 2016] [debug] GET "/update_time_table/get_mix_table_input"
+[Mon Aug 22 03:19:20 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table_input"
+[Mon Aug 22 03:19:20 2016] [debug] Rendering template "update_time_table/get_mix_table_input.html.ep"
+[Mon Aug 22 03:19:20 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:19:20 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:19:20 2016] [debug] 200 OK (0.508625s, 1.966/s)
+[Mon Aug 22 03:19:31 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 03:19:31 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 03:19:31 2016] [debug] 200 OK (0.08485s, 11.786/s)
+[Mon Aug 22 03:20:02 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 03:20:03 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 03:20:15 2016] [debug] 200 OK (13.035036s, 0.077/s)
