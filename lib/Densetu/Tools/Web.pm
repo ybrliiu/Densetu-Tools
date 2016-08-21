@@ -15,11 +15,12 @@ package Densetu::Tools::Web {
     $r->namespaces([qw/Densetu::Tools::Web::Controller/]);
 
     # Normal route to controller
-    $r->get('/')->to('root#root');
+    $r->get('/')->to('Root#root');
 
     # player-info
-    $r->get('/player-info')->to('player_info#root');
-    $r->any('/player-info/get_info')->to('player_info#get_info');
+    my $player_info = $r->any('/player_info')->to(controller => 'PlayerInfo');
+    $player_info->get('/')->to(action => 'root');
+    $player_info->any('/get_info')->to(action => 'get_info');
   }
 
 }

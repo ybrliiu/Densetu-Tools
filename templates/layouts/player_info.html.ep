@@ -1,4 +1,5 @@
-% extends 'layouts/wrapper'; # wrapperを継承
+% extends 'layouts/wrapper';
+% title '武将情報抽出';
 % content container => begin
   <%= content %>
 % end

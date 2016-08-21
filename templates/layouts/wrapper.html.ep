@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="css/skyblue.min.css">
+  <link rel="stylesheet" href="css/docs.css">
+  %= javascript '/js/jquery-3.1.0.min.js';
+  <head>
+    <title><%= $title %></title>
+  </head>
+  <body>
+% content container => begin
+  <%= content %>
+% end
+%= content 'container'
+  </body>
+</html>
