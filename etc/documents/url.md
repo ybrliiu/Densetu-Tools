@@ -6,9 +6,9 @@
                   /get_table
 
                   - 別ファイル
-                  /admin/
+                  /admin/root
                         /edit
-                             /write
+                        /write
                         /add
                             /write
                         /add_from_line

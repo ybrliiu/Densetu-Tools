@@ -9,13 +9,13 @@
 		<div class="col md-3 padding-y-20">
       <div>
         <label>ID</label>
-        <input id="id" class="form-control" type="text">
+        <input id="id" class="form-control" type="text" value="<%= my_cookie('id') %>">
       </div>
       <div>
         <label>PASSWORD</label>
-        <input id="pass" class="form-control" type="text">
+        <input id="pass" class="form-control" type="password" value="<%= my_cookie('pass') %>">
       </div>
-      <a id="submit" class="btn btn-empty">送信</a>
+      <input type="button" id="submit" class="btn btn-empty" value="送信">
 		</div>
 		<div class="col md-9 padding-y-20">
       <pre id="result">
@@ -40,10 +40,10 @@
   function sendCommand(json) {
     $.ajax({
       url         : "/player_info/get_info",
+      type        : 'POST',
       cache       : false,
       data        : JSON.stringify(json),
       contentType : 'application/JSON',
-      type        : 'json',
       beforeSend  : function() {
         document.getElementById('result').innerHTML = '情報取得中...';
       },
