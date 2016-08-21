@@ -31,25 +31,25 @@
 
   document.getElementById('submit').addEventListener('click', function(eve) {
     var json = {
-      'id'   : document.getElementById('id').value,
-      'pass' : document.getElementById('pass').value,
+      id   : document.getElementById('id').value,
+      pass : document.getElementById('pass').value,
     };
     sendCommand(json);
   }, false);
 
-  // ajax送信
   function sendCommand(json) {
     $.ajax({
-      url: "/player_info/get_info",
-      cache: false,
-      data: JSON.stringify(json),
-      contentType: 'application/JSON',
-      type: 'json',
-    }).done( function(data, textStatus, jqXHR) {
-      // 時々反映されないのはなぜ？(今は一応治ってるっぽい)
-      console.log(textStatus);
+      url         : "/player_info/get_info",
+      cache       : false,
+      data        : JSON.stringify(json),
+      contentType : 'application/JSON',
+      type        : 'json',
+      beforeSend  : function() {
+        document.getElementById('result').innerHTML = '情報取得中...';
+      },
+    }).done(function(data, textStatus, jqXHR) {
       document.getElementById('result').innerHTML = data;
-    }).fail( function(jqXHR, textStatus, errorThrown) {
+    }).fail(function(jqXHR, textStatus, errorThrown) {
       alert("ajax通信失敗" + "jqXHR:" + jqXHR + " textStatus:" + textStatus + " errorThrown:" + errorThrown);
     });
   }
