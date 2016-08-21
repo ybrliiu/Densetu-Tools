@@ -465,3 +465,9 @@ Compilation failed in require at (eval 84) line 1, <DATA> line 2231.
 [Mon Aug 22 01:07:29 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
 [Mon Aug 22 01:07:29 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
 [Mon Aug 22 01:07:29 2016] [debug] 200 OK (0.039508s, 25.311/s)
+[Mon Aug 22 02:16:37 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 02:16:39 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 02:16:39 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 02:16:39 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 02:16:39 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 02:16:39 2016] [debug] 200 OK (1.323888s, 0.755/s)

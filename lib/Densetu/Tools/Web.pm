@@ -32,20 +32,22 @@ package Densetu::Tools::Web {
 
     # update_time_table
     my $update_time_table = $r->any('/update_time_table')->to(controller => 'UpdateTimeTable');
-    $update_time_table->get( '/'             )->to(action => 'root');
-    $update_time_table->post('/get_table'    )->to(action => 'get_table');
-    $update_time_table->post('/get_mix_table')->to(action => 'get_mix_table');
+    $update_time_table->get( '/'                   )->to(action => 'root');
+    $update_time_table->get( '/get_table_input'    )->to(action => 'get_table_input');
+    $update_time_table->post('/get_table'          )->to(action => 'get_table');
+    $update_time_table->post('/get_mix_table_input')->to(action => 'get_mix_table_input');
+    $update_time_table->post('/get_mix_table'      )->to(action => 'get_mix_table');
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
-    $admin->get( '/'                    )->to(action => 'root');
-    $admin->post('/login'               )->to(action => 'login');
-    $admin->post('/logout'              )->to(action => 'logout');
-    $admin->get( '/edit_screen'         )->to(action => 'edit_screen');
-    $admin->post('/edit'                )->to(action => 'edit');
-    $admin->get( '/add_screen'          )->to(action => 'add_screen');
-    $admin->post('/add'                 )->to(action => 'add');
-    $admin->get( '/add_from_line_screen')->to(action => 'add_from_line_screen');
-    $admin->post('/add_from_line'       )->to(action => 'add_from_line');
-    $admin->post('/new_table'           )->to(action => 'new_table');
+    $admin->get( '/'                   )->to(action => 'root');
+    $admin->post('/login'              )->to(action => 'login');
+    $admin->post('/logout'             )->to(action => 'logout');
+    $admin->get( '/edit_input'         )->to(action => 'edit_input');
+    $admin->post('/edit'               )->to(action => 'edit');
+    $admin->get( '/add_input'          )->to(action => 'add_input');
+    $admin->post('/add'                )->to(action => 'add');
+    $admin->get( '/add_from_line_input')->to(action => 'add_from_line_input');
+    $admin->post('/add_from_line'      )->to(action => 'add_from_line');
+    $admin->post('/new_table'          )->to(action => 'new_table');
   }
 
 }

@@ -13,7 +13,7 @@
   <body>
     <div class="bg-main">
     	<div class="container text-center">
-    		<h1 class="title">更新表 管理画面</h1>
+    		<h1 class="title">更新表出力</h1>
     	</div>
     </div>
     <div class="container">
@@ -21,26 +21,24 @@
         <div class="col md-2">
           <div class="sidemenu padding-y-20">
             <a href="#grid">トップ</a>
-            <a href="#grid">武将情報編集</a>
-            <a href="#typography">武将追加</a>
-            <a href="#tables">武将追加(行から)</a>
-            <a href="#buttons">更新表リセット</a>
-            <a href="#helpers">ログアウト</a>
+            <a href="#typography">国を指定して出力</a>
+            <a href="#tables">対戦国と混ぜて出力</a>
+            <a href="#tables">武将の国情報を更新</a>
+            <a href="#helpers">管理画面</a>
           </div>
         </div>
       	<div class="col md-10 padding-y-20">
           <div>
-            <h2>武将情報編集</h2>
-            <label>編集する武将の情報を入力して下さい。</label>
-<pre class="prettyprint">
-【書式】
-名前1,xx分xx秒
-名前2,xx分xx秒
-...
+            <h2>国を指定して出力</h2>
+            <div>
+                <label>国名</label>
+                <input class="form-control" type="text">
+            </div>
+            <a class="btn btn-empty">出力</a>
+<pre id="result">
+ここに出力されます
 </pre>
-            <textarea class="form-control"></textarea>
           </div>
-          <a class="btn btn-empty">送信</a>
       	</div>
       </div>
     </div>

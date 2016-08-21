@@ -1,0 +1,12 @@
+% layout 'update_time_table';
+      <div>
+        <h2>国を指定して出力</h2>
+        <div>
+            <label>国名</label>
+            <input class="form-control" type="text">
+        </div>
+        <a class="btn btn-empty">出力</a>
+<pre id="result">
+ここに出力されます
+</pre>
+

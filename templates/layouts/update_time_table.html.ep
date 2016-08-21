@@ -1,0 +1,26 @@
+% extends 'layouts/wrapper';
+% title '更新表出力';
+% content container => begin
+<div class="bg-main">
+	<div class="container text-center">
+		<h1 class="title">更新表出力</h1>
+	</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col md-2">
+      <div class="sidemenu padding-y-20">
+        <a href="/update_time_table">トップ</a>
+        <a href="/update_time_table/get_table_input">国を指定して出力</a>
+        <a href="/update_time_table/get_mix_table_input">対戦国と混ぜて出力</a>
+        <a href="/update_time_table/update_player_country">武将の国情報を更新</a>
+        <a href="/update_time_table/admin">管理画面</a>
+      </div>
+    </div>
+  	<div class="col md-10 padding-y-20">
+      <%= content %>
+  	</div>
+  </div>
+</div>
+% end
+%= content 'container'
