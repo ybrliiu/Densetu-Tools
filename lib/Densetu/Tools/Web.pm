@@ -33,8 +33,8 @@ package Densetu::Tools::Web {
     # update_time_table
     my $update_time_table = $r->any('/update_time_table')->to(controller => 'UpdateTimeTable');
     $update_time_table->get('/')->to(action => 'root');
-    $update_time_table->post('/get_table')->to(action => 'root');
-    $update_time_table->post('/get_mix_table')->to(action => 'root');
+    $update_time_table->post('/get_table')->to(action => 'get_table');
+    $update_time_table->post('/get_mix_table')->to(action => 'get_mix_table');
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
     $admin->get('/')->to(action => 'root');
   }

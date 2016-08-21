@@ -7,10 +7,10 @@
 
                   - 別ファイル
                   /admin/root
+                        /login
+                        /logout
+                        /edit_screen
                         /edit
-                        /write
                         /add
-                            /write
                         /add_from_line
-                                      /write
                         /new
