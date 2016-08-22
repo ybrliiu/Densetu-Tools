@@ -72,10 +72,16 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
     my $json = $self->req->json();
     my @lines = @{ $self->_parse_line_data($json->{line_data}) };
-    say $_ for @lines;
-    # Densetu::Tools::UpdateTimeTable->add_player_from_line($line);
 
-    $self->render(text => '成功しました。');
+    eval {
+      $TOOL_CLASS->add_player_from_line($_) for @lines;
+    };
+
+    if (my $e = $@) {
+      $self->render(text => $e);
+    } else {
+      $self->render(text => '成功しました。');
+    }
   }
 
   sub _parse_line_data {

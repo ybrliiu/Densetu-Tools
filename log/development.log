@@ -1384,3 +1384,11 @@ Compilation failed in require at (eval 84) line 1.
 [Tue Aug 23 00:41:21 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
 [Tue Aug 23 00:41:21 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
 [Tue Aug 23 00:41:21 2016] [debug] 200 OK (0.023551s, 42.461/s)
+[Tue Aug 23 00:50:38 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:50:39 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:50:39 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:50:39 2016] [debug] 200 OK (0.722788s, 1.384/s)
+[Tue Aug 23 00:51:01 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:51:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:51:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:51:01 2016] [debug] 200 OK (0.13111s, 7.627/s)
