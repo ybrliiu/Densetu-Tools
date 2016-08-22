@@ -47,6 +47,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub edit_input {
     my ($self) = @_;
+    $self->render();
   }
 
   sub add {
@@ -55,6 +56,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub add_input {
     my ($self) = @_;
+    $self->render();
   }
 
   sub add_from_line {
@@ -63,9 +65,15 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub add_from_line_input {
     my ($self) = @_;
+    $self->render();
   }
 
   sub new_table {
+    my ($self) = @_;
+    $self->render();
+  }
+
+  sub new_table_input {
     my ($self) = @_;
   }
 

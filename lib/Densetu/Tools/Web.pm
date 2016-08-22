@@ -48,7 +48,7 @@ package Densetu::Tools::Web {
     # /update_time_table/admin
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
     $admin->post('/login'             )->to(action => 'login');
-    $admin->post('/logout'             )->to(action => 'logout');
+    $admin->any( '/logout'             )->to(action => 'logout');
     my $auth = $admin->under->to(action => 'auth');
     $auth->get( '/'                   )->to(action => 'root');
     $auth->get( '/edit_input'         )->to(action => 'edit_input');
@@ -57,6 +57,7 @@ package Densetu::Tools::Web {
     $auth->post('/add'                )->to(action => 'add');
     $auth->get( '/add_from_line_input')->to(action => 'add_from_line_input');
     $auth->post('/add_from_line'      )->to(action => 'add_from_line');
+    $auth->get( '/new_table_input'    )->to(action => 'new_table_input');
     $auth->post('/new_table'          )->to(action => 'new_table');
   }
 
