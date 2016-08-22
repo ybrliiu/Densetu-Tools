@@ -1,2 +1,5 @@
 # dont need log
 log/
+
+# dont show password
+etc/config/app.conf
