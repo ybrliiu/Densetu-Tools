@@ -2,14 +2,19 @@ package Densetu::Tools::Web {
 
   use Mojo::Base 'Mojolicious';
 
+  sub setup_session {
+    my ($self) = @_;
+    $self->plugin('Config', {file => 'etc/config/app.conf'});
+    my $session = $self->config->{app}{session};
+    $self->secrets([$session->{password}]);
+    $self->sessions->cookie_name($session->{cookie_name});
+    $self->sessions->default_expiration($session->{expiration});
+  }
+
   sub startup {
     my ($self) = @_;
 
-    # setup session
-    # $self->plugin('Config', {file => 'etc/config/app.conf'});
-    $self->secrets(['densetu-tools']);
-    $self->sessions->cookie_name('densetu-tools');
-    $self->sessions->default_expiration(3600000);
+    $self->setup_session();
 
     # get cookie value from template. example:%= my_cookie('id');
     $self->helper(
@@ -26,18 +31,20 @@ package Densetu::Tools::Web {
     # Normal route to controller
     $r->get('/')->to('Root#root');
 
-    # player_info
+    # /player_info
     my $player_info = $r->any('/player_info')->to(controller => 'PlayerInfo');
     $player_info->get( '/'        )->to(action => 'root');
     $player_info->post('/get_info')->to(action => 'get_info');
 
-    # update_time_table
+    # /update_time_table
     my $update_time_table = $r->any('/update_time_table')->to(controller => 'UpdateTimeTable');
     $update_time_table->get( '/'                   )->to(action => 'root');
     $update_time_table->get( '/get_table_input'    )->to(action => 'get_table_input');
     $update_time_table->post('/get_table'          )->to(action => 'get_table');
     $update_time_table->get( '/get_mix_table_input')->to(action => 'get_mix_table_input');
     $update_time_table->post('/get_mix_table'      )->to(action => 'get_mix_table');
+
+    # /update_time_table/admin
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
     $admin->get( '/'                   )->to(action => 'root');
     $admin->post('/login'              )->to(action => 'login');

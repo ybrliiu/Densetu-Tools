@@ -1,0 +1,681 @@
+[Sun Aug 21 14:59:48 2016] [debug] GET "/"
+[Sun Aug 21 14:59:48 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Sun Aug 21 14:59:48 2016] [debug] Rendering template "root/root.html.ep"
+[Sun Aug 21 14:59:48 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 14:59:48 2016] [debug] 200 OK (0.116551s, 8.580/s)
+[Sun Aug 21 15:01:06 2016] [debug] GET "/player-info/"
+[Sun Aug 21 15:01:06 2016] [debug] Controller "Densetu::Tools::Web::Controller::PlayerInfo" does not exist
+[Sun Aug 21 15:01:06 2016] [debug] Template "player_info/root.html.ep" not found
+[Sun Aug 21 15:01:06 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 15:01:06 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 15:01:06 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 15:01:06 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 15:01:06 2016] [debug] 404 Not Found (0.255646s, 3.912/s)
+[Sun Aug 21 15:12:09 2016] [debug] GET "/player-info/"
+[Sun Aug 21 15:12:09 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 15:12:09 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 15:12:09 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 15:12:09 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 15:12:09 2016] [debug] 404 Not Found (0.219126s, 4.564/s)
+[Sun Aug 21 15:13:59 2016] [debug] GET "/player-info/"
+[Sun Aug 21 15:13:59 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 15:13:59 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 15:13:59 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 15:13:59 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 15:13:59 2016] [debug] 404 Not Found (0.195482s, 5.116/s)
+[Sun Aug 21 15:14:32 2016] [debug] GET "/player-info/get_info"
+[Sun Aug 21 15:14:32 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 15:14:32 2016] [debug] 200 OK (0.020433s, 48.940/s)
+[Sun Aug 21 15:14:57 2016] [debug] GET "/player_info/get_info"
+[Sun Aug 21 15:14:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 15:14:57 2016] [debug] 200 OK (0.010676s, 93.668/s)
+[Sun Aug 21 15:15:01 2016] [debug] GET "/player_info/"
+[Sun Aug 21 15:15:01 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 15:15:01 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 15:15:01 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 15:15:01 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 15:15:01 2016] [debug] 404 Not Found (0.168108s, 5.949/s)
+[Sun Aug 21 15:18:14 2016] [debug] GET "/player_info/"
+[Sun Aug 21 15:18:14 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:18:14 2016] [debug] 200 OK (0.040108s, 24.933/s)
+[Sun Aug 21 15:18:19 2016] [debug] GET "/player_info/get_info"
+[Sun Aug 21 15:18:19 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 15:18:19 2016] [debug] 200 OK (0.0078s, 128.205/s)
+[Sun Aug 21 15:36:38 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:36:38 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:36:38 2016] [debug] 200 OK (0.011073s, 90.310/s)
+[Sun Aug 21 15:37:08 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:37:08 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:37:08 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:37:08 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 15:37:08 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:37:08 2016] [debug] 200 OK (0.084032s, 11.900/s)
+[Sun Aug 21 15:37:15 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:37:15 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:37:15 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 15:37:15 2016] [debug] Rendering cached template "layouts/default.html.ep"
+[Sun Aug 21 15:37:15 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:37:15 2016] [debug] 200 OK (0.013628s, 73.378/s)
+[Sun Aug 21 15:37:17 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:37:17 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:37:17 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 15:37:17 2016] [debug] Rendering cached template "layouts/default.html.ep"
+[Sun Aug 21 15:37:17 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:37:17 2016] [debug] 200 OK (0.003384s, 295.508/s)
+[Sun Aug 21 15:37:44 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:37:44 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:37:44 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:37:44 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 15:37:44 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:37:44 2016] [debug] 200 OK (0.078321s, 12.768/s)
+[Sun Aug 21 15:38:21 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:38:21 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:38:21 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:38:21 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 15:38:21 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:38:21 2016] [debug] 200 OK (0.061291s, 16.316/s)
+[Sun Aug 21 15:38:37 2016] [debug] GET "/"
+[Sun Aug 21 15:38:37 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Sun Aug 21 15:38:37 2016] [debug] Rendering template "root/root.html.ep"
+[Sun Aug 21 15:38:37 2016] [debug] Rendering cached template "layouts/default.html.ep"
+[Sun Aug 21 15:38:37 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:38:37 2016] [debug] 200 OK (0.058059s, 17.224/s)
+[Sun Aug 21 15:40:24 2016] [debug] GET "/"
+[Sun Aug 21 15:40:24 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Sun Aug 21 15:40:24 2016] [debug] Rendering template "root/root.html.ep"
+[Sun Aug 21 15:40:24 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 15:40:24 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:40:24 2016] [debug] 200 OK (0.137404s, 7.278/s)
+[Sun Aug 21 15:40:30 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:40:30 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:40:30 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:40:30 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 15:40:30 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:40:30 2016] [debug] 200 OK (0.034151s, 29.282/s)
+[Sun Aug 21 15:46:59 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:46:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:46:59 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:46:59 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 15:46:59 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:46:59 2016] [debug] 200 OK (0.063495s, 15.749/s)
+[Sun Aug 21 15:47:11 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:47:11 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:47:11 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:47:11 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 15:47:11 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:47:11 2016] [debug] 200 OK (0.059832s, 16.713/s)
+[Sun Aug 21 15:56:03 2016] [debug] GET "/player_info"
+[Sun Aug 21 15:56:03 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 15:56:03 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 15:56:03 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 15:56:03 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 15:56:03 2016] [debug] 200 OK (0.08103s, 12.341/s)
+[Sun Aug 21 15:56:07 2016] [debug] GET "/player_info/get_info"
+[Sun Aug 21 15:56:07 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 15:56:07 2016] [debug] 200 OK (0.106098s, 9.425/s)
+[Sun Aug 21 16:06:30 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:06:30 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:06:30 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:06:30 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:06:30 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:06:30 2016] [debug] 200 OK (0.054753s, 18.264/s)
+[Sun Aug 21 16:06:33 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:06:33 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 16:06:33 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 16:06:33 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 16:06:33 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 16:06:33 2016] [debug] 404 Not Found (0.207393s, 4.822/s)
+[Sun Aug 21 16:06:59 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:06:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:06:59 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:06:59 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:06:59 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:06:59 2016] [debug] 200 OK (0.066726s, 14.987/s)
+[Sun Aug 21 16:07:00 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:07:00 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 16:07:00 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 16:07:00 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 16:07:01 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 16:07:01 2016] [debug] 404 Not Found (0.220503s, 4.535/s)
+[Sun Aug 21 16:07:09 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:07:09 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:07:09 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:07:09 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:07:09 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:07:09 2016] [debug] 200 OK (0.137555s, 7.270/s)
+[Sun Aug 21 16:07:11 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:07:11 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:07:11 2016] [debug] 200 OK (0.005992s, 166.889/s)
+[Sun Aug 21 16:07:12 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:07:12 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:07:12 2016] [debug] 200 OK (0.0063s, 158.730/s)
+[Sun Aug 21 16:07:16 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:07:16 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:07:16 2016] [debug] 200 OK (0.005866s, 170.474/s)
+[Sun Aug 21 16:14:56 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:14:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:14:57 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:14:57 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:14:57 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:14:57 2016] [debug] 200 OK (1.013795s, 0.986/s)
+[Sun Aug 21 16:15:06 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:15:07 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:15:07 2016] [debug] 200 OK (0.019185s, 52.124/s)
+[Sun Aug 21 16:16:56 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:16:56 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:16:58 2016] [debug] 200 OK (2.459457s, 0.407/s)
+[Sun Aug 21 16:16:58 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:16:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:17:00 2016] [debug] 200 OK (1.640083s, 0.610/s)
+[Sun Aug 21 16:32:29 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:32:29 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:32:29 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:32:29 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:32:29 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:32:29 2016] [debug] 200 OK (0.600701s, 1.665/s)
+[Sun Aug 21 16:32:42 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:32:42 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:32:45 2016] [debug] 200 OK (2.506006s, 0.399/s)
+[Sun Aug 21 16:32:45 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:32:45 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:32:47 2016] [debug] 200 OK (1.683787s, 0.594/s)
+[Sun Aug 21 16:33:13 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:33:13 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:33:13 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:33:13 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:33:13 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:33:13 2016] [debug] 200 OK (0.038177s, 26.194/s)
+[Sun Aug 21 16:37:25 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:37:25 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:37:25 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:37:25 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:37:25 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:37:25 2016] [debug] 200 OK (0.453822s, 2.204/s)
+[Sun Aug 21 16:37:33 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:37:33 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:37:37 2016] [debug] 200 OK (3.611496s, 0.277/s)
+[Sun Aug 21 16:37:37 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:37:37 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:37:46 2016] [debug] 200 OK (9.042194s, 0.111/s)
+[Sun Aug 21 16:37:46 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:37:47 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:37:54 2016] [debug] 200 OK (7.681236s, 0.130/s)
+[Sun Aug 21 16:38:53 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:38:54 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:38:54 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:38:54 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:38:54 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:38:54 2016] [debug] 200 OK (0.42504s, 2.353/s)
+[Sun Aug 21 16:39:01 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:39:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:39:02 2016] [debug] 200 OK (1.836883s, 0.544/s)
+[Sun Aug 21 16:39:08 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:39:08 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:39:08 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:39:08 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:39:08 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:39:08 2016] [debug] 200 OK (0.015087s, 66.282/s)
+[Sun Aug 21 16:40:56 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:40:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:40:58 2016] [debug] 200 OK (1.031286s, 0.970/s)
+[Sun Aug 21 16:40:58 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:40:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:40:58 2016] [debug] 200 OK (0.160251s, 6.240/s)
+[Sun Aug 21 16:40:58 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:40:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:40:58 2016] [debug] 200 OK (0.171309s, 5.837/s)
+[Sun Aug 21 16:40:58 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:40:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:40:58 2016] [debug] 200 OK (0.147548s, 6.777/s)
+[Sun Aug 21 16:40:59 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:40:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:40:59 2016] [debug] 200 OK (0.183097s, 5.462/s)
+[Sun Aug 21 16:40:59 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:40:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:41:00 2016] [debug] 200 OK (0.184365s, 5.424/s)
+[Sun Aug 21 16:41:00 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:41:00 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:41:00 2016] [debug] 200 OK (0.175758s, 5.690/s)
+[Sun Aug 21 16:44:48 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:44:49 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:44:49 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:44:49 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:44:49 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:44:50 2016] [debug] 200 OK (0.940778s, 1.063/s)
+[Sun Aug 21 16:44:53 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:44:53 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:44:54 2016] [debug] 200 OK (0.964365s, 1.037/s)
+[Sun Aug 21 16:46:59 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:46:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:46:59 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 16:46:59 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 16:46:59 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:46:59 2016] [debug] 200 OK (0.467705s, 2.138/s)
+[Sun Aug 21 16:47:03 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:47:03 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:47:03 2016] [debug] 200 OK (0.449496s, 2.225/s)
+[Sun Aug 21 16:47:09 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:47:09 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:47:11 2016] [debug] 200 OK (2.001798s, 0.500/s)
+[Sun Aug 21 16:49:01 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:49:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:49:01 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:49:01 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:49:01 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:49:01 2016] [debug] 200 OK (0.037195s, 26.885/s)
+[Sun Aug 21 16:49:09 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:49:09 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:49:11 2016] [debug] 200 OK (1.543187s, 0.648/s)
+[Sun Aug 21 16:51:02 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:51:02 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:51:02 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:51:02 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:51:02 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:51:02 2016] [debug] 200 OK (0.026898s, 37.177/s)
+[Sun Aug 21 16:51:33 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:51:33 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:51:33 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:51:33 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:51:33 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:51:33 2016] [debug] 200 OK (0.016905s, 59.154/s)
+[Sun Aug 21 16:51:35 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:51:35 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:51:35 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:51:35 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:51:35 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:51:35 2016] [debug] 200 OK (0.005617s, 178.031/s)
+[Sun Aug 21 16:51:37 2016] [debug] GET "/player_info"
+[Sun Aug 21 16:51:37 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 16:51:37 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 16:51:37 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 16:51:37 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 16:51:37 2016] [debug] 200 OK (0.006821s, 146.606/s)
+[Sun Aug 21 16:51:44 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 16:51:44 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 16:51:45 2016] [debug] 200 OK (1.794172s, 0.557/s)
+[Sun Aug 21 17:12:00 2016] [debug] GET "/"
+[Sun Aug 21 17:12:00 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Sun Aug 21 17:12:00 2016] [debug] Rendering template "root/root.html.ep"
+[Sun Aug 21 17:12:00 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 17:12:00 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:12:00 2016] [debug] 200 OK (0.073754s, 13.559/s)
+[Sun Aug 21 17:12:13 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:12:13 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:12:13 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:12:13 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:12:13 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:12:13 2016] [debug] 200 OK (0.410849s, 2.434/s)
+[Sun Aug 21 17:12:22 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 17:12:22 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 17:12:22 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 17:12:22 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 17:12:22 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 17:12:22 2016] [debug] 404 Not Found (0.237567s, 4.209/s)
+[Sun Aug 21 17:21:38 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:21:38 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:21:38 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 17:21:38 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 17:21:38 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:21:38 2016] [debug] 200 OK (0.009864s, 101.379/s)
+[Sun Aug 21 17:21:59 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 17:21:59 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 17:21:59 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 17:21:59 2016] [debug] Rendering cached template "mojo/debug.html.ep"
+[Sun Aug 21 17:21:59 2016] [debug] Rendering cached template "mojo/menubar.html.ep"
+[Sun Aug 21 17:21:59 2016] [debug] 404 Not Found (0.08058s, 12.410/s)
+[Sun Aug 21 17:25:32 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:25:33 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:25:33 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:25:33 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:25:33 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:25:33 2016] [debug] 200 OK (0.642888s, 1.555/s)
+[Sun Aug 21 17:25:48 2016] [debug] JSON "/player_info/get_info"
+[Sun Aug 21 17:25:48 2016] [debug] Template "not_found.development.html.ep" not found
+[Sun Aug 21 17:25:48 2016] [debug] Template "not_found.html.ep" not found
+[Sun Aug 21 17:25:48 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 17:25:48 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 17:25:48 2016] [debug] 404 Not Found (0.290136s, 3.447/s)
+[Sun Aug 21 17:39:25 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:39:27 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:39:27 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:39:27 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:39:27 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:39:27 2016] [debug] 200 OK (1.214576s, 0.823/s)
+[Sun Aug 21 17:39:39 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:39:39 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:39:43 2016] [debug] 200 OK (4.540431s, 0.220/s)
+[Sun Aug 21 17:42:50 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:42:51 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:42:51 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:42:51 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:42:51 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:42:51 2016] [debug] 200 OK (0.491022s, 2.037/s)
+[Sun Aug 21 17:42:57 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:42:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:43:00 2016] [debug] 200 OK (2.376195s, 0.421/s)
+[Sun Aug 21 17:49:24 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:49:24 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:49:24 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:49:24 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:49:24 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:49:24 2016] [debug] 200 OK (0.408583s, 2.447/s)
+[Sun Aug 21 17:51:35 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:51:35 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:51:35 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:51:36 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:51:36 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:51:36 2016] [debug] 200 OK (0.413193s, 2.420/s)
+[Sun Aug 21 17:53:58 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:53:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:53:58 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:53:58 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:53:58 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:53:58 2016] [debug] 200 OK (0.478987s, 2.088/s)
+[Sun Aug 21 17:54:00 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:54:00 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:54:21 2016] [error] ログ情報の取得に失敗、500 Can't connect to densetu.sakura.ne.jp:80 at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/PlayerInfo.pm line 59.
+
+[Sun Aug 21 17:54:21 2016] [debug] Template "exception.development.html.ep" not found
+[Sun Aug 21 17:54:21 2016] [debug] Template "exception.html.ep" not found
+[Sun Aug 21 17:54:21 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 17:54:21 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 17:54:21 2016] [debug] 500 Internal Server Error (20.407315s, 0.049/s)
+[Sun Aug 21 17:54:21 2016] [debug] Inactivity timeout
+[Sun Aug 21 17:54:21 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:54:21 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:54:33 2016] [debug] 200 OK (12.646293s, 0.079/s)
+[Sun Aug 21 17:54:33 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:54:33 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:54:34 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 17:54:34 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 17:54:34 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:54:34 2016] [debug] 200 OK (0.040224s, 24.861/s)
+[Sun Aug 21 17:54:34 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:54:34 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:54:34 2016] [debug] 200 OK (0.25535s, 3.916/s)
+[Sun Aug 21 17:54:47 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:54:47 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:54:53 2016] [debug] 200 OK (5.662548s, 0.177/s)
+[Sun Aug 21 17:54:56 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:54:56 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:54:56 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Sun Aug 21 17:54:56 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Sun Aug 21 17:54:56 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:54:56 2016] [debug] 200 OK (0.009992s, 100.080/s)
+[Sun Aug 21 17:58:42 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:58:42 2016] [error] Global symbol "$c" requires explicit package name (did you forget to declare "my $c"?) at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/Web/Controller/PlayerInfo.pm line 16, <DATA> line 2231.
+Compilation failed in require at (eval 84) line 1, <DATA> line 2231.
+
+[Sun Aug 21 17:58:42 2016] [debug] Template "exception.development.html.ep" not found
+[Sun Aug 21 17:58:42 2016] [debug] Template "exception.html.ep" not found
+[Sun Aug 21 17:58:42 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Sun Aug 21 17:58:42 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Sun Aug 21 17:58:42 2016] [debug] 500 Internal Server Error (0.549141s, 1.821/s)
+[Sun Aug 21 17:58:57 2016] [debug] GET "/player_info"
+[Sun Aug 21 17:58:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 17:58:58 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 17:58:58 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 17:58:58 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 17:58:58 2016] [debug] 200 OK (0.343847s, 2.908/s)
+[Sun Aug 21 17:59:00 2016] [debug] POST "/player_info/get_info"
+[Sun Aug 21 17:59:00 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Sun Aug 21 17:59:13 2016] [debug] 200 OK (12.973683s, 0.077/s)
+[Sun Aug 21 23:50:38 2016] [debug] GET "/"
+[Sun Aug 21 23:50:38 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Sun Aug 21 23:50:38 2016] [debug] Rendering template "root/root.html.ep"
+[Sun Aug 21 23:50:38 2016] [debug] Rendering template "layouts/default.html.ep"
+[Sun Aug 21 23:50:38 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Sun Aug 21 23:50:38 2016] [debug] 200 OK (0.520815s, 1.920/s)
+[Sun Aug 21 23:53:00 2016] [debug] GET "/player_info"
+[Sun Aug 21 23:53:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Sun Aug 21 23:53:01 2016] [debug] Rendering template "player_info/root.html.ep"
+[Sun Aug 21 23:53:01 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Sun Aug 21 23:53:01 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Sun Aug 21 23:53:01 2016] [debug] 200 OK (1.301506s, 0.768/s)
+[Mon Aug 22 01:02:14 2016] [debug] GET "/"
+[Mon Aug 22 01:02:14 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Mon Aug 22 01:02:14 2016] [debug] Rendering template "root/root.html.ep"
+[Mon Aug 22 01:02:14 2016] [debug] Rendering template "layouts/default.html.ep"
+[Mon Aug 22 01:02:14 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 01:02:14 2016] [debug] 200 OK (0.074866s, 13.357/s)
+[Mon Aug 22 01:02:24 2016] [debug] GET "/player_info"
+[Mon Aug 22 01:02:25 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 01:02:25 2016] [debug] Rendering template "player_info/root.html.ep"
+[Mon Aug 22 01:02:25 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Mon Aug 22 01:02:25 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 01:02:25 2016] [debug] 200 OK (0.947152s, 1.056/s)
+[Mon Aug 22 01:04:26 2016] [debug] GET "/player_info"
+[Mon Aug 22 01:04:26 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 01:04:26 2016] [debug] Rendering template "player_info/root.html.ep"
+[Mon Aug 22 01:04:26 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Mon Aug 22 01:04:26 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 01:04:26 2016] [debug] 200 OK (0.533441s, 1.875/s)
+[Mon Aug 22 01:05:01 2016] [debug] GET "/player_info"
+[Mon Aug 22 01:05:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 01:05:01 2016] [debug] Rendering template "player_info/root.html.ep"
+[Mon Aug 22 01:05:01 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Mon Aug 22 01:05:01 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 01:05:01 2016] [debug] 200 OK (0.466183s, 2.145/s)
+[Mon Aug 22 01:05:09 2016] [debug] POST "/player_info/get_info"
+[Mon Aug 22 01:05:09 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Mon Aug 22 01:05:16 2016] [debug] 200 OK (6.974261s, 0.143/s)
+[Mon Aug 22 01:07:29 2016] [debug] GET "/player_info"
+[Mon Aug 22 01:07:29 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 01:07:29 2016] [debug] Rendering cached template "player_info/root.html.ep"
+[Mon Aug 22 01:07:29 2016] [debug] Rendering cached template "layouts/player_info.html.ep"
+[Mon Aug 22 01:07:29 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 01:07:29 2016] [debug] 200 OK (0.039508s, 25.311/s)
+[Mon Aug 22 02:16:37 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 02:16:39 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 02:16:39 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 02:16:39 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 02:16:39 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 02:16:39 2016] [debug] 200 OK (1.323888s, 0.755/s)
+[Mon Aug 22 03:04:43 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 03:04:44 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 03:04:44 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 03:04:44 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:04:44 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:04:44 2016] [debug] 200 OK (1.054472s, 0.948/s)
+[Mon Aug 22 03:04:54 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 03:04:54 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 03:04:54 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 03:04:54 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:04:54 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:04:54 2016] [debug] 200 OK (0.042755s, 23.389/s)
+[Mon Aug 22 03:04:56 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 03:04:56 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 03:04:56 2016] [debug] Rendering cached template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 03:04:56 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:04:56 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:04:56 2016] [debug] 200 OK (0.014939s, 66.939/s)
+[Mon Aug 22 03:05:06 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 03:05:06 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 03:05:08 2016] [debug] 200 OK (2.362878s, 0.423/s)
+[Mon Aug 22 03:13:30 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 03:13:31 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 03:13:31 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 03:13:31 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:13:31 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:13:31 2016] [debug] 200 OK (0.876636s, 1.141/s)
+[Mon Aug 22 03:13:38 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 03:13:38 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 03:13:40 2016] [debug] 200 OK (2.011849s, 0.497/s)
+[Mon Aug 22 03:14:14 2016] [debug] GET "/player_info"
+[Mon Aug 22 03:14:14 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 03:14:14 2016] [debug] Rendering template "player_info/root.html.ep"
+[Mon Aug 22 03:14:14 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Mon Aug 22 03:14:14 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:14:14 2016] [debug] 200 OK (0.624059s, 1.602/s)
+[Mon Aug 22 03:14:18 2016] [debug] POST "/player_info/get_info"
+[Mon Aug 22 03:14:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "get_info"
+[Mon Aug 22 03:14:21 2016] [debug] 200 OK (2.937609s, 0.340/s)
+[Mon Aug 22 03:18:41 2016] [debug] GET "/update_time_table/get_mix_table_input"
+[Mon Aug 22 03:18:41 2016] [debug] Template "not_found.development.html.ep" not found
+[Mon Aug 22 03:18:41 2016] [debug] Template "not_found.html.ep" not found
+[Mon Aug 22 03:18:41 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Mon Aug 22 03:18:41 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Mon Aug 22 03:18:41 2016] [debug] 404 Not Found (0.265426s, 3.768/s)
+[Mon Aug 22 03:19:20 2016] [debug] GET "/update_time_table/get_mix_table_input"
+[Mon Aug 22 03:19:20 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table_input"
+[Mon Aug 22 03:19:20 2016] [debug] Rendering template "update_time_table/get_mix_table_input.html.ep"
+[Mon Aug 22 03:19:20 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 03:19:20 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:19:20 2016] [debug] 200 OK (0.508625s, 1.966/s)
+[Mon Aug 22 03:19:31 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 03:19:31 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 03:19:31 2016] [debug] 200 OK (0.08485s, 11.786/s)
+[Mon Aug 22 03:20:02 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 03:20:03 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 03:20:15 2016] [debug] 200 OK (13.035036s, 0.077/s)
+[Mon Aug 22 03:25:26 2016] [debug] GET "/"
+[Mon Aug 22 03:25:26 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Mon Aug 22 03:25:26 2016] [debug] Rendering template "root/root.html.ep"
+[Mon Aug 22 03:25:26 2016] [debug] Rendering template "layouts/default.html.ep"
+[Mon Aug 22 03:25:26 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:25:26 2016] [debug] 200 OK (0.104588s, 9.561/s)
+[Mon Aug 22 03:25:31 2016] [debug] GET "/player_info"
+[Mon Aug 22 03:25:32 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::PlayerInfo" and action "root"
+[Mon Aug 22 03:25:32 2016] [debug] Rendering template "player_info/root.html.ep"
+[Mon Aug 22 03:25:32 2016] [debug] Rendering template "layouts/player_info.html.ep"
+[Mon Aug 22 03:25:32 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 03:25:32 2016] [debug] 200 OK (0.794938s, 1.258/s)
+[Mon Aug 22 13:41:53 2016] [debug] GET "/"
+[Mon Aug 22 13:41:53 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::Root" and action "root"
+[Mon Aug 22 13:41:53 2016] [debug] Rendering template "root/root.html.ep"
+[Mon Aug 22 13:41:54 2016] [debug] Rendering template "layouts/default.html.ep"
+[Mon Aug 22 13:41:54 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 13:41:54 2016] [debug] 200 OK (0.506456s, 1.975/s)
+[Mon Aug 22 13:42:16 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 13:42:17 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 13:42:17 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 13:42:17 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 13:42:17 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 13:42:17 2016] [debug] 200 OK (0.666119s, 1.501/s)
+[Mon Aug 22 13:42:25 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 13:42:25 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 13:42:25 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 13:42:25 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Mon Aug 22 13:42:25 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 13:42:25 2016] [debug] 200 OK (0.034615s, 28.889/s)
+[Mon Aug 22 13:42:31 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 13:42:31 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 13:42:33 2016] [debug] 200 OK (2.442119s, 0.409/s)
+[Mon Aug 22 13:42:44 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 13:42:44 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 13:42:45 2016] [debug] 200 OK (1.02847s, 0.972/s)
+[Mon Aug 22 13:58:08 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 13:58:09 2016] [error] Global symbol "$country_nameは存在しません" requires explicit package name (did you forget to declare "my $country_nameは存在しません"?) at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/UpdateTimeTable.pm line 74, <DATA> line 2231.
+Compilation failed in require at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/Web/Controller/UpdateTimeTable.pm line 4, <DATA> line 2231.
+BEGIN failed--compilation aborted at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/Web/Controller/UpdateTimeTable.pm line 4.
+Compilation failed in require at (eval 84) line 1.
+
+[Mon Aug 22 13:58:09 2016] [debug] Template "exception.development.html.ep" not found
+[Mon Aug 22 13:58:09 2016] [debug] Template "exception.html.ep" not found
+[Mon Aug 22 13:58:09 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Mon Aug 22 13:58:09 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Mon Aug 22 13:58:09 2016] [debug] 500 Internal Server Error (0.59186s, 1.690/s)
+[Mon Aug 22 13:58:30 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 13:58:30 2016] [error] Global symbol "$country_nameは存在しません" requires explicit package name (did you forget to declare "my $country_nameは存在しません"?) at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/UpdateTimeTable.pm line 74, <DATA> line 2231.
+Compilation failed in require at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/Web/Controller/UpdateTimeTable.pm line 4, <DATA> line 2231.
+BEGIN failed--compilation aborted at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/Web/Controller/UpdateTimeTable.pm line 4.
+Compilation failed in require at (eval 84) line 1.
+
+[Mon Aug 22 13:58:30 2016] [debug] Template "exception.development.html.ep" not found
+[Mon Aug 22 13:58:30 2016] [debug] Template "exception.html.ep" not found
+[Mon Aug 22 13:58:30 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Mon Aug 22 13:58:30 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Mon Aug 22 13:58:30 2016] [debug] 500 Internal Server Error (0.65198s, 1.534/s)
+[Mon Aug 22 13:58:55 2016] [debug] GET "/update_time_table/get_table_input"
+[Mon Aug 22 13:58:55 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Mon Aug 22 13:58:55 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Mon Aug 22 13:58:55 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 13:58:55 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 13:58:55 2016] [debug] 200 OK (0.672707s, 1.487/s)
+[Mon Aug 22 13:59:01 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 13:59:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 13:59:03 2016] [debug] 200 OK (2.1639s, 0.462/s)
+[Mon Aug 22 13:59:08 2016] [debug] POST "/update_time_table/get_table"
+[Mon Aug 22 13:59:08 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Mon Aug 22 13:59:10 2016] [debug] 200 OK (1.092092s, 0.916/s)
+[Mon Aug 22 14:14:56 2016] [debug] GET "/update_time_table/get_mix_table_input"
+[Mon Aug 22 14:14:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table_input"
+[Mon Aug 22 14:14:57 2016] [debug] Rendering template "update_time_table/get_mix_table_input.html.ep"
+[Mon Aug 22 14:14:57 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:14:57 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:14:57 2016] [debug] 200 OK (0.658618s, 1.518/s)
+[Mon Aug 22 14:15:15 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 14:15:15 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 14:15:18 2016] [debug] 200 OK (3.041951s, 0.329/s)
+[Mon Aug 22 14:15:54 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 14:15:54 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 14:15:56 2016] [debug] 200 OK (2.329767s, 0.429/s)
+[Mon Aug 22 14:16:30 2016] [debug] POST "/update_time_table/get_mix_table"
+[Mon Aug 22 14:16:30 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_mix_table"
+[Mon Aug 22 14:16:33 2016] [debug] 200 OK (2.646164s, 0.378/s)
+[Mon Aug 22 14:19:55 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:19:55 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:19:55 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:19:55 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:19:55 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:19:55 2016] [debug] 200 OK (0.469144s, 2.132/s)
+[Mon Aug 22 14:21:51 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:21:51 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:21:51 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:21:51 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:21:51 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:21:51 2016] [debug] 200 OK (0.429801s, 2.327/s)
+[Mon Aug 22 14:23:31 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:23:31 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:23:31 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:23:31 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:23:31 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:23:31 2016] [debug] 200 OK (0.463506s, 2.157/s)
+[Mon Aug 22 14:23:55 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:23:55 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:23:55 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:23:55 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:23:55 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:23:55 2016] [debug] 200 OK (0.583694s, 1.713/s)
+[Mon Aug 22 14:24:19 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:24:19 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:24:19 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:24:19 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:24:19 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:24:19 2016] [debug] 200 OK (0.492343s, 2.031/s)
+[Mon Aug 22 14:24:33 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:24:34 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:24:34 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:24:34 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:24:34 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:24:34 2016] [debug] 200 OK (0.604033s, 1.656/s)
+[Mon Aug 22 14:26:16 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:26:16 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:26:16 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:26:16 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:26:16 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:26:16 2016] [debug] 200 OK (0.446967s, 2.237/s)
+[Mon Aug 22 14:26:50 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:26:50 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:26:50 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:26:50 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:26:50 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:26:50 2016] [debug] 200 OK (0.535972s, 1.866/s)
+[Mon Aug 22 14:27:39 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:27:39 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:27:39 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:27:39 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:27:39 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:27:39 2016] [debug] 200 OK (0.505183s, 1.979/s)
+[Mon Aug 22 14:28:00 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 14:28:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 14:28:01 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 14:28:01 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 14:28:01 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 14:28:01 2016] [debug] 200 OK (0.581775s, 1.719/s)
+[Mon Aug 22 15:14:03 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 15:14:04 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 15:14:04 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 15:14:04 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 15:14:04 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 15:14:04 2016] [debug] 200 OK (1.118171s, 0.894/s)
