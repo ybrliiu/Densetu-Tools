@@ -6,7 +6,7 @@ package Densetu::Tools::Web {
     my ($self) = @_;
 
     # setup session
-    $self->plugin('Config', {file => 'etc/config/app.conf'});
+    # $self->plugin('Config', {file => 'etc/config/app.conf'});
     $self->secrets(['densetu-tools']);
     $self->sessions->cookie_name('densetu-tools');
     $self->sessions->default_expiration(3600000);
