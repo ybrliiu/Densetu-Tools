@@ -1,6 +1,7 @@
 package Densetu::Tools::Web::Controller::Admin {
 
   use Mojo::Base 'Mojolicious::Controller';
+  use Densetu::Tools::UpdateTimeTable;
 
   sub root {
     my ($self) = @_;
