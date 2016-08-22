@@ -3,6 +3,8 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
   use Mojo::Base 'Mojolicious::Controller';
   use Densetu::Tools::UpdateTimeTable;
 
+  my $TOOL_CLASS = 'Densetu::Tools::UpdateTimeTable';
+
   sub root {
     my ($self) = @_;
     $self->render(msg => 'Welcome to densetu-tools!');
@@ -43,6 +45,12 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub edit {
     my ($self) = @_;
+
+    my $json = $self->req->json();
+    use Data::Dumper;
+    say Dumper $json;
+
+    $self->render(text => 'hey/');
   }
 
   sub edit_input {
@@ -61,6 +69,19 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub add_from_line {
     my ($self) = @_;
+
+    my $json = $self->req->json();
+    my @lines = @{ $self->_parse_line_data($json->{line_data}) };
+    say $_ for @lines;
+    # Densetu::Tools::UpdateTimeTable->add_player($line);
+
+    $self->render(text => '成功しました。');
+  }
+
+  sub _parse_line_data {
+    my ($self, $text) = @_;
+    my @lines = split /\n/, $text;
+    return \@lines;
   }
 
   sub add_from_line_input {

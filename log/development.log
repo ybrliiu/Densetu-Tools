@@ -1308,3 +1308,79 @@ Compilation failed in require at (eval 84) line 1.
 [Tue Aug 23 00:11:20 2016] [debug] Rendering cached template "layouts/update_time_table/admin.html.ep"
 [Tue Aug 23 00:11:20 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
 [Tue Aug 23 00:11:20 2016] [debug] 200 OK (0.050447s, 19.823/s)
+[Tue Aug 23 00:22:51 2016] [debug] GET "/update_time_table/admin/add_from_line_input"
+[Tue Aug 23 00:22:52 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:22:52 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line_input"
+[Tue Aug 23 00:22:52 2016] [debug] Rendering template "update_time_table/admin/add_from_line_input.html.ep"
+[Tue Aug 23 00:22:52 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 00:22:52 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Tue Aug 23 00:22:52 2016] [debug] 200 OK (0.684583s, 1.461/s)
+[Tue Aug 23 00:23:16 2016] [debug] POST "/update_time_table/admin/edit"
+[Tue Aug 23 00:23:16 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:23:16 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit"
+[Tue Aug 23 00:23:16 2016] [debug] 200 OK (0.285408s, 3.504/s)
+[Tue Aug 23 00:23:51 2016] [debug] POST "/update_time_table/admin/edit"
+[Tue Aug 23 00:23:51 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:23:51 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit"
+[Tue Aug 23 00:23:51 2016] [debug] 200 OK (0.334179s, 2.992/s)
+[Tue Aug 23 00:23:59 2016] [debug] POST "/update_time_table/admin/edit"
+[Tue Aug 23 00:23:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:23:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit"
+[Tue Aug 23 00:23:59 2016] [debug] 200 OK (0.014314s, 69.862/s)
+[Tue Aug 23 00:24:17 2016] [debug] POST "/update_time_table/admin/edit"
+[Tue Aug 23 00:24:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:24:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit"
+[Tue Aug 23 00:24:18 2016] [debug] 200 OK (0.362587s, 2.758/s)
+[Tue Aug 23 00:24:19 2016] [debug] POST "/update_time_table/admin/edit"
+[Tue Aug 23 00:24:19 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:24:19 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit"
+[Tue Aug 23 00:24:19 2016] [debug] 200 OK (0.019624s, 50.958/s)
+[Tue Aug 23 00:24:26 2016] [debug] GET "/update_time_table/admin/add_from_line_input"
+[Tue Aug 23 00:24:26 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:24:26 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line_input"
+[Tue Aug 23 00:24:26 2016] [debug] Rendering template "update_time_table/admin/add_from_line_input.html.ep"
+[Tue Aug 23 00:24:26 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 00:24:26 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Tue Aug 23 00:24:26 2016] [debug] 200 OK (0.089497s, 11.174/s)
+[Tue Aug 23 00:24:27 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:24:27 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:24:27 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:24:27 2016] [debug] 200 OK (0.038224s, 26.162/s)
+[Tue Aug 23 00:24:33 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:24:33 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:24:33 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:24:33 2016] [debug] 200 OK (0.008684s, 115.154/s)
+[Tue Aug 23 00:37:21 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:37:23 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:37:23 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:37:23 2016] [debug] 200 OK (1.293897s, 0.773/s)
+[Tue Aug 23 00:37:46 2016] [debug] GET "/update_time_table/admin/add_from_line_input"
+[Tue Aug 23 00:37:46 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:37:46 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line_input"
+[Tue Aug 23 00:37:46 2016] [debug] Rendering template "update_time_table/admin/add_from_line_input.html.ep"
+[Tue Aug 23 00:37:46 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 00:37:46 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Tue Aug 23 00:37:46 2016] [debug] 200 OK (0.144114s, 6.939/s)
+[Tue Aug 23 00:37:50 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:37:50 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:37:50 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:37:50 2016] [debug] 200 OK (0.015055s, 66.423/s)
+[Tue Aug 23 00:40:55 2016] [debug] GET "/update_time_table/admin/add_from_line_input"
+[Tue Aug 23 00:40:55 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:40:55 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line_input"
+[Tue Aug 23 00:40:55 2016] [debug] Rendering template "update_time_table/admin/add_from_line_input.html.ep"
+[Tue Aug 23 00:40:55 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 00:40:55 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Tue Aug 23 00:40:55 2016] [debug] 200 OK (0.630141s, 1.587/s)
+[Tue Aug 23 00:40:59 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:40:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:40:59 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:40:59 2016] [debug] 200 OK (0.022674s, 44.103/s)
+[Tue Aug 23 00:41:14 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:41:14 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:41:14 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:41:14 2016] [debug] 200 OK (0.652263s, 1.533/s)
+[Tue Aug 23 00:41:21 2016] [debug] POST "/update_time_table/admin/add_from_line"
+[Tue Aug 23 00:41:21 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 00:41:21 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
+[Tue Aug 23 00:41:21 2016] [debug] 200 OK (0.023551s, 42.461/s)

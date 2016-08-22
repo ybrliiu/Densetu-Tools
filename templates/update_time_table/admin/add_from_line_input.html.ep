@@ -10,7 +10,7 @@
 ・[仕官]新しく武将BがB国に仕官しました。(1日21時01分11秒)
 ...
 </pre>
-        <textarea id="add_data" class="form-control"></textarea>
+        <textarea id="line_data" class="form-control"></textarea>
         <input type="button" id="submit" class="btn btn-empty" value="編集">
         <div id="result"></div>
       </div>
@@ -20,8 +20,8 @@
   "use strict";
 
   document.getElementById('submit').addEventListener('click', function(eve) {
-    var json = {add_data : document.getElementById('add_data').value};
-    sendJson(json, '/update_time_table/admin/edit');
+    var json = {line_data : document.getElementById('line_data').value};
+    sendJson(json, '/update_time_table/admin/add_from_line');
   }, false);
 
 </script>
