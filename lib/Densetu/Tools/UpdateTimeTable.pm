@@ -130,7 +130,7 @@ package Densetu::Tools::UpdateTimeTable {
     return $result;
   }
 
-  sub add_player {
+  sub add_player_from_line {
     my ($class, $line) = @_;
     my $player = Densetu::Tools::UpdateTimeTable::Player->new();
     $player->parse($line);

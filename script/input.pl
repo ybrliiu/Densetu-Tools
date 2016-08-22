@@ -13,5 +13,5 @@ use Densetu::Tools::UpdateTimeTable;
 print "行を入力してください:";
 chomp(my $line = <STDIN>);
 $line = decode('utf-8', $line);
-Densetu::Tools::UpdateTimeTable->add_player($line);
+Densetu::Tools::UpdateTimeTable->add_player_from_line($line);
 
