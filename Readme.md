@@ -1,5 +1,12 @@
 # 伝説用ツール
 
+## Densetu::Tools::Web
+ツールをWEB上から利用できるアプリ  
+※管理パスワード、セッションパスワードはherokuの環境変数で設定する
+`heroku config`  環境変数一覧  
+`heroku config:add`  環境変数追加  
+`heroku config:remove`  環境変数削除  
+
 ## Densetu::Tools::PlayerInfo
 
 ### 概要
