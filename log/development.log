@@ -1022,3 +1022,58 @@ Compilation failed in require at (eval 84) line 1.
 [Mon Aug 22 22:37:01 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
 [Mon Aug 22 22:37:01 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
 [Mon Aug 22 22:37:02 2016] [debug] 200 OK (0.053161s, 18.811/s)
+[Mon Aug 22 22:47:28 2016] [debug] GET "/update_time_table/admin_login_input"
+[Mon Aug 22 22:47:28 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "admin_login_input"
+[Mon Aug 22 22:47:28 2016] [debug] Rendering template "update_time_table/admin_login_input.html.ep"
+[Mon Aug 22 22:47:28 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 22:47:28 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 22:47:28 2016] [debug] 200 OK (0.531918s, 1.880/s)
+[Mon Aug 22 23:10:15 2016] [debug] POST "/update_time_table/admin/login"
+[Mon Aug 22 23:10:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "login"
+[Mon Aug 22 23:10:18 2016] [debug] 200 OK (2.409719s, 0.415/s)
+[Mon Aug 22 23:10:19 2016] [debug] GET "/update_time_table/admin"
+[Mon Aug 22 23:10:19 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "login"
+[Mon Aug 22 23:10:19 2016] [debug] 200 OK (0.110427s, 9.056/s)
+[Mon Aug 22 23:10:19 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "root"
+[Mon Aug 22 23:10:19 2016] [debug] Rendering template "update_time_table/admin/root.html.ep"
+[Mon Aug 22 23:10:19 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Mon Aug 22 23:10:19 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 23:11:18 2016] [debug] GET "/update_time_table/admin"
+[Mon Aug 22 23:11:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "login"
+[Mon Aug 22 23:11:18 2016] [debug] 200 OK (0.485166s, 2.061/s)
+[Mon Aug 22 23:11:18 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "root"
+[Mon Aug 22 23:11:18 2016] [debug] Rendering template "update_time_table/admin/root.html.ep"
+[Mon Aug 22 23:11:18 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Mon Aug 22 23:11:18 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 23:25:35 2016] [debug] GET "/update_time_table/admin"
+[Mon Aug 22 23:25:36 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Mon Aug 22 23:25:36 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "root"
+[Mon Aug 22 23:25:36 2016] [debug] Rendering template "update_time_table/admin/root.html.ep"
+[Mon Aug 22 23:25:36 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Mon Aug 22 23:25:36 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Mon Aug 22 23:25:36 2016] [debug] 200 OK (1.120156s, 0.893/s)
+[Mon Aug 22 23:25:43 2016] [debug] GET "/update_time_table"
+[Mon Aug 22 23:25:43 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Mon Aug 22 23:25:43 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Mon Aug 22 23:25:43 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Mon Aug 22 23:25:43 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 23:25:43 2016] [debug] 200 OK (0.101631s, 9.840/s)
+[Mon Aug 22 23:25:46 2016] [debug] GET "/update_time_table/admin_login_input"
+[Mon Aug 22 23:25:46 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "admin_login_input"
+[Mon Aug 22 23:25:46 2016] [debug] Rendering template "update_time_table/admin_login_input.html.ep"
+[Mon Aug 22 23:25:46 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Mon Aug 22 23:25:46 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 23:25:46 2016] [debug] 200 OK (0.085034s, 11.760/s)
+[Mon Aug 22 23:25:51 2016] [debug] POST "/update_time_table/admin/login"
+[Mon Aug 22 23:25:51 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "login"
+[Mon Aug 22 23:25:51 2016] [debug] 200 OK (0.010918s, 91.592/s)
+[Mon Aug 22 23:25:57 2016] [debug] POST "/update_time_table/admin/login"
+[Mon Aug 22 23:25:57 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "login"
+[Mon Aug 22 23:25:58 2016] [debug] 200 OK (0.018272s, 54.729/s)
+[Mon Aug 22 23:25:58 2016] [debug] GET "/update_time_table/admin"
+[Mon Aug 22 23:25:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Mon Aug 22 23:25:58 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "root"
+[Mon Aug 22 23:25:58 2016] [debug] Rendering cached template "update_time_table/admin/root.html.ep"
+[Mon Aug 22 23:25:58 2016] [debug] Rendering cached template "layouts/update_time_table/admin.html.ep"
+[Mon Aug 22 23:25:58 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Mon Aug 22 23:25:58 2016] [debug] 200 OK (0.044279s, 22.584/s)

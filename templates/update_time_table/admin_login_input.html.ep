@@ -3,7 +3,7 @@
         <h2>管理画面にログイン</h2>
         <div>
             <label>パスワード</label>
-            <input id="pass" class="form-control" type="text">
+            <input id="pass" class="form-control" type="password">
         </div>
         <label class="fancy-checkbox">
           <input type="checkbox" id="check" value="1">

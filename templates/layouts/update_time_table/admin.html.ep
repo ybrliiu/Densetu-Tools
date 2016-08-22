@@ -1,0 +1,27 @@
+% extends 'layouts/wrapper';
+% title '更新表 管理画面';
+% content container => begin
+<div class="bg-main">
+	<div class="container text-center">
+		<h1 class="title">更新表 管理画面</h1>
+	</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col md-2">
+      <div class="sidemenu padding-y-20">
+        <a href="/update_time_table/admin">トップ</a>
+        <a href="/update_time_table/admin/edit_input">武将情報編集</a>
+        <a href="/update_time_table/admin/add_input">武将追加</a>
+        <a href="/update_time_table/admin/add_from_line_input">武将追加(行から)</a>
+        <a href="/update_time_table/admin/new_table">更新表リセット</a>
+        <a href="/update_time_table/admin/logout">ログアウト</a>
+      </div>
+    </div>
+  	<div class="col md-10 padding-y-20">
+      <%= content %>
+  	</div>
+  </div>
+</div>
+% end
+%= content 'container'

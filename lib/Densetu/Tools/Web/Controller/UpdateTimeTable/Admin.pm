@@ -15,30 +15,30 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     my ($pass, $check) = ($json->{pass}, $json->{check});
     my $admin_pass = $self->config->{app}{admin_password};
 
-    {
-      my $session = $self->session->{login};
-      if ($session) {
-        $self->render(text => 'success') if $json;
-        return 1;
-      }
-    }
-
     if ($pass eq $admin_pass) {
       $self->session(login => 'login');
       if ($check) {
         $self->cookie(pass => $pass, {max_age => 1000000, path => '/update_time_table/admin_login_input'});
       }
-      $self->render(text => 'success') if $json;
-      return 1;
+      $self->render(text => 'success');
+    } else {
+      $self->session(expires => 1);
+      $self->render(text => 'パスワードが違います。');
     }
-    $self->render(text => 'パスワードが違います。') if $json;
-    return 0;
   }
 
   sub logout {
     my ($self) = @_;
     $self->session(expires => 1);
     $self->redirect_to('/update_time_table');
+  }
+
+  sub auth {
+    my ($self) = @_;
+    my $session = $self->session->{login};
+    return 1 if $session;
+    $self->redirect_to('/update_time_table');
+    return 0;
   }
 
   sub edit {

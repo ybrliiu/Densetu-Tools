@@ -1,0 +1,15 @@
+% layout 'update_time_table/admin';
+      <div>
+        <h2>テス</h2>
+        <div>
+            <label>パスワード</label>
+            <input id="pass" class="form-control" type="password">
+        </div>
+        <label class="fancy-checkbox">
+          <input type="checkbox" id="check" value="1">
+          <span>パスワードを保存</span>
+        </label>
+        <input type="button" id="submit" class="btn btn-empty" value="ログイン">
+        <div id="result">
+        </div>
+      </div>

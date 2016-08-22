@@ -49,15 +49,15 @@ package Densetu::Tools::Web {
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
     $admin->post('/login'             )->to(action => 'login');
     $admin->post('/logout'             )->to(action => 'logout');
-    my $login = $admin->under->to(action => 'login');
-    $login->get( '/'                   )->to(action => 'root');
-    $login->get( '/edit_input'         )->to(action => 'edit_input');
-    $login->post('/edit'               )->to(action => 'edit');
-    $login->get( '/add_input'          )->to(action => 'add_input');
-    $login->post('/add'                )->to(action => 'add');
-    $login->get( '/add_from_line_input')->to(action => 'add_from_line_input');
-    $login->post('/add_from_line'      )->to(action => 'add_from_line');
-    $login->post('/new_table'          )->to(action => 'new_table');
+    my $auth = $admin->under->to(action => 'auth');
+    $auth->get( '/'                   )->to(action => 'root');
+    $auth->get( '/edit_input'         )->to(action => 'edit_input');
+    $auth->post('/edit'               )->to(action => 'edit');
+    $auth->get( '/add_input'          )->to(action => 'add_input');
+    $auth->post('/add'                )->to(action => 'add');
+    $auth->get( '/add_from_line_input')->to(action => 'add_from_line_input');
+    $auth->post('/add_from_line'      )->to(action => 'add_from_line');
+    $auth->post('/new_table'          )->to(action => 'new_table');
   }
 
 }
