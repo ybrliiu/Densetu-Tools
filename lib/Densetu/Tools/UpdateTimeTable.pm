@@ -67,8 +67,13 @@ package Densetu::Tools::UpdateTimeTable {
 
   sub update_player_country {
     my ($class, %args) = @_;
+
     my $countries = $class->create_country_list();
-    $countries->{$args{$_}}->create_member_info() for (keys %args);
+
+    for my $country_name (values %args) {
+      my $country = exists $countries->{$country_name} ? $countries->{$country_name} : croak "${country_name}という国は存在しません.";
+      $country->create_member_info();
+    }
   }
 
   sub output_mix_table {
@@ -80,12 +85,18 @@ package Densetu::Tools::UpdateTimeTable {
     $class->update_player_country(%args);
 
     # 出力する武将を集める
+    my %people = (
+      country1 => 0,
+      country2 => 0,
+    );
     my $record = RECORD->open;
     my @collect = $record->map(sub {
       my ($key, $value) = @_;
       if ($value->country eq $args{country1}) {
+        $people{country1}++;
         $value->mark('○');
       } elsif ($value->country eq $args{country2}) {
+        $people{country2}++;
         $value->mark('●');
       } else {
         ()
@@ -93,9 +104,8 @@ package Densetu::Tools::UpdateTimeTable {
     });
     my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
 
-    my $result;    
-    $result .= "【$args{country2}戦更新表】\n";
-    $result .= "○=$args{country1},●=$args{country2}\n\n";
+    my $result = "【$args{country2}戦更新表】\n";
+    $result .= "○=$args{country1}($people{country1}人),●=$args{country2}($people{country2}人)\n\n";
     $result .= $_->update_time_table for @output;
 
     return $result;
@@ -114,8 +124,7 @@ package Densetu::Tools::UpdateTimeTable {
     });
     my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
 
-    my $result;
-    $result .= "【$args{country}更新表】\n\n";
+    my $result = "【$args{country}更新表($#{collect}人)】\n\n";
     $result .= $_->update_time_table for @output;
 
     return $result;
