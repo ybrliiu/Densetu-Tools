@@ -8,6 +8,18 @@
 名前2,xx分xx秒
 ...
 </pre>
-        <textarea class="form-control"></textarea>
+        <textarea id="player_data" class="form-control"></textarea>
         <input type="button" id="submit" class="btn btn-empty" value="編集">
+        <div id="result"></div>
       </div>
+
+<script>
+
+  "use strict";
+
+  document.getElementById('submit').addEventListener('click', function(eve) {
+    var json = {player_data : document.getElementById('player_data').value};
+    sendJson(json, '/update_time_table/admin/edit');
+  }, false);
+
+</script>

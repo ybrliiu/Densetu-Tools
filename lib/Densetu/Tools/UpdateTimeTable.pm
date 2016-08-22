@@ -124,7 +124,7 @@ package Densetu::Tools::UpdateTimeTable {
     });
     my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
 
-    my $result = "【$args{country}更新表($#{collect}人)】\n\n";
+    my $result = "【$args{country}更新表(" . @output . "人)】\n\n";
     $result .= $_->update_time_table for @output;
 
     return $result;

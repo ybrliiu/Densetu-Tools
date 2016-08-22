@@ -1392,3 +1392,64 @@ Compilation failed in require at (eval 84) line 1.
 [Tue Aug 23 00:51:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
 [Tue Aug 23 00:51:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_from_line"
 [Tue Aug 23 00:51:01 2016] [debug] 200 OK (0.13111s, 7.627/s)
+[Tue Aug 23 01:29:04 2016] [debug] GET "/update_time_table/admin/add_input"
+[Tue Aug 23 01:29:05 2016] [error] Global symbol "$unite" requires explicit package name (did you forget to declare "my $unite"?) at /home/leiu/server/densetu_tools_web/script/../lib/Densetu/Tools/Web/Controller/UpdateTimeTable/Admin.pm line 96, <DATA> line 2231.
+Compilation failed in require at (eval 86) line 1, <DATA> line 2231.
+
+[Tue Aug 23 01:29:05 2016] [debug] Template "exception.development.html.ep" not found
+[Tue Aug 23 01:29:05 2016] [debug] Template "exception.html.ep" not found
+[Tue Aug 23 01:29:05 2016] [debug] Rendering template "mojo/debug.html.ep"
+[Tue Aug 23 01:29:05 2016] [debug] Rendering template "mojo/menubar.html.ep"
+[Tue Aug 23 01:29:05 2016] [debug] 500 Internal Server Error (1.376502s, 0.726/s)
+[Tue Aug 23 01:29:34 2016] [debug] GET "/update_time_table/admin/add_input"
+[Tue Aug 23 01:29:34 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 01:29:34 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "add_input"
+[Tue Aug 23 01:29:34 2016] [debug] Rendering template "update_time_table/admin/add_input.html.ep"
+[Tue Aug 23 01:29:34 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 01:29:34 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Tue Aug 23 01:29:34 2016] [debug] 200 OK (0.566397s, 1.766/s)
+[Tue Aug 23 01:29:41 2016] [debug] GET "/update_time_table/admin/edit_input"
+[Tue Aug 23 01:29:41 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 01:29:41 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit_input"
+[Tue Aug 23 01:29:41 2016] [debug] Rendering template "update_time_table/admin/edit_input.html.ep"
+[Tue Aug 23 01:29:41 2016] [debug] Rendering cached template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 01:29:41 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Tue Aug 23 01:29:41 2016] [debug] 200 OK (0.061668s, 16.216/s)
+[Tue Aug 23 01:31:31 2016] [debug] POST "/update_time_table/admin/edit"
+[Tue Aug 23 01:31:32 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 01:31:32 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "edit"
+[Tue Aug 23 01:31:32 2016] [debug] 200 OK (0.499011s, 2.004/s)
+[Tue Aug 23 01:31:37 2016] [debug] GET "/update_time_table/admin/logout"
+[Tue Aug 23 01:31:37 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "logout"
+[Tue Aug 23 01:31:37 2016] [debug] 302 Found (0.011056s, 90.449/s)
+[Tue Aug 23 01:31:37 2016] [debug] GET "/update_time_table"
+[Tue Aug 23 01:31:37 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "root"
+[Tue Aug 23 01:31:37 2016] [debug] Rendering template "update_time_table/root.html.ep"
+[Tue Aug 23 01:31:37 2016] [debug] Rendering template "layouts/update_time_table.html.ep"
+[Tue Aug 23 01:31:37 2016] [debug] Rendering template "layouts/wrapper.html.ep"
+[Tue Aug 23 01:31:37 2016] [debug] 200 OK (0.122021s, 8.195/s)
+[Tue Aug 23 01:31:40 2016] [debug] GET "/update_time_table/get_table_input"
+[Tue Aug 23 01:31:40 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table_input"
+[Tue Aug 23 01:31:40 2016] [debug] Rendering template "update_time_table/get_table_input.html.ep"
+[Tue Aug 23 01:31:40 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Tue Aug 23 01:31:40 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Tue Aug 23 01:31:40 2016] [debug] 200 OK (0.040404s, 24.750/s)
+[Tue Aug 23 01:31:44 2016] [debug] POST "/update_time_table/get_table"
+[Tue Aug 23 01:31:44 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "get_table"
+[Tue Aug 23 01:31:48 2016] [debug] 200 OK (4.22661s, 0.237/s)
+[Tue Aug 23 01:31:56 2016] [debug] GET "/update_time_table/admin_login_input"
+[Tue Aug 23 01:31:56 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable" and action "admin_login_input"
+[Tue Aug 23 01:31:56 2016] [debug] Rendering template "update_time_table/admin_login_input.html.ep"
+[Tue Aug 23 01:31:56 2016] [debug] Rendering cached template "layouts/update_time_table.html.ep"
+[Tue Aug 23 01:31:56 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Tue Aug 23 01:31:56 2016] [debug] 200 OK (0.053955s, 18.534/s)
+[Tue Aug 23 01:32:01 2016] [debug] POST "/update_time_table/admin/login"
+[Tue Aug 23 01:32:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "login"
+[Tue Aug 23 01:32:01 2016] [debug] 200 OK (0.048417s, 20.654/s)
+[Tue Aug 23 01:32:01 2016] [debug] GET "/update_time_table/admin"
+[Tue Aug 23 01:32:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "auth"
+[Tue Aug 23 01:32:01 2016] [debug] Routing to controller "Densetu::Tools::Web::Controller::UpdateTimeTable::Admin" and action "root"
+[Tue Aug 23 01:32:01 2016] [debug] Rendering template "update_time_table/admin/root.html.ep"
+[Tue Aug 23 01:32:01 2016] [debug] Rendering template "layouts/update_time_table/admin.html.ep"
+[Tue Aug 23 01:32:01 2016] [debug] Rendering cached template "layouts/wrapper.html.ep"
+[Tue Aug 23 01:32:01 2016] [debug] 200 OK (0.064636s, 15.471/s)
