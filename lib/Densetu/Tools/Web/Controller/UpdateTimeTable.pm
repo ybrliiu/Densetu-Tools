@@ -51,6 +51,11 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable {
     $self->render(text => $table);
   }
 
+  sub admin_login_input {
+    my ($self) = @_;
+    $self->render();
+  }
+
 }
 
 1;

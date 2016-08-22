@@ -43,19 +43,21 @@ package Densetu::Tools::Web {
     $update_time_table->post('/get_table'          )->to(action => 'get_table');
     $update_time_table->get( '/get_mix_table_input')->to(action => 'get_mix_table_input');
     $update_time_table->post('/get_mix_table'      )->to(action => 'get_mix_table');
+    $update_time_table->get( '/admin_login_input'  )->to(action => 'admin_login_input');
 
     # /update_time_table/admin
     my $admin = $update_time_table->any('/admin')->to(controller => 'UpdateTimeTable::Admin');
-    $admin->get( '/'                   )->to(action => 'root');
-    $admin->post('/login'              )->to(action => 'login');
+    $admin->post('/login'             )->to(action => 'login');
     $admin->post('/logout'             )->to(action => 'logout');
-    $admin->get( '/edit_input'         )->to(action => 'edit_input');
-    $admin->post('/edit'               )->to(action => 'edit');
-    $admin->get( '/add_input'          )->to(action => 'add_input');
-    $admin->post('/add'                )->to(action => 'add');
-    $admin->get( '/add_from_line_input')->to(action => 'add_from_line_input');
-    $admin->post('/add_from_line'      )->to(action => 'add_from_line');
-    $admin->post('/new_table'          )->to(action => 'new_table');
+    my $login = $admin->under->to(action => 'login');
+    $login->get( '/'                   )->to(action => 'root');
+    $login->get( '/edit_input'         )->to(action => 'edit_input');
+    $login->post('/edit'               )->to(action => 'edit');
+    $login->get( '/add_input'          )->to(action => 'add_input');
+    $login->post('/add'                )->to(action => 'add');
+    $login->get( '/add_from_line_input')->to(action => 'add_from_line_input');
+    $login->post('/add_from_line'      )->to(action => 'add_from_line');
+    $login->post('/new_table'          )->to(action => 'new_table');
   }
 
 }

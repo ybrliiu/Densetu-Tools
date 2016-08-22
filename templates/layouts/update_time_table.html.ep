@@ -14,7 +14,7 @@
         <a href="/update_time_table/get_table_input">国を指定して出力</a>
         <a href="/update_time_table/get_mix_table_input">対戦国と混ぜて出力</a>
         <a href="/update_time_table/update_player_country">武将の所属国情報を更新</a>
-        <a href="/update_time_table/admin">管理画面</a>
+        <a href="/update_time_table/admin_login_input">管理画面にログイン</a>
       </div>
     </div>
   	<div class="col md-10 padding-y-20">
