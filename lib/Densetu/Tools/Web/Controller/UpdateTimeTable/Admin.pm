@@ -140,11 +140,21 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub new_table {
     my ($self) = @_;
-    $self->render();
+
+    eval {
+      $TOOL_CLASS->new_update_time_table();
+    };
+
+    if (my $e = $@) {
+      $self->render(text => $e);
+    } else {
+      $self->render(text => '操作完了しました。');
+    }
   }
 
   sub new_table_input {
     my ($self) = @_;
+    $self->render();
   }
 
 }

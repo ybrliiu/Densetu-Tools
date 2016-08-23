@@ -10,6 +10,11 @@
     <title><%= $title %></title>
   </head>
   <body>
+<div class="bg-main">
+	<div class="container text-center">
+		<h1 class="title"><%= $title %></h1>
+	</div>
+</div>
 % content container => begin
   <%= content %>
 % end

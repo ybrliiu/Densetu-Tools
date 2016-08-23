@@ -1,5 +1,5 @@
 # dont need log
-log/
+log/development.log
 
 # dont show password
 etc/config/app.conf
