@@ -20,7 +20,8 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     if ($pass eq $admin_pass) {
       $self->session(login => 'login');
       if ($check) {
-        $self->cookie(pass => $pass, {max_age => 1000000, path => '/update_time_table/admin_login_input'});
+        my $url = $self->req->url->to_abs;
+        $self->cookie(pass => $pass, {max_age => 1000000, path => $url});
       }
       $self->render(text => 'success');
     } else {
