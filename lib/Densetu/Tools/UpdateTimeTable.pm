@@ -10,7 +10,7 @@ package Densetu::Tools::UpdateTimeTable {
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
 
-  use constant RECORD => Record::Hash->new(File => 'etc/record/player_map_log.dat');
+  my $RECORD = Record::Hash->new(File => 'etc/record/player_map_log.dat');
   
   sub _extract_update_time {
     my ($class, $map_log) = @_;
@@ -35,7 +35,7 @@ package Densetu::Tools::UpdateTimeTable {
 
     # リセット直後のみ更新時間データを生成
     if ($map_log =~ /ゲームプログラムを開始しました。/) {
-      my $record = RECORD;
+      my $record = $RECORD;
       $record->Data(\%players);
       $record->make;
     } else {
@@ -71,9 +71,35 @@ package Densetu::Tools::UpdateTimeTable {
     my $countries = $class->create_country_list();
 
     for my $country_name (values %args) {
-      my $country = exists $countries->{$country_name} ? $countries->{$country_name} : croak "${country_name}という国は存在しません.";
-      $country->create_member_info();
+      my $country       = exists $countries->{$country_name} ? $countries->{$country_name} : croak "${country_name}という国は存在しません.";
+      my $match_players = $country->create_member_info();
+      $class->_delete_not_exists_player($country_name => $match_players);
     }
+
+  }
+
+  sub _delete_not_exists_player {
+    my ($class, $country_name, $match_players) = @_;
+    
+    my $record = $RECORD->open('LOCK_EX');
+    my %players = $record->map(sub {
+      my ($key, $value) = @_;
+      if ($country_name eq $value->country) {
+        $key => $value;
+      } else {
+        ();
+      }
+    });
+
+    # 国一覧にいなかった武将はとりあえず無所属にする
+    for my $key (keys %players) {
+      unless (exists $match_players->{$key}) {
+        my $player = $record->find($key);
+        $player->country('');
+      }
+    }
+
+    $record->close();
   }
 
   sub output_mix_table {
@@ -89,7 +115,7 @@ package Densetu::Tools::UpdateTimeTable {
       country1 => 0,
       country2 => 0,
     );
-    my $record = RECORD->open;
+    my $record = $RECORD->open;
     my @collect = $record->map(sub {
       my ($key, $value) = @_;
       if ($value->country eq $args{country1}) {
@@ -117,7 +143,7 @@ package Densetu::Tools::UpdateTimeTable {
 
     $class->update_player_country(%args);
 
-    my $record = RECORD->open;
+    my $record = $RECORD->open;
     my @collect = $record->map( sub {
       my ($key, $value) = @_;
       $value->country eq $args{country} ? $value->mark('') : ();
@@ -134,7 +160,7 @@ package Densetu::Tools::UpdateTimeTable {
     my ($class, $line) = @_;
     my $player = Densetu::Tools::UpdateTimeTable::Player->new();
     $player->parse($line);
-    my $record = RECORD->open('LOCK_EX');
+    my $record = $RECORD->open('LOCK_EX');
     $record->Data->{$player->name} = $player;
     $record->close();
   }
@@ -145,7 +171,7 @@ package Densetu::Tools::UpdateTimeTable {
       confess "$_\が指定されていません" unless exists $args{$_}
     }
 
-    my $record = RECORD->open("LOCK_EX");
+    my $record = $RECORD->open("LOCK_EX");
     my $player = $record->find($args{name});
     $player->input_time($args{time});
     $record->close();

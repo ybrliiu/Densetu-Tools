@@ -107,19 +107,31 @@ package Densetu::Tools::UpdateTimeTable::Player {
   sub type {
     my ($self) = @_;
     my $type = do {
-      if ($self->{force} > $self->{intellect} && $self->{force} > $self->{leadership} && $self->{force} > $self->{popular}) {
+      if ( $self->is_largest_ability('force') ) {
         '[武]'
-      } elsif ($self->{intellect} > $self->{force} && $self->{intellect} > $self->{leadership} && $self->{intellect} > $self->{popular}) {
+      } elsif ( $self->is_largest_ability('intellect') ) {
         '[文]'
-      } elsif ($self->{leadership} > $self->{force} && $self->{leadership} > $self->{intellect} && $self->{leadership} > $self->{popular}) {
+      } elsif ( $self->is_largest_ability('leadership') ) {
         '[統]'
-      } elsif ($self->{popular} > $self->{force} && $self->{popular} > $self->{leadership} && $self->{popular} > $self->{intellect}) {
+      } elsif ( $self->is_largest_ability('popular') ) {
         '[人]'
       } else {
         '[均]'
       }
     };
     return $type;
+  }
+
+  sub is_largest_ability {
+    my ($self, $ability) = @_;
+    state $abilities = [qw/force intellect leadership popular/];
+    my $count = 0;
+    for (@$abilities) {
+      if ($_ ne $ability) {
+        $count++ if $self->{$ability} > $self->{$_};
+      }
+    }
+    return $count == 3;
   }
 
   sub update_time_table {

@@ -45,7 +45,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
   }
 
   sub member_url {
-    my ($self, $line) = @_;
+    my ($self) = @_;
     return "http://densetu.sakura.ne.jp/ranking.cgi?mode=C_RAN&con_no=@{[ $self->{no} ]}";
   }
 
@@ -74,7 +74,8 @@ package Densetu::Tools::UpdateTimeTable::Country {
     my $record = Record::Hash->new(File => 'etc/record/player_map_log.dat');
     my %players = %{ $record->open('LOCK_EX')->Data };
 
-    for my $tag (@tr) {
+    my %match_players = map {
+      my $tag = $_;
 
       my @player_info = map {
         my ($link) = $_->find('a');
@@ -99,9 +100,12 @@ package Densetu::Tools::UpdateTimeTable::Country {
       }
 
       $player->set_country_member_info(@player_info);
-    }
+
+      $player_name => $player;
+    } @tr;
 
     $record->close();
+    return \%match_players;
   }
 
 }

@@ -2,12 +2,15 @@
 
 ## 予定
 更新表、放置削除の人のデータ、無所属言った人のデータは消すように頑張ってみる(無理なら手動)  
+更新表 add_player,update_player_country  
+管理画面とっぷ  
+ヘッダにトップページ行くためのリンク貼る  
 結果表示、エラー表示をもう少しおしゃれに？  
 コード纏める  
 
 ## Densetu::Tools::Web
 ツールをWEB上から利用できるアプリ  
-※管理パスワード、セッションパスワードはherokuの環境変数で設定する
+※管理パスワード、セッションパスワードはherokuの環境変数で設定する  
 `heroku config`  環境変数一覧  
 `heroku config:add`  環境変数追加  
 `heroku config:remove`  環境変数削除  
