@@ -33,11 +33,11 @@ package Densetu::Tools::Web {
 
     # /parse_battle_log
     my $parse_battle_log = $r->any('/parse_battle_log')->to(controller => 'ParseBattleLog');
-    $parse_battle_log->get( '/'        )->to(action => 'root');
-    $parse_battle_log->get( '/get_info')->to(action => 'get_info');
-    $parse_battle_log->post('/get_info')->to(action => 'get_info');
-    $parse_battle_log->get( '/get_info')->to(action => 'get_info');
-    $parse_battle_log->post('/get_info')->to(action => 'get_info');
+    $parse_battle_log->get( '/'                       )->to(action => 'root');
+    $parse_battle_log->get( '/get_info_input'         )->to(action => 'get_info_input');
+    $parse_battle_log->post('/get_info'               )->to(action => 'get_info');
+    $parse_battle_log->get( '/get_info_from_log_input')->to(action => 'get_info_from_log_input');
+    $parse_battle_log->post('/get_info_from_log'      )->to(action => 'get_info_from_log');
 
     # /update_time_table
     my $update_time_table = $r->any('/update_time_table')->to(controller => 'UpdateTimeTable');

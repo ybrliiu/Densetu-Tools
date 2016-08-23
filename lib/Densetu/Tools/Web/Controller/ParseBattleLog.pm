@@ -8,22 +8,39 @@ package Densetu::Tools::Web::Controller::ParseBattleLog {
     $self->render();
   }
 
+  sub get_info_input {
+    my ($self) = @_;
+    $self->render();
+  }
+
   sub get_info {
     my ($self) = @_;
 
     my $json = $self->req->json;
+    my ($id, $pass, $check) = ($json->{id}, $json->{pass}, $json->{check});
 
-    my $url = $self->req->url->to_abs;
-    $self->cookie(id => $json->{id}, {max_age => 10000000, path => $url});
-    $self->cookie(pass => $json->{pass}, {max_age => 10000000, path => $url});
+    if ($check) {
+      my $url = $self->req->url->to_abs;
+      $self->cookie(id => $id, {max_age => 10000000, path => $url});
+      $self->cookie(pass => $pass, {max_age => 10000000, path => $url});
+    }
 
-    my $info = Densetu::Tools::ParseBattleLog->new(
-      id   => $json->{id},
-      pass => $json->{pass},
+    my $parse = Densetu::Tools::ParseBattleLog->new(
+      id   => $id,
+      pass => $pass,
     );
-    my $result = $info->output;
+    my $result = $parse->output;
 
     $self->render(text => $result);
+  }
+
+  sub get_info_from_log_input {
+    my ($self) = @_;
+    $self->render();
+  }
+
+  sub get_info_from_log {
+    my ($self) = @_;
   }
 
 }

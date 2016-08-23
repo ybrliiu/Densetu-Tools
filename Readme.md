@@ -1,8 +1,6 @@
 # 伝説用ツール
 
 ## 予定
-戦闘ログ解析  
-plyaer_info -> 戦闘ログ解析  
 給料計算  
 結果表示、エラー表示をもう少しおしゃれに？  
 コード纏める  
@@ -14,7 +12,7 @@ plyaer_info -> 戦闘ログ解析
 `heroku config:add`  環境変数追加  
 `heroku config:remove`  環境変数削除  
 
-## Densetu::Tools::PlayerInfo
+## Densetu::Tools::ParseBattleLog
 
 ### 概要
 過去ログから対戦相手の情報を引っ張り出してきて表示
@@ -22,11 +20,11 @@ plyaer_info -> 戦闘ログ解析
 ### 使い方
 ```perl
 
-my $info = Densetu::Tools::PlayerInfo->new(
+my $parse = Densetu::Tools::ParseBattleLog->new(
   id   => 'ID',
   pass => 'パスワード',
 );
-$info->output;
+$parse->output;
 
 # or
 
@@ -36,6 +34,6 @@ while ( chomp(my $line = <STDIN>) ) {
   $log .= "\n$line";
 }
 $log = Encode::decode('utf8', $log);
-Densetu::Tools::PlayerInfo->output($log);
+Densetu::Tools::ParseBattleLog->output($log);
 
 ```

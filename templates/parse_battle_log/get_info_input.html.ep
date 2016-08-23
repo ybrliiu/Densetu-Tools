@@ -1,0 +1,36 @@
+% layout 'parse_battle_log';
+      <div>
+        <h2>戦闘ログ解析</h2>
+        <div>
+          <label>ID</label>
+          <input id="id" class="form-control" type="text" value="<%= my_cookie('id') %>">
+        </div>
+        <div>
+          <label>PASSWORD</label>
+          <input id="pass" class="form-control" type="password" value="<%= my_cookie('pass') %>">
+        </div>
+          <label class="fancy-checkbox">
+            <input type="checkbox" id="check" value="1">
+            <span>パスワードを保存</span>
+          </label>
+        <input type="button" id="submit" class="btn btn-empty" value="送信">
+<pre id="result">
+戦闘ログから対戦した武将の情報を抽出します。
+結果はここに出力されます。
+</pre>
+      </div>
+
+<script>
+
+  "use strict";
+
+  document.getElementById('submit').addEventListener('click', function(eve) {
+    var json = {
+      id    : document.getElementById('id').value,
+      pass  : document.getElementById('pass').value,
+      check : document.getElementById('check').value,
+    };
+    sendJson(json, '/parse_battle_log/get_info');
+  }, false);
+
+</script>
