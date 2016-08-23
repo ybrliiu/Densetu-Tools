@@ -1,0 +1,24 @@
+% layout 'parse_battle_log';
+      <div>
+        <h2>戦闘ログを貼り付けて解析</h2>
+        <div>
+          <label>戦闘ログを貼り付けて下さい。</label>
+          <textarea id="log" class="form-control"></textarea>
+        </div>
+        <input type="button" id="submit" class="btn btn-empty" value="送信">
+<pre id="result">
+戦闘ログから対戦した武将の情報を抽出します。
+結果はここに出力されます。
+</pre>
+      </div>
+
+<script>
+
+  "use strict";
+
+  document.getElementById('submit').addEventListener('click', function(eve) {
+    var json = {log : document.getElementById('log').value};
+    sendJson(json, '/parse_battle_log/get_info_from_log');
+  }, false);
+
+</script>

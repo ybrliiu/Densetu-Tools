@@ -3,6 +3,8 @@ package Densetu::Tools::Web::Controller::ParseBattleLog {
   use Mojo::Base 'Mojolicious::Controller';
   use Densetu::Tools::ParseBattleLog;
 
+  my $TOOL_CLASS = 'Densetu::Tools::ParseBattleLog';
+
   sub root {
     my ($self) = @_;
     $self->render();
@@ -25,7 +27,7 @@ package Densetu::Tools::Web::Controller::ParseBattleLog {
       $self->cookie(pass => $pass, {max_age => 10000000, path => $url});
     }
 
-    my $parse = Densetu::Tools::ParseBattleLog->new(
+    my $parse = $TOOL_CLASS->new(
       id   => $id,
       pass => $pass,
     );
@@ -41,6 +43,9 @@ package Densetu::Tools::Web::Controller::ParseBattleLog {
 
   sub get_info_from_log {
     my ($self) = @_;
+    my $log = $self->req->json->{log};
+    my $result = $TOOL_CLASS->output($log);
+    $self->render(text => $result);
   }
 
 }

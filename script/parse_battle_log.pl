@@ -17,11 +17,11 @@ print "pass:";
 chomp(my $pass = <STDIN>);
 $pass = decode('utf8', $pass);
 
-my $info = Densetu::Tools::ParseBattleLog->new(
+my $parse = Densetu::Tools::ParseBattleLog->new(
   id   => $id,
   pass => $pass,
 );
-say $info->output;
+say $parse->output;
 
 =head1
 use Encode 'decode';
