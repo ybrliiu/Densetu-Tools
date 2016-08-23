@@ -156,9 +156,21 @@ package Densetu::Tools::UpdateTimeTable {
     return $result;
   }
 
+  sub add_player {
+    my ($class, %args) = @_;
+    for (qw/name time/) {
+      confess "$_\が指定されていません" unless exists $args{$_}
+    }
+
+    my $record = $RECORD->open("LOCK_EX");
+    my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new(name => $args{name});
+    $player->input_time($args{time});
+    $record->close();
+  }
+
   sub add_player_from_line {
     my ($class, $line) = @_;
-    my $player = Densetu::Tools::UpdateTimeTable::Player->new();
+    my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
     $player->parse($line);
     my $record = $RECORD->open('LOCK_EX');
     $record->Data->{$player->name} = $player;
