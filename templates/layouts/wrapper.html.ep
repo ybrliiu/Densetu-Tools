@@ -12,8 +12,8 @@
   <body>
 <div class="bg-main">
 	<div class="container text-center">
-    <div class="font-icon-detail" style="position: absolute; left: 0px; top: -10px;">
-      <span class="icon-home"></span>
+    <div class="home-link font-icon-detail">
+      <a href="/"><span class="icon-home"></span></a>
     </div>
 		<h1 class="title"><%= $title %></h1>
 	</div>

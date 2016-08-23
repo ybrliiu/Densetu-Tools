@@ -1,3 +1,5 @@
+/* --- add --- */
+
 #result {
   font-family: "monospace";
 }
@@ -6,6 +8,18 @@
   font-size: 1.5em;
 	padding-top: 14px;
 }
+
+.home-link {
+  position: absolute;
+  left: 0px;
+  top: -10px;
+}
+
+.home-link a {
+  color: white;
+}
+
+/* --- end --- */
 
 .font-icon-detail{
 	padding-top: 12px;
