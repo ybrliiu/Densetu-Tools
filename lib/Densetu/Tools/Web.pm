@@ -31,10 +31,13 @@ package Densetu::Tools::Web {
     # Normal route to controller
     $r->get('/')->to('Root#root');
 
-    # /player_info
-    my $player_info = $r->any('/player_info')->to(controller => 'PlayerInfo');
-    $player_info->get( '/'        )->to(action => 'root');
-    $player_info->post('/get_info')->to(action => 'get_info');
+    # /parse_battle_log
+    my $parse_battle_log = $r->any('/parse_battle_log')->to(controller => 'ParseBattleLog');
+    $parse_battle_log->get( '/'        )->to(action => 'root');
+    $parse_battle_log->get( '/get_info')->to(action => 'get_info');
+    $parse_battle_log->post('/get_info')->to(action => 'get_info');
+    $parse_battle_log->get( '/get_info')->to(action => 'get_info');
+    $parse_battle_log->post('/get_info')->to(action => 'get_info');
 
     # /update_time_table
     my $update_time_table = $r->any('/update_time_table')->to(controller => 'UpdateTimeTable');

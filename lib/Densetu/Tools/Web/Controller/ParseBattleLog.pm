@@ -1,7 +1,7 @@
-package Densetu::Tools::Web::Controller::PlayerInfo {
+package Densetu::Tools::Web::Controller::ParseBattleLog {
 
   use Mojo::Base 'Mojolicious::Controller';
-  use Densetu::Tools::PlayerInfo;
+  use Densetu::Tools::ParseBattleLog;
 
   sub root {
     my ($self) = @_;
@@ -17,7 +17,7 @@ package Densetu::Tools::Web::Controller::PlayerInfo {
     $self->cookie(id => $json->{id}, {max_age => 10000000, path => $url});
     $self->cookie(pass => $json->{pass}, {max_age => 10000000, path => $url});
 
-    my $info = Densetu::Tools::PlayerInfo->new(
+    my $info = Densetu::Tools::ParseBattleLog->new(
       id   => $json->{id},
       pass => $json->{pass},
     );

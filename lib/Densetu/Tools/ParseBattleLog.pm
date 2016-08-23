@@ -1,4 +1,4 @@
-package Densetu::Tools::PlayerInfo {
+package Densetu::Tools::ParseBattleLog {
 
   use v5.14;
   use warnings;
@@ -7,7 +7,7 @@ package Densetu::Tools::PlayerInfo {
   use Class::Accessor::Lite new => 0;
 
   use Densetu::Tools::Util qw/get_data/;
-  use Densetu::Tools::PlayerInfo::Player;
+  use Densetu::Tools::ParseBattleLog::Player;
 
   {
     my @attributes = qw/id pass/;
@@ -66,10 +66,10 @@ package Densetu::Tools::PlayerInfo {
     my %players;
     my @log = grep { $_ =~ /●/ } (split /\n/, $get_log);
     for my $i (0 .. @log-1) {
-      my $key = 'Densetu::Tools::PlayerInfo::Player'->extract_unique_key(\@log, $i);
+      my $key = 'Densetu::Tools::ParseBattleLog::Player'->extract_unique_key(\@log, $i);
       if ($key) {
         next if exists $players{$key};
-        my $player = 'Densetu::Tools::PlayerInfo::Player'->new();
+        my $player = 'Densetu::Tools::ParseBattleLog::Player'->new();
         $player->parse(\@log, $i);
         $players{$key} = $player;
       }
@@ -86,14 +86,14 @@ package Densetu::Tools::PlayerInfo {
 
 =head1 NAME
 
-Densetu::Tools::PlayerInfo - ログから武将情報を抽出して表示するツール
+Densetu::Tools::ParseBattleLog - ログから武将情報を抽出して表示するツール
 
 =head1 SYNOPSIS
 
-  use Densetu::Tools::PlayerInfo;
+  use Densetu::Tools::ParseBattleLog;
 
   # IDとPASSだけ指定するやり方
-  my $info = Densetu::Tools::PlayerInfo->new(
+  my $info = Densetu::Tools::ParseBattleLog->new(
     id => 'player_id',
     pass => 'player_pass',
   );
@@ -105,7 +105,7 @@ Densetu::Tools::PlayerInfo - ログから武将情報を抽出して表示する
     last if $line eq '';
     $log .= "\n$line";
   }
-  Densetu::Tools::PlayerInfo->output($log);
+  Densetu::Tools::ParseBattleLog->output($log);
 
 =head1 ATTRIBUTES
 
@@ -123,7 +123,7 @@ Densetu::Tools::PlayerInfo - ログから武将情報を抽出して表示する
 
   $info->output;
   # or
-  Densetu::Tools::PlayerInfo->output($log);
+  Densetu::Tools::ParseBattleLog->output($log);
 
 ログを分析し、ログに含まれる武将情報をまとめて表示します。
 クラスメソッドとしても動作します。その場合はログ自体の情報をこのメソッドに渡す必要があります。

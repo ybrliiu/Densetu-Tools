@@ -15,15 +15,15 @@ package Densetu::Tools::UpdateTimeTable {
   sub _extract_update_time {
     my ($class, $map_log) = @_;
     my @lines = split /\n/, $map_log;
-    my @player_infomations = grep $_ =~ /【建国】/ && $_ !~ /年/ || $_ =~ /\[仕官\]/, @lines;
-    return \@player_infomations;
+    my @parse_battle_logmations = grep $_ =~ /【建国】/ && $_ !~ /年/ || $_ =~ /\[仕官\]/, @lines;
+    return \@parse_battle_logmations;
   }
 
   sub new_update_time_table {
     my ($class) = @_;
 
     my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
-    my $player_info = $class->_extract_update_time($map_log);
+    my $parse_battle_log = $class->_extract_update_time($map_log);
 
     # プレイヤーオブジェクト生成
     my %players = map {
@@ -31,7 +31,7 @@ package Densetu::Tools::UpdateTimeTable {
       my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
       $player->parse($line);
       $player->name => $player;
-    } @$player_info;
+    } @$parse_battle_log;
 
     # リセット直後のみ更新時間データを生成
     if ($map_log =~ /ゲームプログラムを開始しました。/) {
@@ -84,11 +84,6 @@ package Densetu::Tools::UpdateTimeTable {
     my $record = $RECORD->open('LOCK_EX');
     my %players = $record->map(sub {
       my ($key, $value) = @_;
-    local $SIG{__WARN__} = sub {
-      my ($mes) = @_;
-      warn "country $country_name key $key value $value";
-    };
-    
       if ($country_name eq $value->country) {
         $key => $value;
       } else {

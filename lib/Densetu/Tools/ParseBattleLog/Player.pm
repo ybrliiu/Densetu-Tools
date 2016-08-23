@@ -1,4 +1,4 @@
-package Densetu::Tools::PlayerInfo::Player {
+package Densetu::Tools::ParseBattleLog::Player {
 
   use v5.14;
   use warnings;

@@ -8,7 +8,7 @@ use lib "$FindBin::Bin/../lib";
 use Encode qw/decode/;
 binmode STDOUT, 'utf8';
 
-use Densetu::Tools::PlayerInfo;
+use Densetu::Tools::ParseBattleLog;
 
 print "id:";
 chomp(my $id = <STDIN>);
@@ -17,7 +17,7 @@ print "pass:";
 chomp(my $pass = <STDIN>);
 $pass = decode('utf8', $pass);
 
-my $info = Densetu::Tools::PlayerInfo->new(
+my $info = Densetu::Tools::ParseBattleLog->new(
   id   => $id,
   pass => $pass,
 );
@@ -31,5 +31,5 @@ while (chomp(my $line = <STDIN>)) {
   $log .= "\n$line";
 }
 $log = decode('utf8', $log);
-Densetu::Tools::PlayerInfo->output($log);
+Densetu::Tools::ParseBattleLog->output($log);
 =cut

@@ -1,5 +1,5 @@
 % layout 'default';
 % title 'Welcome';
 <h2><%= $msg %></h2>
-・<a href="/player_info">戦闘ログから武将情報抽出</a><br>
+・<a href="/parse_battle_log">戦闘ログから武将情報抽出</a><br>
 ・<a href="/update_time_table">更新表出力</a><br>

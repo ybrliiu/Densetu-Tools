@@ -59,14 +59,14 @@ package Densetu::Tools::UpdateTimeTable::Country {
 
     my $record = Record::Hash->new(file => 'etc/record/player_map_log.dat')->open('LOCK_EX');
     my $member_line = $self->_extract_member_line;
-    my @player_rows = @{ $self->_parse_player_info_row($member_line) };
+    my @player_rows = @{ $self->_parse_parse_battle_log_row($member_line) };
 
     my %match_players = map {
       my $tag = $_;
-      my $player_info = $self->_parse_player_info($tag);
-      my $player_name = $player_info->[0];
+      my $parse_battle_log = $self->_parse_parse_battle_log($tag);
+      my $player_name = $parse_battle_log->[0];
       my $player      = $self->_get_player($player_name, $record);
-      $player->set_country_member_info(@$player_info);
+      $player->set_country_member_info(@$parse_battle_log);
       $player_name => $player;
     } @player_rows;
 
@@ -84,7 +84,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
   }
 
   # 武将一覧が乗っているtableデータを行(trタグ)毎に分ける
-  sub _parse_player_info_row {
+  sub _parse_parse_battle_log_row {
     my ($self, $member_line) = @_;
     my $html = HTML::TreeBuilder->new();
     my $root = $html->parse($member_line);
@@ -94,14 +94,14 @@ package Densetu::Tools::UpdateTimeTable::Country {
   }
 
   # 武将情報が乗っている行(trタグ)を解析して武将情報を得る
-  sub _parse_player_info {
+  sub _parse_parse_battle_log {
     my ($self, $tag) = @_;
-    my @player_info = map {
+    my @parse_battle_log = map {
       my ($link) = $_->find('a');
       $link ? $link->as_text : $_->as_text;
     } $tag->find('td');
-    shift @player_info;
-    return \@player_info;
+    shift @parse_battle_log;
+    return \@parse_battle_log;
   }
 
   sub _get_player {
