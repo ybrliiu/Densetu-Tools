@@ -1,11 +1,6 @@
 % extends 'layouts/wrapper';
 % title '更新表出力';
 % content container => begin
-<div class="bg-main">
-	<div class="container text-center">
-		<h1 class="title">更新表出力</h1>
-	</div>
-</div>
 <div class="container">
   <div class="row">
     <div class="col md-2">
