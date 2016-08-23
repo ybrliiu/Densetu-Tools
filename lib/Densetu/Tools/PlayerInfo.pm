@@ -35,6 +35,7 @@ package Densetu::Tools::PlayerInfo {
       }
     };
     croak 'ログの取得に失敗しました' unless defined $output;
+
     my $players      = $self->extraction($output);
     my @sort_players = sort { $b->time_obj <=> $a->time_obj } values %$players;
 

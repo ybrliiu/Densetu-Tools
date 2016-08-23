@@ -57,7 +57,7 @@ package Densetu::Tools::UpdateTimeTable::Country {
   sub create_member_info {
     my ($self) = @_;
 
-    my $record = Record::Hash->new(File => 'etc/record/player_map_log.dat')->open('LOCK_EX');
+    my $record = Record::Hash->new(file => 'etc/record/player_map_log.dat')->open('LOCK_EX');
     my $member_line = $self->_extract_member_line;
     my @player_rows = @{ $self->_parse_player_info_row($member_line) };
 

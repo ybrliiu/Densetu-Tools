@@ -10,7 +10,7 @@ package Densetu::Tools::UpdateTimeTable {
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
 
-  my $RECORD = Record::Hash->new(File => 'etc/record/player_map_log.dat');
+  my $RECORD = Record::Hash->new(file => 'etc/record/player_map_log.dat');
   
   sub _extract_update_time {
     my ($class, $map_log) = @_;
@@ -36,7 +36,7 @@ package Densetu::Tools::UpdateTimeTable {
     # リセット直後のみ更新時間データを生成
     if ($map_log =~ /ゲームプログラムを開始しました。/) {
       my $record = $RECORD;
-      $record->Data(\%players);
+      $record->data(\%players);
       $record->make;
     } else {
       croak 'ゲーム開始から時間が経ちすぎているようなので更新時間データの生成を中止します。'
@@ -80,10 +80,15 @@ package Densetu::Tools::UpdateTimeTable {
 
   sub _delete_not_exists_player {
     my ($class, $country_name, $match_players) = @_;
-    
+
     my $record = $RECORD->open('LOCK_EX');
     my %players = $record->map(sub {
       my ($key, $value) = @_;
+    local $SIG{__WARN__} = sub {
+      my ($mes) = @_;
+      warn "country $country_name key $key value $value";
+    };
+    
       if ($country_name eq $value->country) {
         $key => $value;
       } else {
@@ -174,7 +179,7 @@ package Densetu::Tools::UpdateTimeTable {
     my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
     $player->parse($line);
     my $record = $RECORD->open('LOCK_EX');
-    $record->Data->{$player->name} = $player;
+    $record->data->{$player->name} = $player;
     $record->close();
   }
 
