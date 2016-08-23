@@ -3,7 +3,7 @@ package Densetu::Tools::PlayerInfo {
   use v5.14;
   use warnings;
   use utf8;
-  use Carp qw/croak confess/;
+  use Carp qw/croak/;
   use Class::Accessor::Lite new => 0;
 
   use Densetu::Tools::Util qw/get_data/;
@@ -17,7 +17,7 @@ package Densetu::Tools::PlayerInfo {
     sub new {
       my ($class, %args) = @_;
       for (@attributes) {
-        confess $_ . 'が指定されていません' unless exists $args{$_};
+        croak $_ . 'が指定されていません' unless exists $args{$_};
       }
       return bless \%args, $class;
     }
@@ -34,7 +34,7 @@ package Densetu::Tools::PlayerInfo {
         $log;
       }
     };
-    confess 'ログの取得に失敗しました' unless defined $output;
+    croak 'ログの取得に失敗しました' unless defined $output;
     my $players      = $self->extraction($output);
     my @sort_players = sort { $b->time_obj <=> $a->time_obj } values %$players;
 

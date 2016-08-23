@@ -3,7 +3,7 @@ package Densetu::Tools::UpdateTimeTable {
   use v5.14;
   use warnings;
   use utf8;
-  use Carp qw/croak confess/;
+  use Carp qw/croak/;
 
   use Record::Hash;
   use Densetu::Tools::Util qw/get_data/;
@@ -159,7 +159,7 @@ package Densetu::Tools::UpdateTimeTable {
   sub add_player {
     my ($class, %args) = @_;
     for (qw/name time/) {
-      confess "$_\が指定されていません" unless exists $args{$_}
+      croak "$_\が指定されていません" unless exists $args{$_}
     }
 
     my $record = $RECORD->open("LOCK_EX");
@@ -181,7 +181,7 @@ package Densetu::Tools::UpdateTimeTable {
   sub edit_player {
     my ($class, %args) = @_;
     for (qw/name time/) {
-      confess "$_\が指定されていません" unless exists $args{$_}
+      croak "$_\が指定されていません" unless exists $args{$_}
     }
 
     my $record = $RECORD->open("LOCK_EX");
