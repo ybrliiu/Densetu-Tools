@@ -20,7 +20,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     if ($pass eq $admin_pass) {
       $self->session(login => 'login');
       if ($check) {
-        my $url = $self->req->url->to_abs;
+        my $url = $self->req->url->to_abs();
         $self->cookie(pass => $pass, {max_age => 1000000, path => $url});
       }
       $self->render(text => 'success');
@@ -55,7 +55,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     };
 
     if (my $e = $@) {
-      $self->render(text => $@);
+      $self->render(text => $e);
     } else {
       $self->render(text => '編集完了しました。');
     }
@@ -68,6 +68,19 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub add {
     my ($self) = @_;
+
+    my $json = $self->req->json();
+    my @parse_lines = @{ $self->_parse_player_data($json->{player_data}) };
+
+    eval {
+      $TOOL_CLASS->add_player(%$_) for @parse_lines;
+    };
+
+    if (my $e = $@) {
+      $self->render(text => $e);
+    } else {
+      $self->render(text => '追加完了しました。');
+    }
   }
 
   sub add_input {

@@ -165,6 +165,7 @@ package Densetu::Tools::UpdateTimeTable {
     my $record = $RECORD->open("LOCK_EX");
     my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new(name => $args{name});
     $player->input_time($args{time});
+    $record->add($args{name} => $player);
     $record->close();
   }
 
