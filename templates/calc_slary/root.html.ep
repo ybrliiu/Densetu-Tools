@@ -56,34 +56,30 @@
 
   'use strict';
 
-  var CalcSlary = function(args) {
-    console.log(args);
-    this.income = parseInt(args.income);
-    this.people = parseInt(args.people);
-    this.reinforcement = parseInt(args.reinforcement);
-    this.contribute    = parseInt(args.contribute);
+  var class = DensetuTools.nameSpase('CalcSlary');
+
+  function CalcSlary(args) {
+    this.income = parseInt(args.income) || 0;
+    this.people = parseInt(args.people) || 0;
+    this.reinforcement = parseInt(args.reinforcement) || 0;
+    this.contribute = parseInt(args.contribute) || 0;
+  }
+
+  CalcSlary.prototype.calc = function() {
+    var coef  = this.income / 210 / (this.people + this.reinforcement * 3);
+    var slary = Math.round( (coef * this.contribute) + (this.contribute * 3) );
+    return slary;
   };
 
-  CalcSlary.prototype = {
-    constructor : CalcSlary,
-    calc        : function() {
-      var coef  = this.income / 210 / (this.people + this.reinforcement * 3);
-      var slary = Math.round( (coef * this.contribute) + (this.contribute * 3) );
-      return slary;
-    },
-  };
+  function CalcIncome(args) {
+    this.farmSum     = parseInt(args.farmSum) || 0;
+    this.businessSum = parseInt(args.businessSum) || 0;
+    this.farmerSum   = parseInt(args.farmerSum) || 0;
+  }
 
-  var CalcIncome = function(args) {
-    this.farmSum     = parseInt(args.farmSum);
-    this.businessSum = parseInt(args.businessSum);
-    this.farmerSum   = parseInt(args.farmerSum);
-  };
+  CalcIncome.prototype.calcOfFarm = function() { return Math.round(this.farmSum * 12 * this.farmerSum / 10000) };
 
-  CalcIncome.prototype = {
-    constructor    : CalcIncome,
-    calcOfFarm     : function() { return Math.round(this.farmSum * 12 * this.farmerSum / 10000) },
-    calcOfBusiness : function() { return Math.round(this.businessSum * 12 * this.farmerSum / 10000) },
-  };
+  CalcIncome.prototype.calcOfBusiness = function() { return Math.round(this.businessSum * 12 * this.farmerSum / 10000) };
 
   CalcIncome.prototype.calc = function() {
     document.getElementById('calc-income-farm-result').innerHTML = this.calcOfFarm();

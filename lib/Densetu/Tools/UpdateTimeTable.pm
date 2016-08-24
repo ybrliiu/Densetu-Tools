@@ -174,7 +174,7 @@ package Densetu::Tools::UpdateTimeTable {
     my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
     $player->parse($line);
     my $record = $RECORD->open('LOCK_EX');
-    $record->data->{$player->name} = $player;
+    $record->add($player->name => $player);
     $record->close();
   }
 
