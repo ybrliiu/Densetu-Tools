@@ -31,6 +31,9 @@ package Densetu::Tools::Web {
     # Normal route to controller
     $r->get('/')->to('Root#root');
 
+    # /calc_slary
+    $r->get('/calc_slary')->to('CalcSlary#root');
+
     # /parse_battle_log
     my $parse_battle_log = $r->any('/parse_battle_log')->to(controller => 'ParseBattleLog');
     $parse_battle_log->get( '/'                       )->to(action => 'root');

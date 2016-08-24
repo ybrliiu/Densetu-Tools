@@ -1,5 +1,3 @@
 # dont need log
 log/development.log
 
-# dont show password
-etc/config/app.conf

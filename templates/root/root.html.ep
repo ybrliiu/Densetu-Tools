@@ -1,5 +1,8 @@
 % layout 'default';
 % title 'denstu-tools';
-<h2><%= $msg %></h2>
-・<a href="/parse_battle_log">戦闘ログ解析(武将情報抽出)</a><br>
-・<a href="/update_time_table">更新表出力</a><br>
+<div class="container padding-top-20">
+  <h2><%= $msg %></h2>
+  ・<a href="/parse_battle_log">戦闘ログ解析(武将情報抽出)</a><br>
+  ・<a href="/update_time_table">更新表出力</a><br>
+  ・<a href="/calc_slary">給料計算</a><br>
+</div>

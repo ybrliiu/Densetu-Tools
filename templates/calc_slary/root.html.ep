@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
-
-  <link rel="stylesheet" href="css/skyblue.min.css">
-  <link rel="stylesheet" href="css/docs.css">
-  <style>
-  </style>
-  <head>
-    <title>densetu-tools</title>
-  </head>
-  <body>
-    <div class="bg-main">
-    	<div class="container text-center">
-    		<h1 class="title">更新表 管理画面</h1>
-    	</div>
-    </div>
+% layout 'default';
+% title '給料計算';
     <div class="container padding-top-20">
       <div>
         <h2>給料計算</h2>
@@ -126,5 +110,3 @@
   }, false);
 
 </script>
-  </body>
-</html>
