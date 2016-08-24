@@ -4,7 +4,8 @@
 
 var DensetuTools = DensetuTools || {};
 
-DensetuTools.nameSpace = function(pkgName) {
+// なぜかnameSpaceだと上手く行かない...(予約語？)
+DensetuTools.namespace = function(pkgName) {
 
   // 名前空間を.で区切った配列
   var parts = pkgName.split('.');
