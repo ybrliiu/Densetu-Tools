@@ -9,10 +9,21 @@
 
 ## Densetu::Tools::Web
 ツールをWEB上から利用できるアプリ  
-※管理パスワード、セッションパスワードはherokuの環境変数で設定する  
+  
+※管理パスワード、セッションパスワード,ftp host,user,passはherokuの環境変数で設定する  
+  
 `heroku config`  環境変数一覧  
 `heroku config:add`  環境変数追加  
 `heroku config:remove`  環境変数削除  
+
+### 設定必要な環境変数一覧
+```
+ADMIN_PASSWORD
+SESSION_PASSWORD
+FTP_HOST
+FTP_PASSWORD
+FTP_USER
+```
 
 ## Densetu::Tools::ParseBattleLog
 
