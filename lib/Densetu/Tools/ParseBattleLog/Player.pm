@@ -6,17 +6,19 @@ package Densetu::Tools::ParseBattleLog::Player {
   use Class::Accessor::Lite new => 0;
 
   use Time::Piece;
+  use Unicode::Japanese;
 
   {
     my %attributes = (
-      type      => undef,
-      name      => undef,
-      status    => undef,
-      formation => undef,
-      soldier   => undef,
-      time      => undef,
-      time_obj  => undef,
-      skill     => [],
+      type         => undef,
+      name         => undef,
+      status       => undef,
+      status_notes => '',
+      formation    => undef,
+      soldier      => undef,
+      time         => undef,
+      time_obj     => undef,
+      skill        => [],
     );
 
     Class::Accessor::Lite->mk_accessors(keys %attributes);
@@ -68,6 +70,7 @@ package Densetu::Tools::ParseBattleLog::Player {
     $self->extract_formation($log->[$i]);
     $self->extract_soldier($log, $i);
     $self->extract_status($log, $i);
+    $self->extract_status_notes($log, $i);
   }
 
   sub extract_time_and_time_obj {
@@ -91,12 +94,19 @@ package Densetu::Tools::ParseBattleLog::Player {
     my ($self, $log, $i) = @_;
     while (1) {
       $i--;
+
       if ($log->[$i] =~ /\|/ && $log->[$i] =~ /ターン/) {
         my $name         = $self->{name} . ' ';
         (my $soldier)    = ($log->[$i] =~ /$name(.*?) /);
         (my $lank)       = ($soldier =~ /【(.*?)ランク】/);
         (my $type)       = ($soldier =~ /ランク】\((.*?)\)/);
         $self->{soldier} = "$lank$type";
+
+        unless ($self->{soldier}) {
+          ($self->{soldier} = $soldier) =~ s/隊//g;
+          $self->{soldier} =~ s/\(無し\)//g;
+        }
+
         last;
       }
     }
@@ -122,6 +132,19 @@ package Densetu::Tools::ParseBattleLog::Player {
     }
   }
 
+  sub extract_status_notes {
+    my ($self, $log, $i) = @_;
+    while ($log->[$i] !~ /の最大ダメージ：/) {
+      $i--;
+      my $line = $log->[$i];
+      if ($line =~ /【万歳突撃】/) {
+        (my $info) = ($line =~ /敵軍の攻撃力が(.*?)％アップ/);
+        $info = Unicode::Japanese->new($info)->z2h->get();
+        $self->{status_notes} .= "万歳+${info}%";
+      }
+    }
+  }
+
   sub unique_key {
     my ($self) = @_;
     return $self->{name} . '(' . $self->{type} . ')';
@@ -134,13 +157,7 @@ package Densetu::Tools::ParseBattleLog::Player {
 
   sub output {
     my ($self) = @_;
-    return sprintf(
-      "%-*s %-*s %-*s %-*s \n",
-      40 - multi_byte($self->{status}), $self->{status},
-      7 - multi_byte($self->{soldier}), $self->{soldier},
-      7 - multi_byte($self->{formation}), $self->{formation},
-      10 - multi_byte($self->{time}), $self->{time},
-    );
+    return "$self->{status}$self->{status_notes}　$self->{soldier}　$self->{formation}　$self->{time}\n";
   }
 
   sub multi_byte {
