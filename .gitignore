@@ -3,4 +3,4 @@ log/development.log
 
 # recordのデータ自体も管理から外す
 etc/record/*
-!.gitkeep
+!etc/record/.gitkeep

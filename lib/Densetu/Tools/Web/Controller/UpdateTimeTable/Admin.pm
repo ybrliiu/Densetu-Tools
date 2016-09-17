@@ -170,7 +170,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
       user     => $ENV{FTP_USER},
       password => $ENV{FTP_PASSWORD},
     );
-    $ftp->cwd('www/');
+    $ftp->cwd('www/') || die 'failed cwd www/';
     $code->($ftp);
     $ftp->quit();
   }
