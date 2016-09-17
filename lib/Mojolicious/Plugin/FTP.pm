@@ -13,8 +13,8 @@ package Mojolicious::Plugin::FTP {
         croak "Please specify $_" unless defined $args{$_};
       }
 
-      my $ftp = Net::FTP->new($args{host}, Debug => 0) || warn "connect failed.\n";
-      $ftp->login($args{user}, $args{password}) || warn "login failed.\n", $ftp->message;
+      my $ftp = Net::FTP->new($args{host}, Debug => 0) || die "connect failed.\n";
+      $ftp->login($args{user}, $args{password}) || die "login failed.\n", $ftp->message;
       $ftp;
     });
   }

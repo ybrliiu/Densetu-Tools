@@ -170,7 +170,8 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
       user     => $ENV{FTP_USER},
       password => $ENV{FTP_PASSWORD},
     );
-    $ftp->cwd('/www') || die 'Cannot change working directory', $ftp->message;
+    die "this is ls", $ftp, $ftp->dir(), $ftp->ls(), $ftp->pwd();
+    $ftp->cwd('/home/lunadraco/www') || die 'Cannot change working directory ', $ftp->message;
     $code->($ftp);
     $ftp->quit();
   }
