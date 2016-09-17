@@ -7,6 +7,7 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use Encode qw/decode/;
 binmode STDOUT, 'utf8';
+binmode STDIN, 'utf8';
 
 use Densetu::Tools::UpdateTimeTable;
 
