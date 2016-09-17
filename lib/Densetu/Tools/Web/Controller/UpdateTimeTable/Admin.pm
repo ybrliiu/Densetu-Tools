@@ -158,6 +158,59 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     $self->render();
   }
 
+  sub file_manager {
+    my ($self) = @_;
+    $self->render();
+  }
+
+  sub _ftp_session {
+    my ($self, $code) = @_;
+    my $ftp = $self->ftp(
+      host     => $ENV{FTP_HOST},
+      user     => $ENV{FTP_USER},
+      password => $ENV{FTP_PASSWORD},
+    );
+    $ftp->cwd('www/');
+    $code->($ftp);
+    $ftp->quit();
+  }
+  
+  sub download {
+    my ($self) = @_;
+
+    eval {
+      $self->_ftp_session(sub {
+        my ($ftp) = @_;
+        $ftp->get('player_map_log.dat', 'etc/record/player_map_log.dat') || die 'download failed.', $ftp->message;
+      });
+    };
+
+    if (my $e = $@) {
+      $self->render(text => $e);
+    } else {
+      $self->render(text => 'downloadに成功しました.');
+    }
+
+  }
+
+  sub upload {
+    my ($self) = @_;
+
+    eval {
+      $self->_ftp_session(sub {
+        my ($ftp) = @_;
+        $ftp->put('etc/record/player_map_log.dat', 'player_map_log.dat') || die 'put failed.', $ftp->message;
+      });
+    };
+
+    if (my $e = $@) {
+      $self->render(text => $e);
+    } else {
+      $self->render(text => 'uploadに成功しました.');
+    }
+
+  }
+
 }
 
 1;

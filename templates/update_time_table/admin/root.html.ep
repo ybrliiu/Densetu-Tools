@@ -19,6 +19,12 @@
         </label>
       </div>
       <div>
+        <h2 class="padding-top-20">更新表データ管理</h2>
+        <label>
+          (Heroku向け)更新表データをサーバからダウンロード/アップロードします。<br>
+        </label>
+      </div>
+      <div>
         <h2 class="padding-top-20">更新表リセット</h2>
         <label>
           前期の更新表を削除し、新しい期の更新表を生成します。<br>

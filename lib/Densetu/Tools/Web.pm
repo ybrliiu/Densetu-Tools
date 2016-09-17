@@ -97,6 +97,9 @@ package Densetu::Tools::Web {
         $auth->post('/add_from_line'      )->to(action => 'add_from_line');
         $auth->get( '/new_table_input'    )->to(action => 'new_table_input');
         $auth->post('/new_table'          )->to(action => 'new_table');
+        $auth->get( '/file_manager'       )->to(action => 'file_manager');
+        $auth->post('/upload'             )->to(action => 'upload');
+        $auth->post('/download'           )->to(action => 'download');
       }
     }
 

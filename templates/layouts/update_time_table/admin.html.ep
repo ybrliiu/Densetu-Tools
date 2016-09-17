@@ -9,6 +9,7 @@
         <a href="/update_time_table/admin/edit_input">武将情報編集</a>
         <a href="/update_time_table/admin/add_input">武将追加</a>
         <a href="/update_time_table/admin/add_from_line_input">武将追加(仕官ログから)</a>
+        <a href="/update_time_table/admin/file_manager">更新表データ管理</a>
         <a href="/update_time_table/admin/new_table_input">更新表リセット</a>
         <a href="/update_time_table/admin/logout">ログアウト</a>
       </div>
