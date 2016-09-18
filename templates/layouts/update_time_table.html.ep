@@ -5,10 +5,10 @@
   <div class="row">
     <div class="col md-2">
       <div class="sidemenu padding-y-20">
-        <a href="/update_time_table">トップ</a>
-        <a href="/update_time_table/get_table_input">国を指定して出力</a>
-        <a href="/update_time_table/get_mix_table_input">対戦国と混ぜて出力</a>
-        <a href="/update_time_table/admin_login_input">管理画面にログイン</a>
+        <a href="<%= url_for('/update_time_table') %>">トップ</a>
+        <a href="<%= url_for('/update_time_table/get_table_input') %>">国を指定して出力</a>
+        <a href="<%= url_for('/update_time_table/get_mix_table_input') %>">対戦国と混ぜて出力</a>
+        <a href="<%= url_for('/update_time_table/admin_login_input') %>">管理画面にログイン</a>
       </div>
     </div>
   	<div class="col md-10 padding-y-20">

@@ -5,13 +5,13 @@
   <div class="row">
     <div class="col md-2">
       <div class="sidemenu padding-y-20">
-        <a href="/update_time_table/admin">トップ</a>
-        <a href="/update_time_table/admin/edit_input">武将情報編集</a>
-        <a href="/update_time_table/admin/add_input">武将追加</a>
-        <a href="/update_time_table/admin/add_from_line_input">武将追加(仕官ログから)</a>
-        <a href="/update_time_table/admin/file_manager">更新表データ管理</a>
-        <a href="/update_time_table/admin/new_table_input">更新表リセット</a>
-        <a href="/update_time_table/admin/logout">ログアウト</a>
+        <a href="<%= url_for('/update_time_table/admin') %>">トップ</a>
+        <a href="<%= url_for('/update_time_table/admin/edit_input') %>">武将情報編集</a>
+        <a href="<%= url_for('/update_time_table/admin/add_input') %>">武将追加</a>
+        <a href="<%= url_for('/update_time_table/admin/add_from_line_input') %>">武将追加(仕官ログから)</a>
+        <a href="<%= url_for('/update_time_table/admin/file_manager') %>">更新表データ管理</a>
+        <a href="<%= url_for('/update_time_table/admin/new_table_input') %>">更新表リセット</a>
+        <a href="<%= url_for('/update_time_table/admin/logout') %>">ログアウト</a>
       </div>
     </div>
   	<div class="col md-10 padding-y-20">

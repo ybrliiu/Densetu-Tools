@@ -2,11 +2,11 @@
 <html>
   <meta charset="UTF-8" >
   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
-  <link rel="stylesheet" href="/css/skyblue.min.css">
-  <link rel="stylesheet" href="/css/docs.css">
-  %= javascript '/js/jquery-3.1.0.min.js';
-  %= javascript '/js/densetu-tools.js';
-  %= javascript '/js/send-json.js';
+  %= stylesheet url_for('/css/skyblue.min.css');
+  %= stylesheet url_for('/css/docs.css');
+  %= javascript url_for('/js/jquery-3.1.0.min.js');
+  %= javascript url_for('/js/densetu-tools.js');
+  %= javascript url_for('/js/send-json.js');
   <head>
     <title><%= $title %></title>
   </head>
@@ -14,7 +14,7 @@
 <div class="bg-main">
 	<div class="container text-center">
     <div class="home-link font-icon-detail">
-      <a href="/"><span class="icon-home"></span></a>
+      <a href="<%= url_for('/') %>"><span class="icon-home"></span></a>
     </div>
 		<h1 class="title"><%= $title %></h1>
 	</div>

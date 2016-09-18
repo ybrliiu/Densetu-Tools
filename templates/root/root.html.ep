@@ -2,7 +2,7 @@
 % title 'denstu-tools';
 <div class="container padding-top-20">
   <h2><%= $msg %></h2>
-  ・<a href="/parse_battle_log">戦闘ログ解析(武将情報抽出)</a><br>
-  ・<a href="/update_time_table">更新表出力</a><br>
-  ・<a href="/calc_slary">給料計算</a><br>
+  ・<a href="<%= url_for('/parse_battle_log') %>">戦闘ログ解析(武将情報抽出)</a><br>
+  ・<a href="<%= url_for('/update_time_table') %>">更新表出力</a><br>
+  ・<a href="<%= url_for('/calc_slary') %>">給料計算</a><br>
 </div>

@@ -5,9 +5,9 @@
   <div class="row">
     <div class="col md-2">
       <div class="sidemenu padding-y-20">
-        <a href="/parse_battle_log">トップ</a>
-        <a href="/parse_battle_log/get_info_input">戦闘ログ解析</a>
-        <a href="/parse_battle_log/get_info_from_log_input">戦闘ログを貼り付けて解析</a>
+        <a href="<%= url_for('/parse_battle_log') %>">トップ</a>
+        <a href="<%= url_for('/parse_battle_log/get_info_input') %>">戦闘ログ解析</a>
+        <a href="<%= url_for('/parse_battle_log/get_info_from_log_input') %>">戦闘ログを貼り付けて解析</a>
       </div>
     </div>
   	<div class="col md-10 padding-y-20">

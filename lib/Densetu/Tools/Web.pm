@@ -49,8 +49,8 @@ package Densetu::Tools::Web {
 
     # load plugin
     # when you use Heroku, need to do this  process.
-    $self->plugin('FTP');
-    $self->_download_dat();
+    # $self->plugin('FTP');
+    # $self->_download_dat();
 
     # Router
     my $r = $self->routes;
@@ -107,6 +107,7 @@ package Densetu::Tools::Web {
 
   # when stop server
   # when you use heroku, need to do this process.
+=head1
   sub DESTROY {
     my ($self) = @_;
     $self->_ftp_session(sub {
@@ -115,6 +116,7 @@ package Densetu::Tools::Web {
       warn "upload succes\n";
     });
   }
+=cut
 
 }
 
