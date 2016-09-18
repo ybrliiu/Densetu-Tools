@@ -170,7 +170,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
       user     => $ENV{FTP_USER},
       password => $ENV{FTP_PASSWORD},
     );
-    $ftp->cwd('/home/lunadraco/www') || die 'Cannot change working directory ', $ftp->message;
+    $ftp->cwd('www/') || die 'Cannot change working directory ', $ftp->message;
     $code->($ftp);
     $ftp->quit();
   }
@@ -181,7 +181,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     eval {
       $self->_ftp_session(sub {
         my ($ftp) = @_;
-        $ftp->get('player_map_log.dat', 'etc/record/player_map_log.dat') || die 'download failed.', $ftp->message;
+        $ftp->get('player_map_log.dat', 'tmp/player_map_log.dat') || die 'download failed.', $ftp->message;
       });
     };
 
@@ -199,7 +199,7 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     eval {
       $self->_ftp_session(sub {
         my ($ftp) = @_;
-        $ftp->put('etc/record/player_map_log.dat', 'player_map_log.dat') || die 'put failed.', $ftp->message;
+        $ftp->put('tmp/player_map_log.dat', 'player_map_log.dat') || die 'put failed.', $ftp->message;
       });
     };
 

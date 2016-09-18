@@ -28,7 +28,7 @@ package Densetu::Tools::Web {
     my ($self) = @_;
     $self->_ftp_session(sub {
       my ($ftp) = @_;
-      $ftp->get('player_map_log.dat', 'etc/record/player_map_log.dat') || warn 'get failed.', $ftp->message;
+      $ftp->get('player_map_log.dat', 'tmp/player_map_log.dat') || warn 'get failed.', $ftp->message;
       warn "download success\n";
     });
   }
@@ -111,7 +111,7 @@ package Densetu::Tools::Web {
     my ($self) = @_;
     $self->_ftp_session(sub {
       my ($ftp) = @_;
-      $ftp->put('etc/record/player_map_log.dat', 'player_map_log.dat') || warn 'put failed.', $ftp->message;
+      $ftp->put('tmp/player_map_log.dat', 'player_map_log.dat') || warn 'put failed.', $ftp->message;
       warn "upload succes\n";
     });
   }
