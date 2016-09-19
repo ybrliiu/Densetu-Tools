@@ -7,5 +7,7 @@ use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
 use Mojolicious::Commands;
 
+$ENV{MOJO_MODE} = 'development';
+
 # Start command line interface for application
 Mojolicious::Commands->start_app('Densetu::Tools::Web');
