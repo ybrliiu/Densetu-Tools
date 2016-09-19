@@ -1,9 +1,10 @@
 package Record::Base {
 
   use Record;
-  use Carp qw/croak confess/; # モジュールでのdie;
+  use Record::Exception;
+  use Carp qw/croak/;
   use Class::Accessor::Lite new => 0;
-  use Storable qw/fd_retrieve nstore_fd nstore/; # データ保存用
+  use Storable qw/fd_retrieve nstore_fd nstore/;
   
   sub data {
     my $self = shift;
@@ -39,33 +40,37 @@ package Record::Base {
     my ($self, $lock_type) = @_;
 
     if ( $self->mode($lock_type) ) {
-      open($self->{fh}, '+<', $self->{file}) or confess "fileopen失敗:$!" . $self->{file};
-      flock($self->{fh}, $self->mode($lock_type)) or confess "flock失敗:$!";
+      open($self->{fh}, '+<', $self->{file}) or Record::Exception->throw("fileopen失敗:$!", $self);
+      flock($self->{fh}, $self->mode($lock_type)) or Record::Exception->throw("flock失敗:$!", $self);
       $self->data(fd_retrieve $self->{fh});
     } else {
-      open(my $fh, '<', $self->{file}) or confess "fileopen失敗:$!" . $self->{file};
+      open(my $fh, '<', $self->{file}) or Record::Exception->throw("fileopen失敗:$!", $self);
       $self->data(fd_retrieve $fh);
       $fh->close;
     }
 
-    return $self; # メソッドチェーン用
+    return $self;
   }
   
   # ファイル作成
   sub make {
     my $self = shift;
     nstore($self->data, $self->file);
-    return $self; # メソッドチェーン用
+    return $self;
   }
   
   # ファイル閉じる
   sub close {
     my $self = shift;
-    truncate($self->{fh}, 0) or confess '多分書き込みモードでファイルを開いていないか、書き込みモードで2度ファイルを開いています';
-    seek($self->{fh}, 0, 0) or confess 'seek失敗';
-    nstore_fd($self->data, $self->{fh}) or confess 'nstore_fd失敗';
+    truncate($self->{fh}, 0)
+      or Record::Exception->throw(
+        '多分書き込みモードでファイルを開いていないか、書き込みモードで2度ファイルを開いています',
+        $self,
+      );
+    seek($self->{fh}, 0, 0) or Record::Exception->throw('seek失敗', $self);
+    nstore_fd($self->data, $self->{fh}) or Record::Exception->throw('nstore_fd失敗', $self);
     $self->data(undef);
-    close($self->{fh}) or confess 'close失敗';
+    close($self->{fh}) or Record::Exception->throw('close失敗', $self);
     return 1;
   }
   

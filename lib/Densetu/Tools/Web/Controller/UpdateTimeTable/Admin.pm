@@ -54,7 +54,9 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     };
 
     if (my $e = $@) {
-      $self->render(text => $e);
+      Record::Exception->caught($e)
+        ? $self->render(text => $e->message)
+        : $self->render(text => $e);
     } else {
       $self->render(text => '編集完了しました。');
     }
@@ -76,7 +78,9 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     };
 
     if (my $e = $@) {
-      $self->render(text => $e);
+      Record::Exception->caught($e)
+        ? $self->render(text => $e->message)
+        : $self->render(text => $e);
     } else {
       $self->render(text => '追加完了しました。');
     }
@@ -122,7 +126,9 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
     };
 
     if (my $e = $@) {
-      $self->render(text => $e);
+      Record::Exception->caught($e)
+        ? $self->render(text => $e->message)
+        : $self->render(text => $e);
     } else {
       $self->render(text => '武将情報追加完了しました。');
     }

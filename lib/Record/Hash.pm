@@ -2,13 +2,13 @@ package Record::Hash {
   
   use parent 'Record::Base';
   use Record;
-  use Carp qw/croak/; # モジュールでのdie;
+  use Record::Exception;
   
   # データ取得
   sub find {
     my ($self, $key) = @_;
     my $data = $self->data;
-    return exists($data->{$key}) ? $data->{$key} : croak 'キーが存在しません';
+    return exists($data->{$key}) ? $data->{$key} : Record::Exception->throw('キーが存在しません', $self);
   }
 
   # キーに対応するデータの存在確認
@@ -44,8 +44,8 @@ package Record::Hash {
   sub add {
     my ($self, $key, $obj) = @_;
     my $data = $self->data;
-    croak '空文字列をキーとして使用することはできません' if $key eq '';
-    croak '既に同じキーのデータがあります' if exists $data->{$key};
+    Record::Exception->throw('空文字列をキーとして使用することはできません', $self) if $key eq '';
+    Record::Exception->throw('既に同じキーのデータがあります', $self) if exists $data->{$key};
     $data->{$key} = $obj;
     $self->data($data);
     return $self;
