@@ -1,4 +1,4 @@
 # dont need log
-log/development.log
+log/*
+!log/.gitkeep
 
-# recordのデータ自体も管理から外す
