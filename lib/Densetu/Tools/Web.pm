@@ -28,7 +28,7 @@ package Densetu::Tools::Web {
     # load plugin
     my $plugin_config = $self->config->{app}{plugin};
     $self->plugin('FTP') if $plugin_config->{FTP};
-    $self->plugin('ProxyPassReverse::SubDir') if $plugin_config->{SubDir};
+    $self->plugin('ProxyPassReverse::SubDir') if $plugin_config->{'ProxyPassReverse::SubDir'};
 
     # Router
     my $r = $self->routes;
