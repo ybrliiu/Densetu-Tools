@@ -12,28 +12,6 @@ package Densetu::Tools::Web {
     $self->sessions->default_expiration($session->{expiration});
   }
 
-  sub _ftp_session {
-    my ($self, $code) = @_;
-    my $ftp = $self->ftp(
-      host     => $ENV{FTP_HOST},
-      user     => $ENV{FTP_USER},
-      password => $ENV{FTP_PASSWORD},
-    );
-    $ftp->cwd('www/');
-    $code->($ftp);
-    $ftp->quit();
-  }
-  
-  sub _download_dat {
-    my ($self) = @_;
-    $self->_ftp_session(sub {
-      my ($ftp) = @_;
-      $ftp->get('player_map_log.dat', 'etc/record/player_map_log.dat') || warn 'get failed.', $ftp->message;
-      warn "download success\n";
-    });
-  }
-  
-
   sub startup {
     my ($self) = @_;
 
@@ -48,9 +26,9 @@ package Densetu::Tools::Web {
     );
 
     # load plugin
-    # when you use Heroku, need to do this  process.
-    # $self->plugin('FTP');
-    # $self->_download_dat();
+    my $plugin_config = $self->config->{app}{plugin};
+    $self->plugin('FTP') if $plugin_config->{FTP};
+    $self->plugin('ProxyPassReverse::SubDir') if $plugin_config->{SubDir};
 
     # Router
     my $r = $self->routes;
@@ -104,19 +82,6 @@ package Densetu::Tools::Web {
     }
 
   }
-
-  # when stop server
-  # when you use heroku, need to do this process.
-=head1
-  sub DESTROY {
-    my ($self) = @_;
-    $self->_ftp_session(sub {
-      my ($ftp) = @_;
-      $ftp->put('etc/record/player_map_log.dat', 'player_map_log.dat') || warn 'put failed.', $ftp->message;
-      warn "upload succes\n";
-    });
-  }
-=cut
 
 }
 

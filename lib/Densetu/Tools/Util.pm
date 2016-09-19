@@ -5,11 +5,15 @@ package Densetu::Tools::Util {
   use utf8;
   use Carp qw/croak/;
 
-  use Exporter 'import';
-  our @EXPORT_OK = qw/get_data/;
-
+  use Config::PL;
   use LWP::UserAgent;
   use Encode qw/decode/;
+
+  use constant UPDATE_TIME_TABLE_PATH => config_do('etc/config/app.conf')->{app}{update_time_table_path};
+
+  use Exporter 'import';
+  our @EXPORT = qw/UPDATE_TIME_TABLE_PATH/;
+  our @EXPORT_OK = qw/get_data/;
 
   sub get_data {
     my ($url) = @_;

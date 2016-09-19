@@ -6,11 +6,11 @@ package Densetu::Tools::UpdateTimeTable {
   use Carp qw/croak/;
 
   use Record::Hash;
-  use Densetu::Tools::Util qw/get_data/;
+  use Densetu::Tools::Util qw/:DEFAULT get_data/;
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
 
-  my $RECORD = Record::Hash->new(file => 'etc/record/player_map_log.dat');
+  my $RECORD = Record::Hash->new(file => UPDATE_TIME_TABLE_PATH());
   
   sub _extract_update_time {
     my ($class, $map_log) = @_;
