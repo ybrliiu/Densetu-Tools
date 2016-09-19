@@ -10,7 +10,7 @@ package Densetu::Tools::UpdateTimeTable {
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
 
-  my $RECORD = Record::Hash->new(file => 'tmp/player_map_log.dat');
+  my $RECORD = Record::Hash->new(file => 'etc/record/player_map_log.dat');
   
   sub _extract_update_time {
     my ($class, $map_log) = @_;
