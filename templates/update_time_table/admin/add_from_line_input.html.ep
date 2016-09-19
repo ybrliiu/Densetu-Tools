@@ -21,7 +21,7 @@
 
   document.getElementById('submit').addEventListener('click', function(eve) {
     var json = {line_data : document.getElementById('line_data').value};
-    sendJson(json, '/update_time_table/admin/add_from_line');
+    sendJson(json, '<%= url_for('/update_time_table/admin/add_from_line') %>');
   }, false);
 
 </script>

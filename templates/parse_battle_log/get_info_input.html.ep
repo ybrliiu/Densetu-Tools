@@ -30,7 +30,7 @@
       pass  : document.getElementById('pass').value,
       check : document.getElementById('check').value,
     };
-    sendJson(json, '/parse_battle_log/get_info');
+    sendJson(json, '<%= url_for('/parse_battle_log/get_info') %>');
   }, false);
 
 </script>

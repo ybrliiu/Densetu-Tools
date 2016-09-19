@@ -16,7 +16,7 @@
 
   document.getElementById('submit').addEventListener('click', function(eve) {
     var json = {};
-    sendJson(json, '/update_time_table/admin/new_table');
+    sendJson(json, '<%= url_for('/update_time_table/admin/new_table') %>');
   }, false);
 
 </script>

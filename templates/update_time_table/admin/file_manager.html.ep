@@ -16,12 +16,12 @@
 
   document.getElementById('download').addEventListener('click', function(eve) {
     var json = {};
-    sendJson(json, '/update_time_table/admin/download');
+    sendJson(json, '<%= url_for('/update_time_table/admin/download') %>');
   }, false);
 
   document.getElementById('upload').addEventListener('click', function(eve) {
     var json = {};
-    sendJson(json, '/update_time_table/admin/upload');
+    sendJson(json, '<%= url_for('/update_time_table/admin/upload') %>');
   }, false);
 
 </script>

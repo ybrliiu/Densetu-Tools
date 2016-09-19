@@ -28,7 +28,7 @@
 
   function login(json) {
     $.ajax({
-      url         : '/update_time_table/admin/login',
+      url         : '<%= url_for('/update_time_table/admin/login') %>',
       type        : 'POST',
       cache       : false,
       data        : JSON.stringify(json),
@@ -38,7 +38,7 @@
       },
     }).done(function(data, textStatus, jqXHR) {
       if (data === 'success') {
-        window.location.href = '/update_time_table/admin';
+        window.location.href = '<%= url_for('/update_time_table/admin') %>';
       } else {
         document.getElementById('result').innerHTML = data;
       }

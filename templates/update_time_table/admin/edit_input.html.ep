@@ -19,7 +19,7 @@
 
   document.getElementById('submit').addEventListener('click', function(eve) {
     var json = {player_data : document.getElementById('player_data').value};
-    sendJson(json, '/update_time_table/admin/edit');
+    sendJson(json, '<%= url_for('/update_time_table/admin/edit') %>');
   }, false);
 
 </script>

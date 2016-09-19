@@ -17,7 +17,7 @@
 
   document.getElementById('submit').addEventListener('click', function(eve) {
     var json = {country : document.getElementById('country').value};
-    sendJson(json, '/update_time_table/get_table');
+    sendJson(json, '<%= url_for('/update_time_table/get_table') %>');
   }, false);
 
 </script>

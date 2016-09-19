@@ -24,7 +24,7 @@
       country1 : document.getElementById('country1').value,
       country2 : document.getElementById('country2').value,
     };
-    sendJson(json, '/update_time_table/get_mix_table');
+    sendJson(json, '<%= url_for('/update_time_table/get_mix_table') %>');
   }, false);
 
 </script>

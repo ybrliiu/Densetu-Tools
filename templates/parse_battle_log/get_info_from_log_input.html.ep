@@ -18,7 +18,7 @@
 
   document.getElementById('submit').addEventListener('click', function(eve) {
     var json = {log : document.getElementById('log').value};
-    sendJson(json, '/parse_battle_log/get_info_from_log');
+    sendJson(json, '<%= url_for('/parse_battle_log/get_info_from_log') %>');
   }, false);
 
 </script>
