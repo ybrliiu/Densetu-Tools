@@ -1,7 +1,6 @@
 package Densetu::Tools::Web {
 
   use Mojo::Base 'Mojolicious';
-  use Mojolicious::Plugin::FTP;
 
   sub setup_session {
     my ($self) = @_;
