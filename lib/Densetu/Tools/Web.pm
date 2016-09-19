@@ -5,7 +5,7 @@ package Densetu::Tools::Web {
 
   sub setup_session {
     my ($self) = @_;
-    $self->plugin('Config', {file => "etc/config/$_.conf"}) for qw/app hypnotoad/;
+    $self->plugin('Config', {file => "etc/config/$_.conf"}) for qw/app hypnotoad ftp/;
     my $session = $self->config->{app}{session};
     $self->secrets([$session->{password}]);
     $self->sessions->cookie_name($session->{cookie_name});

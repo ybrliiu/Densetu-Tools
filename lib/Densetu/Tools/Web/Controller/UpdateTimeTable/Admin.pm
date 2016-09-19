@@ -165,10 +165,11 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable::Admin {
 
   sub _ftp_session {
     my ($self, $code) = @_;
+    my $ftp_config = $self->config->{ftp};
     my $ftp = $self->ftp(
-      host     => $ENV{FTP_HOST},
-      user     => $ENV{FTP_USER},
-      password => $ENV{FTP_PASSWORD},
+      host     => $ftp_config->{host} // $ENV{FTP_HOST},
+      user     => $ftp_config->{user} // $ENV{FTP_USER},
+      password => $ftp_config->{password} // $ENV{FTP_PASSWORD},
     );
     $ftp->cwd('www/') || die 'Cannot change working directory ', $ftp->message;
     $code->($ftp);
