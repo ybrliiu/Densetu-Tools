@@ -1,10 +1,10 @@
 % layout 'update_time_table/admin';
       <div>
         <h2>更新表リセット</h2>
-        <label>
+        <p>
           前期の更新表データを削除して、新しい期の更新表データを生成します。<br>
           この機能が使用できるのは、マップログからリセット直後であることがわかる間だけです。<br>
-        </label>
+        </p>
         <input type="button" id="submit" class="btn btn-empty" value="リセット">
         <div id="result">
         </div>

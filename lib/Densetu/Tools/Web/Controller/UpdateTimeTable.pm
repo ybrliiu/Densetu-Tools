@@ -17,12 +17,11 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable {
     my ($self) = @_;
 
     my $json = $self->req->json;
-    my $table;
-    eval {
-      $table = Densetu::Tools::UpdateTimeTable->output_table(country => $json->{country});
+    my $table = eval {
+      Densetu::Tools::UpdateTimeTable->output_table(country => $json->{country});
     };
     if (my $e = $@) {
-      $table = $e;
+      return $self->render(text => $e);
     }
 
     $self->render(text => $table);
@@ -37,15 +36,14 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable {
     my ($self) = @_;
 
     my $json = $self->req->json;
-    my $table;
-    eval {
-      $table = Densetu::Tools::UpdateTimeTable->output_mix_table(
+    my $table = eval {
+      Densetu::Tools::UpdateTimeTable->output_mix_table(
         country1 => $json->{country1},
         country2 => $json->{country2},
       );
     };
     if (my $e = $@) {
-      $table = $e;
+      return $self->render(text => $e);
     }
 
     $self->render(text => $table);

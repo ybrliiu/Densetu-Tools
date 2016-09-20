@@ -1,9 +1,7 @@
 % layout 'update_time_table/admin';
       <div>
         <h2>武将追加(仕官ログから)</h2>
-        <label>
-          追加する武将の仕官ログを貼り付けて下さい。<br>
-        </label>
+        <p>追加する武将の仕官ログを貼り付けて下さい。</p>
 <pre class="prettyprint">
 【書式】
 ・[仕官]新しく武将AがA国に仕官しました。(1日21時00分00秒)

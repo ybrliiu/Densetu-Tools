@@ -1,33 +1,27 @@
 % layout 'update_time_table/admin';
       <div>
         <h2>武将情報編集</h2>
-        <label>
-          武将の更新時間を編集します。<br>
-        </label>
+        <p>武将の更新時間を編集します。</p>
       </div>
       <div>
         <h2 class="padding-top-20">武将追加</h2>
-        <label>
-          更新表に新しい武将を追加します。<br>
-        </label>
+        <p>更新表に新しい武将を追加します。</p>
       </div>
       <div>
         <h2 class="padding-top-20">武将追加(仕官ログから)</h2>
-        <label>
+        <p>
           更新表に新しい武将を追加します。<br>
           こちらの方では仕官ログをそのまま貼り付けることで武将情報を追加できます。<br>
-        </label>
+        </p>
       </div>
       <div>
         <h2 class="padding-top-20">更新表データ管理</h2>
-        <label>
-          (Heroku向け)更新表データをサーバからダウンロード/アップロードします。<br>
-        </label>
+        <p>(Heroku向け)更新表データをサーバからダウンロード/アップロードします。</p>
       </div>
       <div>
         <h2 class="padding-top-20">更新表リセット</h2>
-        <label>
+        <p>
           前期の更新表を削除し、新しい期の更新表を生成します。<br>
           この機能が使用できるのはリセットから暫くの間だけですので注意して下さい。<br>
-        </label>
+        </p>
       </div>

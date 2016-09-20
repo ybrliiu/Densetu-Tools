@@ -4,6 +4,12 @@
       <div>
         <h2>給料計算</h2>
         <div class="row">
+          <div class="col md-12">
+            <p>求めたい値の欄を空白にして計算ボタンを押してください。</p>
+            <p id="calc-slary-error" class="color-error"></p>
+          </div>
+        </div>
+        <div class="row">
           <div class="col md-2">
             <label>収入</label>
             <input id="calc-slary-income" class="form-control" type="text">
@@ -14,18 +20,21 @@
           </div>
           <div class="col md-2">
             <label>援軍</label>
-            <input id="calc-slary-reinforcement" class="form-control" type="text">
+            <input id="calc-slary-reinforcement" class="form-control" type="text" value="0">
           </div>
           <div class="col md-2">
             <label>貢献値</label>
-            <input id="calc-slary-contribute" class="form-control" type="text">
+            <input id="calc-slary-contribute" class="form-control" type="text" value="200">
           </div>
-          <div class="col md-4">
+          <div class="col md-2">
+            <label>1人あたり給料</label>
+            <input id="calc-slary-slary" class="form-control" type="text">
+          </div>
+          <div class="col md-2">
             <label>　</label>
             <input type="button" id="calc-slary" class="btn btn-empty" value="計算">
           </div>
         </div>
-        1人あたり給料:<div id="calc-slary-result">0</div>
       </div>
 
       <div>
@@ -56,59 +65,151 @@
 
   'use strict';
 
-  DensetuTools.namespace('CalcSlary');
+  (function () { 
 
-  DensetuTools.CalcSlary = function(args) {
-    this.income = parseInt(args.income) || 0;
-    this.people = parseInt(args.people) || 0;
-    this.reinforcement = parseInt(args.reinforcement) || 0;
-    this.contribute = parseInt(args.contribute) || 0;
-  };
+    DensetuTools.namespace('CalcSlary');
 
-  DensetuTools.CalcSlary.prototype.calc = function() {
-    var coef  = this.income / 210 / (this.people + this.reinforcement * 3);
-    var slary = Math.round( (coef * this.contribute) + (this.contribute * 3) );
-    return slary;
-  };
+    var COEF = 210;
+    var CONTRIBUTE_TIMES = 3;
+    var REINFORCEMENT_TIMES = 3;
 
-  DensetuTools.namespace('CalcIncome');
+    DensetuTools.CalcSlary = function (args) {
+      this.income = parseInt(args.income);
+      this.people = parseInt(args.people);
+      this.reinforcement = parseInt(args.reinforcement);
+      this.contribute = parseInt(args.contribute);
+      this.slary = parseInt(args.slary);
+    };
 
-  DensetuTools.CalcIncome = function(args) {
-    this.farmSum     = parseInt(args.farmSum) || 0;
-    this.businessSum = parseInt(args.businessSum) || 0;
-    this.farmerSum   = parseInt(args.farmerSum) || 0;
-  }
+    var PROTOTYPE = DensetuTools.CalcSlary.prototype;
 
-  DensetuTools.CalcIncome.prototype.calcOfFarm = function() {
-    return Math.round(this.farmSum * 12 * this.farmerSum / 10000);
-  };
+    PROTOTYPE.findEmptyField = function () {
+      var self = this;
+      var numberOfNaN = Object.keys(this).filter(function (member) {
+        if ( isNaN(self[member]) ) {
+          return member;
+        }
+      });
+      if (numberOfNaN.length > 1) {
+        throw 'many empty field';
+      }
+      return numberOfNaN[0];
+    };
 
-  DensetuTools.CalcIncome.prototype.calcOfBusiness = function() {
-    return Math.round(this.businessSum * 12 * this.farmerSum / 10000);
-  };
+    PROTOTYPE.calcSlary = function () {
+      var coef = this.income / COEF / (this.people + this.reinforcement * REINFORCEMENT_TIMES);
+      var slary = Math.round((coef * this.contribute) + (this.contribute * CONTRIBUTE_TIMES));
+      return slary;
+    };
 
-  DensetuTools.CalcIncome.prototype.calc = function() {
-    document.getElementById('calc-income-farm-result').innerHTML = this.calcOfFarm();
-    document.getElementById('calc-income-business-result').innerHTML = this.calcOfBusiness();
-  };
+    PROTOTYPE.calcPeople = function () {
+      var coef = this.contribute / (this.slary - this.contribute * CONTRIBUTE_TIMES);
+      var people = Math.round(coef * (this.income / COEF) - (this.reinforcement * REINFORCEMENT_TIMES));
+      return people;
+    };
+
+    PROTOTYPE.calcReinforcement = function () {
+      var coef = this.contribute / (this.slary - this.contribute * CONTRIBUTE_TIMES);
+      var reinforcement = Math.round((coef * (this.income / COEF) - this.people) / REINFORCEMENT_TIMES);
+      return reinforcement;
+    };
+
+    PROTOTYPE.calcContribute = function () {
+      var coef = this.income / (COEF * (this.people + this.reinforcement * CONTRIBUTE_TIMES));
+      var contribute = Math.round(this.slary / (coef + 3));
+      return contribute;
+    };
+
+    PROTOTYPE.calcIncome = function () {
+      var coef = (this.slary - this.contribute * 3) / this.contribute;
+      var income = Math.round(coef * COEF * (this.people + this.reinforcement * CONTRIBUTE_TIMES));
+      return income;
+    };
+
+    PROTOTYPE.calc = function (id) {
+      var self = this;
+      var map = {
+        income : function () { return self.calcIncome() },
+        people : function () { return self.calcPeople() },
+        reinforcement : function () { return self.calcReinforcement() },
+        contribute : function () { return self.calcContribute() },
+        slary : function () { return self.calcSlary() },
+      };
+      return map[id]();
+    };
+
+  }());
+
+
+  (function () {
+
+    DensetuTools.namespace('CalcIncome');
+
+    var FARMER_TIMES = 10000;
+    var SOURCE_TIMES = 12;
+
+    DensetuTools.CalcIncome = function(args) {
+      this.farmSum = parseInt(args.farmSum) || 0;
+      this.businessSum = parseInt(args.businessSum) || 0;
+      this.farmerSum = parseInt(args.farmerSum) || 0;
+    }
+
+    var PROTOTYPE = DensetuTools.CalcIncome.prototype;
+
+    PROTOTYPE.calcOfFarm = function() {
+      return Math.round(this.farmSum * SOURCE_TIMES * this.farmerSum / FARMER_TIMES);
+    };
+
+    PROTOTYPE.calcOfBusiness = function() {
+      return Math.round(this.businessSum * SOURCE_TIMES * this.farmerSum / FARMER_TIMES);
+    };
+
+    PROTOTYPE.calc = function() {
+      document.getElementById('calc-income-farm-result').innerHTML = this.calcOfFarm();
+      document.getElementById('calc-income-business-result').innerHTML = this.calcOfBusiness();
+    };
+
+  }());
+
 
   document.getElementById('calc-slary').addEventListener('click', function(eve) {
     var slary = new DensetuTools.CalcSlary({
       income : document.getElementById('calc-slary-income').value,
       people : document.getElementById('calc-slary-people').value,
       reinforcement : document.getElementById('calc-slary-reinforcement').value,
-      contribute    : document.getElementById('calc-slary-contribute').value,
+      contribute : document.getElementById('calc-slary-contribute').value,
+      slary : document.getElementById('calc-slary-slary').value,
     });
-    document.getElementById('calc-slary-result').innerHTML = slary.calc();
+
+    try {
+      document.getElementById('calc-slary-error').innerHTML = '';
+      var id = slary.findEmptyField() + '';
+      document.getElementById('calc-slary-' + id).value = slary.calc(id);
+    } catch (e) {
+
+      if (e instanceof TypeError) {
+        if (e.message === 'map[id] is not a function') {
+          document.getElementById('calc-slary-error').innerHTML = '※空欄がありません。';
+        }
+      }
+
+      else {
+        if (e === 'many empty field') {
+          document.getElementById('calc-slary-error').innerHTML = '※空欄は1つ以上作らないでください。';
+        }
+      }
+
+    }
   }, false);
 
   document.getElementById('calc-income').addEventListener('click', function(eve) {
     var income = new DensetuTools.CalcIncome({
-      farmSum     : document.getElementById('calc-income-farm-sum').value,
+      farmSum : document.getElementById('calc-income-farm-sum').value,
       businessSum : document.getElementById('calc-income-business-sum').value,
-      farmerSum   : document.getElementById('calc-income-farmer-sum').value,
+      farmerSum : document.getElementById('calc-income-farmer-sum').value,
     });
     income.calc();
   }, false);
+
 
 </script>

@@ -1,5 +1,5 @@
 % layout 'default';
-% title 'denstu-tools';
+% title 'densetu-tools';
 <div class="container padding-top-20">
   <h2><%= $msg %></h2>
   ・<a href="<%= url_for('/parse_battle_log') %>">戦闘ログ解析(武将情報抽出)</a><br>

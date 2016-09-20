@@ -1,9 +1,7 @@
 % layout 'update_time_table/admin';
       <div>
         <h2>更新表データ管理</h2>
-        <label>
-          更新表データを別サーバーからダウンロード/アップロードします。<br>
-        </label>
+        <p>更新表データを別サーバーからダウンロード/アップロードします。</p>
         <input type="button" id="download" class="btn btn-empty" value="ダウンロード">
         <input type="button" id="upload" class="btn btn-empty" value="アップロード">
         <div id="result">

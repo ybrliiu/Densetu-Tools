@@ -1,7 +1,7 @@
 % layout 'update_time_table/admin';
       <div>
         <h2>武将追加</h2>
-        <label>追加する武将の情報を入力して下さい。</label>
+        <p>追加する武将の情報を入力して下さい。</p>
 <pre class="prettyprint">
 【書式】
 名前1,xx分xx秒
