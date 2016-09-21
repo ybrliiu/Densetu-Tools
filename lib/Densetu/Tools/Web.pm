@@ -2,6 +2,8 @@ package Densetu::Tools::Web {
 
   use Mojo::Base 'Mojolicious';
 
+  use Densetu::Tools::UpdateTimeTable;
+
   sub setup_session {
     my ($self) = @_;
     $self->plugin('Config', {file => "etc/config/$_.conf"}) for qw/app hypnotoad ftp/;
@@ -28,6 +30,33 @@ package Densetu::Tools::Web {
     my $plugin_config = $self->config->{app}{plugin};
     $self->plugin('FTP') if $plugin_config->{FTP};
     $self->plugin('ProxyPassReverse::SubDir') if $plugin_config->{'ProxyPassReverse::SubDir'};
+
+    $self->startup_deamon();
+
+    $self->setup_router();
+
+  }
+
+  sub startup_deamon {
+    my ($self) = @_;
+
+    Mojo::IOLoop->recurring(7200 => sub {
+      my ($loop) = @_;
+
+      eval {
+        'Densetu::Tools::UpdateTimeTable'->add_players_from_map_log();
+      };
+      if (my $e = $@) {
+          Record::Exception->caught($e)
+        ? $self->log->debug($e->message)
+        : $self->log->debug($e);
+      }
+
+    });
+  }
+
+  sub setup_router {
+    my ($self) = @_;
 
     # Router
     my $r = $self->routes;

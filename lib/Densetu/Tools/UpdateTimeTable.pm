@@ -19,28 +19,49 @@ package Densetu::Tools::UpdateTimeTable {
     return \@parse_battle_logmations;
   }
 
-  sub new_update_time_table {
-    my ($class) = @_;
-
-    my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
-    my $parse_battle_log = $class->_extract_update_time($map_log);
-
-    # プレイヤーオブジェクト生成
+  sub _lines_to_players {
+    my ($class, $lines) = @_;
     my %players = map {
       my $line = $_;
       my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
       $player->parse($line);
       $player->name => $player;
-    } @$parse_battle_log;
+    } @$lines;
+    return \%players;
+  }
+
+  sub new_update_time_table {
+    my ($class) = @_;
+
+    my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
+    my $parsed_map_log = $class->_extract_update_time($map_log);
+
+    my $players = $class->_lines_to_players($parsed_map_log);
 
     # リセット直後のみ更新時間データを生成
     if ($map_log =~ /ゲームプログラムを開始しました。/) {
       my $record = $RECORD;
-      $record->data(\%players);
+      $record->data($players);
       $record->make;
     } else {
       croak 'ゲーム開始から時間が経ちすぎているようなので更新時間データの生成を中止します。'
     }
+
+  }
+
+  sub add_players_from_map_log {
+    my ($class) = @_;
+
+    my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
+    my $parsed_map_log = $class->_extract_update_time($map_log);
+    croak '新規で登録した人は見つかりませんでした。' if @$parsed_map_log == 0;
+
+    my $players = $class->_lines_to_players($parsed_map_log);
+    my $record = $RECORD->open('LOCK_EX');
+    for my $key (keys %$players) {
+      $record->add($key => $players->{$key});
+    }
+    $record->close();
 
   }
 
