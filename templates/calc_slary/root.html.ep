@@ -6,7 +6,6 @@
         <div class="row">
           <div class="col md-12">
             <p>求めたい値の欄を空白にして計算ボタンを押してください。</p>
-            <p id="calc-slary-error" class="color-error"></p>
           </div>
         </div>
         <div class="row">
@@ -33,6 +32,11 @@
           <div class="col md-2">
             <label>　</label>
             <input type="button" id="calc-slary" class="btn btn-empty" value="計算">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col md-12">
+            <p id="calc-slary-error" class="color-error"></p>
           </div>
         </div>
       </div>

@@ -50,6 +50,8 @@ package Densetu::Tools::Web {
           Record::Exception->caught($e)
         ? $self->log->debug($e->message)
         : $self->log->debug($e);
+      } else {
+        $self->log->debug('新たなプレイヤーデータが登録されました');
       }
 
     });
