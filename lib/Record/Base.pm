@@ -71,6 +71,7 @@ package Record::Base {
     nstore_fd($self->data, $self->{fh}) or Record::Exception->throw('nstore_fd失敗', $self);
     $self->data(undef);
     close($self->{fh}) or Record::Exception->throw('close失敗', $self);
+    $self->{fh} = undef;
     return 1;
   }
   
@@ -78,6 +79,11 @@ package Record::Base {
   sub remove {
     my $self = shift;
     unlink $self->file;
+  }
+
+  sub DESTROY {
+    my $self = shift;
+    $self->close() if $self->fh;
   }
   
 }
