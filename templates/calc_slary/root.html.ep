@@ -119,14 +119,14 @@
     };
 
     PROTOTYPE.calcContribute = function () {
-      var coef = this.income / (COEF * (this.people + this.reinforcement * CONTRIBUTE_TIMES));
-      var contribute = Math.round(this.slary / (coef + 3));
+      var coef = this.income / (COEF * (this.people + this.reinforcement * REINFORCEMENT_TIMES));
+      var contribute = Math.round(this.slary / (coef + CONTRIBUTE_TIMES));
       return contribute;
     };
 
     PROTOTYPE.calcIncome = function () {
-      var coef = (this.slary - this.contribute * 3) / this.contribute;
-      var income = Math.round(coef * COEF * (this.people + this.reinforcement * CONTRIBUTE_TIMES));
+      var coef = (this.slary - this.contribute * CONTRIBUTE_TIMES) / this.contribute;
+      var income = Math.round(coef * COEF * (this.people + this.reinforcement * REINFORCEMENT_TIMES));
       return income;
     };
 
