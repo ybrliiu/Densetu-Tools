@@ -11,23 +11,23 @@
         <div class="row">
           <div class="col md-2">
             <label>収入</label>
-            <input id="calc-slary-income" class="form-control" type="text">
+            <input id="calc-slary-income" class="form-control" type="number">
           </div>
           <div class="col md-2">
             <label>国民</label>
-            <input id="calc-slary-people" class="form-control" type="text">
+            <input id="calc-slary-people" class="form-control" type="number">
           </div>
           <div class="col md-2">
             <label>援軍</label>
-            <input id="calc-slary-reinforcement" class="form-control" type="text" value="0">
+            <input id="calc-slary-reinforcement" class="form-control" type="number" value="0">
           </div>
           <div class="col md-2">
             <label>貢献値</label>
-            <input id="calc-slary-contribute" class="form-control" type="text" value="200">
+            <input id="calc-slary-contribute" class="form-control" type="number" value="200">
           </div>
           <div class="col md-2">
             <label>1人あたり給料</label>
-            <input id="calc-slary-slary" class="form-control" type="text">
+            <input id="calc-slary-slary" class="form-control" type="number">
           </div>
           <div class="col md-2">
             <label>　</label>
@@ -46,15 +46,15 @@
         <div class="row">
           <div class="col md-3">
             <label>農業合計</label>
-            <input id="calc-income-farm-sum" class="form-control" type="text">
+            <input id="calc-income-farm-sum" class="form-control" type="number">
           </div>
           <div class="col md-3">
             <label>商業合計</label>
-            <input id="calc-income-business-sum" class="form-control" type="text">
+            <input id="calc-income-business-sum" class="form-control" type="number">
           </div>
           <div class="col md-3">
             <label>農民合計</label>
-            <input id="calc-income-farmer-sum" class="form-control" type="text">
+            <input id="calc-income-farmer-sum" class="form-control" type="number">
           </div>
           <div class="col md-3">
             <label>　</label>

@@ -19,6 +19,19 @@
   color: white;
 }
 
+/* erase input type="number" spin button */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance:textfield;
+}
+
+
 /* --- end --- */
 
 .font-icon-detail{
