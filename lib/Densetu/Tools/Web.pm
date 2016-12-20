@@ -46,7 +46,7 @@ package Densetu::Tools::Web {
       $ua->get('http://densetu.sakura.ne.jp/index.cgi');
     });
 
-    Mojo::IOLoop->recurring(10 => sub {
+    Mojo::IOLoop->recurring(1200 => sub {
       my ($loop) = @_;
 
       local $SIG{__WARN__} = sub {
