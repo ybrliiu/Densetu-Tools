@@ -2,6 +2,7 @@ package Densetu::Tools::Web {
 
   use Mojo::Base 'Mojolicious';
 
+  use Densetu::Tools::Util;
   use Densetu::Tools::UpdateTimeTable;
 
   sub setup_session {
@@ -40,18 +41,33 @@ package Densetu::Tools::Web {
   sub startup_deamon {
     my ($self) = @_;
 
-    Mojo::IOLoop->recurring(7200 => sub {
+    my $ua = Mojo::UserAgent->new;
+    Mojo::IOLoop->recurring(Densetu::Tools::UpdateTimeTable->JUDGE_DELAY_SEC ,=> sub {
+      $ua->get('http://densetu.sakura.ne.jp/index.cgi');
+    });
+
+    Mojo::IOLoop->recurring(10 => sub {
       my ($loop) = @_;
 
+      local $SIG{__WARN__} = sub {
+        my ($warn_mes) = @_;
+        $self->log->warn($warn_mes);
+      };
+
       eval {
-        'Densetu::Tools::UpdateTimeTable'->add_players_from_map_log();
+        Densetu::Tools::UpdateTimeTable->add_players_from_map_log();
       };
       if (my $e = $@) {
           Record::Exception->caught($e)
-        ? $self->log->debug($e->message)
-        : $self->log->debug($e);
-      } else {
-        $self->log->debug('新たなプレイヤーデータが登録されました');
+        ? $self->log->error($e->message)
+        : $self->log->error($e);
+      }
+
+      eval {
+        Densetu::Tools::UpdateTimeTable->update_time_from_map_log();
+      };
+      if (my $e = $@) {
+        $self->log->error($e);
       }
 
     });

@@ -17,6 +17,7 @@ package Densetu::Tools::Util {
 
   sub get_data {
     my ($url) = @_;
+    binmode STDOUT, ':utf8';
 
     my $ua = LWP::UserAgent->new();
     $ua->timeout(60);

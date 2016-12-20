@@ -10,13 +10,15 @@ package Densetu::Tools::UpdateTimeTable::Player {
 
   {
     my %attributes = (
-      name       => undef,
-      time       => '????',
-      country    => undef,
-      force      => 0,
-      intellect  => 0,
-      leadership => 0,
-      popular    => 0,
+      name        => undef,
+      time        => '????',
+      time_origin => undef,
+      country     => undef,
+      force       => 0,
+      intellect   => 0,
+      leadership  => 0,
+      popular     => 0,
+      line        => undef,
     );
 
     Class::Accessor::Lite->mk_accessors(keys %attributes);
@@ -30,32 +32,53 @@ package Densetu::Tools::UpdateTimeTable::Player {
 
   sub parse {
     my ($self, $line) = @_;
-    $self->{name}    = $self->extract_name($line);
-    $self->{time}    = $self->extract_time($line);
-    $self->{country} = $self->extract_country($line);
-  }
-
-  sub extract_name {
-    my ($self, $line) = @_;
-    my ($name) = do {
+    $self->{line} = $line;
+    ($self->{name}, $self->{country}, $self->{time}) = do {
       if ($line =~ /【建国】/) {
-        ($line =~ /新しく(.*?)率いる/);
-      } elsif ($line =~ /\[仕官\]/) {
-        ($line =~ /新しく(.*?)が/);
-      } else {
-        croak "名前の情報が含まれていません";
+        ($line =~ /新しく(.*?)率いる(.*?)が蜂起しました。\((.*?)\)/);
+      }
+      elsif ($line =~ /\[仕官\]/) {
+        ($line =~ /新しく(.*?)が(.*?)に仕官しました。\((.*?)\)/);
+      }
+      elsif ($line =~ /へ攻め込みました！/) {
+        my ($country, $name, $target_town, $target_country, $time)
+          = ($line =~ /・(.*?)の(.*)は(.*?)（(.*?)）へ攻め込みました！\((.*?)\)/);
+        my ($position) = $name =~ /【(.*?)】/;
+        $position //= '';
+        $name =~ s/【${position}】//;
+        ($name, $country, $time);
+      }
+      else {
+        croak "文字列に武将情報が含まれていません";
       }
     };
-    return $name;
+    $self->time_str_convert_obj;
   }
 
-  sub extract_time {
-    my ($self, $line) = @_;
+  # 国名, プレイヤー名に「の」がたくさん含まれていた場合
+  # 引数に国名も与えて、確実に判定させる
+  sub reparse {
+    my ($self, $country_name) = @_;
+    ($self->{name}, $self->{country}, $self->{time}) = do {
+      croak "reparseできない文字列です ($self->{line})" if $self->{line} !~ /へ攻め込みました！/;
+      $self->{line} =~ s/$country_name//;
+      my ($name, $target_town, $target_country, $time)
+        = ($self->{line} =~ /・の(.*)は(.*?)（(.*?)）へ攻め込みました！\((.*?)\) /);
+      my ($position) = $name =~ /【(.*?)】/;
+      $position //= '';
+      $name =~ s/【${position}】//;
+      ($name, $country_name, $time);
+    };
+    $self->time_str_convert_obj;
+  }
+
+  sub time_str_convert_obj {
+    my ($self) = @_;
     my $now = localtime;
-    my ($time_str) = ($line =~ /。\((.*?)\)/);
-    my $time;
-    eval { $time = Time::Piece->strptime("@{[ $now->year ]}年@{[ $now->mon ]}月$time_str", "%Y年%m月%d日%H時%M分%S秒") };
-    return $@ ? '????' : $time;
+    my $time = eval {
+      Time::Piece->strptime("@{[ $now->year ]}年@{[ $now->mon ]}月$self->{time}", "%Y年%m月%d日%H時%M分%S秒");
+    };
+    $self->{time} = $@ ? '????' : $time;
   }
 
   sub input_time {
@@ -65,28 +88,31 @@ package Densetu::Tools::UpdateTimeTable::Player {
     $self->{time} = $time;
   }
 
-  sub extract_country {
-    my ($self, $line) = @_;
-    my ($country) = do {
-      if ($line =~ /【建国】/) {
-        ($line =~ /率いる(.*?)が蜂起しました。/)
-      } elsif ($line =~ /\[仕官\]/) {
-        ($line =~ /が(.*?)に仕官しました。/)
-      } else {
-        ()
-      }
-    };
-    return $country;
+  sub min_sec {
+    my ($self) = @_;
+    _min_sec( $self->{time} );
   }
 
-  sub hour_sec {
+  # origin 
+  sub origin_min_sec {
     my ($self) = @_;
-    my ($hour, $sec);
-    eval {
-      $hour = $self->{time}->strftime("%M");
-      $sec = $self->{time}->strftime("%S");
+    _min_sec( $self->{time} );
+  }
+
+  # あとでtest
+  sub _min_sec {
+    my ($time) = @_;
+    my ($hour, $sec) = eval {
+      $time->strftime("%M"),
+      $time->strftime("%S")
     };
-    return $@ ? 9999 : ($hour * 100) + $sec;
+    return $@ ? 3600 : "$hour$sec";
+  }
+
+  sub update_time {
+    my ($self, $new_time) = @_;
+    $self->{time_origin} = $self->{time};
+    $self->{time}        = $new_time;
   }
 
   sub show_time {

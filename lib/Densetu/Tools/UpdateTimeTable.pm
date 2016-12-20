@@ -9,6 +9,15 @@ package Densetu::Tools::UpdateTimeTable {
   use Densetu::Tools::Util qw/:DEFAULT get_data/;
   use Densetu::Tools::UpdateTimeTable::Player;
   use Densetu::Tools::UpdateTimeTable::Country;
+  use Time::Piece;
+
+  use constant {
+    MAP_LOG_URL     => 'http://densetu.sakura.ne.jp/map.cgi',
+    JUDGE_DELAY_SEC => 240,
+    MAX_DELAY_SEC   => 600,
+    START_TIME_TO_CHECK_DELAY => 7,
+    END_TIME_TO_CHECK_DELAY   => 1,
+  };
 
   my $RECORD = Record::Hash->new(file => UPDATE_TIME_TABLE_PATH());
   
@@ -19,11 +28,18 @@ package Densetu::Tools::UpdateTimeTable {
     return \@parse_battle_logmations;
   }
 
+  sub _extract_attack_log {
+    my ($class, $map_log) = @_;
+    my @lines = split /\n/, $map_log;
+    my @parse_battle_logmations = grep $_ =~ /へ攻め込みました！/, @lines;
+    return \@parse_battle_logmations;
+  }
+
   sub _lines_to_players {
     my ($class, $lines) = @_;
     my %players = map {
       my $line = $_;
-      my $player = 'Densetu::Tools::UpdateTimeTable::Player'->new();
+      my $player = Densetu::Tools::UpdateTimeTable::Player->new;
       $player->parse($line);
       $player->name => $player;
     } @$lines;
@@ -33,7 +49,7 @@ package Densetu::Tools::UpdateTimeTable {
   sub new_update_time_table {
     my ($class) = @_;
 
-    my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
+    my $map_log = get_data(MAP_LOG_URL);
     my $parsed_map_log = $class->_extract_update_time($map_log);
 
     my $players = $class->_lines_to_players($parsed_map_log);
@@ -49,16 +65,91 @@ package Densetu::Tools::UpdateTimeTable {
 
   }
 
+  sub update_time_from_map_log {
+    my ($class) = @_;
+
+    my $map_log = get_data(MAP_LOG_URL);
+    my $parsed_map_log = $class->_extract_attack_log($map_log);
+
+    my $players = $class->_lines_to_players($parsed_map_log);
+    my $record  = $RECORD->open('LOCK_EX');
+    for my $key (keys %$players) {
+
+      my $new_player = $players->{$key};
+      my $old_player = eval {
+        $record->find( $new_player->name );
+      };
+      if (my $e = $@) {
+        warn "国名の取得に失敗しました (@{[ $new_player->name ]}, @{[ $new_player->country ]})";
+        my $countries_hash = $class->create_country_list;
+        my $country_name   = $class->_search_coutry($countries_hash, $new_player->country);
+        $new_player->reparse( $country_name );
+        $old_player = $record->find( $new_player->name );
+      }
+
+      if ( $new_player->time->hour <= END_TIME_TO_CHECK_DELAY
+        || $new_player->time->hour >= START_TIME_TO_CHECK_DELAY )
+      {
+        $class->judge_delay(
+          record     => $record,
+          old_player => $old_player,
+          new_player => $new_player,
+        );
+      }
+
+    }
+    $record->close();
+  }
+
+  sub judge_delay {
+    my ($class, %args) = @_;
+    my @args_name = qw/record old_player new_player/;
+    for (@args_name) {
+      croak "$_\が指定されていません" unless exists $args{$_};
+    }
+    my ($record, $old_player, $new_player) = map { $args{$_} } @args_name;
+
+    my $delay_time = $new_player->min_sec - $old_player->min_sec;
+    if ($delay_time > JUDGE_DELAY_SEC) {
+        _warn_update_time($old_player, $new_player);
+      $old_player->update_time( $new_player->time );
+      $record->update($old_player->name => $old_player);
+    }
+    elsif ($delay_time < 0) {
+      # 59分超えて0分以降になった場合
+      if ( $new_player->min_sec + 3600 - $old_player->min_sec < MAX_DELAY_SEC ) {
+        _warn_update_time($old_player, $new_player);
+        $old_player->update_time( $new_player->time );
+        $record->update($old_player->name => $old_player);
+      }
+      # 遅延判定を厳密にしていく
+      elsif ( $new_player->min_sec - $old_player->origin_min_sec < JUDGE_DELAY_SEC ) {
+        _warn_update_time($old_player, $new_player);
+        $old_player->time( $new_player->time );
+        $record->update($old_player->name => $old_player);
+      }
+      else {
+        warn "異常な現象発生 (@{[ $new_player->name ]})";
+      }
+    }
+  }
+
+  sub _warn_update_time {
+    my ($old_player, $new_player) = @_;
+    warn "@{[ $old_player->name ]} の更新時間を@{[ $old_player->show_time ]}から@{[ $new_player->show_time ]}に変更しました。";
+  }
+
   sub add_players_from_map_log {
     my ($class) = @_;
 
-    my $map_log = get_data('http://densetu.sakura.ne.jp/map.cgi');
+    my $map_log = get_data(MAP_LOG_URL);
     my $parsed_map_log = $class->_extract_update_time($map_log);
-    croak '新規で登録した人は見つかりませんでした。' if @$parsed_map_log == 0;
+    return if @$parsed_map_log == 0;
 
     my $players = $class->_lines_to_players($parsed_map_log);
     my $record = $RECORD->open('LOCK_EX');
     for my $key (keys %$players) {
+      warn "新しく${key}が追加されました ";
       $record->add($key => $players->{$key});
     }
     $record->close();
@@ -84,6 +175,13 @@ package Densetu::Tools::UpdateTimeTable {
       $country->name => $country;
     } @country_line;
     return \%countries;
+  }
+
+  sub _search_coutry {
+    my ($class, $countries_hash, $country_name) = @_;
+    for my $country (values %$countries_hash) {
+      return $country->name if $country->name =~ $country_name;
+    }
   }
 
   sub update_player_country {
@@ -149,7 +247,7 @@ package Densetu::Tools::UpdateTimeTable {
         ()
       }
     });
-    my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
+    my @output = sort { $a->min_sec <=> $b->min_sec } @collect;
 
     my $result = "【$args{country2}戦更新表】\n";
     $result .= "○=$args{country1}($people{country1}人),●=$args{country2}($people{country2}人)\n\n";
@@ -169,7 +267,7 @@ package Densetu::Tools::UpdateTimeTable {
       my ($key, $value) = @_;
       $value->country eq $args{country} ? $value->mark('') : ();
     });
-    my @output = sort { $a->hour_sec <=> $b->hour_sec } @collect;
+    my @output = sort { $a->min_sec <=> $b->min_sec } @collect;
 
     my $result = "【$args{country}更新表(" . @output . "人)】\n\n";
     $result .= $_->update_time_table for @output;
@@ -210,7 +308,7 @@ package Densetu::Tools::UpdateTimeTable {
     $player->input_time($args{time});
     $record->close();
 
-    say "$args{name}編集完了";
+    warn "$args{name}編集完了";
   }
 
 }
