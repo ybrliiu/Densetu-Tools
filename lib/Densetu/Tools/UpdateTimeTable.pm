@@ -118,19 +118,20 @@ package Densetu::Tools::UpdateTimeTable {
     }
     elsif ($delay_time < 0) {
       # 59分超えて0分以降になった場合
-      if ( $new_player->min_sec + 3600 - $old_player->min_sec < MAX_DELAY_SEC ) {
+      my $difference = $new_player->min_sec + 3600 - $old_player->min_sec;
+      if ( $difference <= MAX_DELAY_SEC && $difference >= JUDGE_DELAY_SEC ) {
         _warn_update_time($old_player, $new_player);
         $old_player->update_time( $new_player->time );
         $record->update($old_player->name => $old_player);
       }
       # 遅延判定を厳密にしていく
-      elsif ( $new_player->min_sec - $old_player->origin_min_sec < JUDGE_DELAY_SEC ) {
+      elsif (
+        $old_player->origin_min_sec                 < $new_player->min_sec &&
+        $old_player->min_sec - $new_player->min_sec < JUDGE_DELAY_SEC          
+      ) {
         _warn_update_time($old_player, $new_player);
         $old_player->time( $new_player->time );
         $record->update($old_player->name => $old_player);
-      }
-      else {
-        warn "異常な現象発生 (@{[ $new_player->name ]})";
       }
     }
   }
