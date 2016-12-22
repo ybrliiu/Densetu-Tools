@@ -5,6 +5,8 @@ package Densetu::Tools::Web {
   use Densetu::Tools::Util;
   use Densetu::Tools::UpdateTimeTable;
 
+  use constant CHECK_TIME_INTERVAL => 1200;
+
   sub setup_session {
     my ($self) = @_;
     $self->plugin('Config', {file => "etc/config/$_.conf"}) for qw/app hypnotoad ftp/;
@@ -46,7 +48,7 @@ package Densetu::Tools::Web {
       $ua->get('http://densetu.sakura.ne.jp/index.cgi');
     });
 
-    Mojo::IOLoop->recurring(10 => sub {
+    Mojo::IOLoop->recurring(CHECK_TIME_INTERVAL ,=> sub {
       my ($loop) = @_;
 
       local $SIG{__WARN__} = sub {
