@@ -10,6 +10,8 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable {
 
   sub get_table_input {
     my ($self) = @_;
+    my $countries = Densetu::Tools::UpdateTimeTable->create_country_list;
+    $self->stash(countries => $countries);
     $self->render;
   }
 
@@ -29,6 +31,8 @@ package Densetu::Tools::Web::Controller::UpdateTimeTable {
 
   sub get_mix_table_input {
     my ($self) = @_;
+    my $countries = Densetu::Tools::UpdateTimeTable->create_country_list;
+    $self->stash(countries => $countries);
     $self->render;
   }
 

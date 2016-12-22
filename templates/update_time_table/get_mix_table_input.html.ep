@@ -2,12 +2,20 @@
       <div>
         <h2>対戦国と混ぜて出力</h2>
         <div>
-            <label>自国の国名</label>
-            <input id="country1" class="form-control" type="text">
+            <label>自国の国名を選択してください</label>
+            <select id="country1" class="form-control">
+            % for my $country (@$countries) {
+              <option value="<%= $country->name %>"><%= $country->name %></option>
+            % }
+            </select>
         </div>
         <div>
-            <label>対戦国の国名</label>
-            <input id="country2" class="form-control" type="text">
+            <label>対戦国の国名を選択してください</label>
+            <select id="country2" class="form-control">
+            % for my $country (@$countries) {
+              <option value="<%= $country->name %>"><%= $country->name %></option>
+            % }
+            </select>
         </div>
         <input type="button" id="submit" class="btn btn-empty" value="出力">
 <pre id="result">

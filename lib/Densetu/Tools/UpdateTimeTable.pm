@@ -19,7 +19,7 @@ package Densetu::Tools::UpdateTimeTable {
     END_TIME_TO_CHECK_DELAY   => 1,
   };
 
-  my $RECORD = Record::Hash->new(file => UPDATE_TIME_TABLE_PATH());
+  my $RECORD = Record::Hash->new(file => UPDATE_TIME_TABLE_PATH);
   
   sub _extract_update_time {
     my ($class, $map_log) = @_;
@@ -81,8 +81,8 @@ package Densetu::Tools::UpdateTimeTable {
       };
       if (my $e = $@) {
         warn "国名の取得に失敗しました (@{[ $new_player->name ]}, @{[ $new_player->country ]})";
-        my $countries_hash = $class->create_country_list;
-        my $country_name   = $class->_search_coutry($countries_hash, $new_player->country);
+        my $countries    = $class->create_country_list;
+        my $country_name = $class->_search_coutry($countries, $new_player->country);
         $new_player->reparse( $country_name );
         $old_player = $record->find( $new_player->name );
       }
@@ -169,18 +169,18 @@ package Densetu::Tools::UpdateTimeTable {
     my $ranking_log = get_data('http://densetu.sakura.ne.jp/ranking.cgi');
     my @country_line = $class->_extract_country_line($ranking_log);
 
-    my %countries = map {
+    my @countries = map {
       my $line = $_;
       my $country = 'Densetu::Tools::UpdateTimeTable::Country'->new();
       $country->parse($line);
-      $country->name => $country;
+      $country;
     } @country_line;
-    return \%countries;
+    return \@countries;
   }
 
   sub _search_coutry {
-    my ($class, $countries_hash, $country_name) = @_;
-    for my $country (values %$countries_hash) {
+    my ($class, $countries, $country_name) = @_;
+    for my $country (@$countries) {
       return $country->name if $country->name =~ $country_name;
     }
   }
@@ -188,10 +188,11 @@ package Densetu::Tools::UpdateTimeTable {
   sub update_player_country {
     my ($class, %args) = @_;
 
-    my $countries = $class->create_country_list();
+    my $countries      = $class->create_country_list();
+    my %countries_hash = map { $_->name => $_ } @$countries;
 
     for my $country_name (values %args) {
-      my $country       = exists $countries->{$country_name} ? $countries->{$country_name} : croak "${country_name}という国は存在しません.";
+      my $country       = exists $countries_hash{$country_name} ? $countries_hash{$country_name} : croak "${country_name}という国は存在しません.";
       my $match_players = $country->create_member_info();
       $class->_delete_not_exists_player($country_name => $match_players);
     }

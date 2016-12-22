@@ -20,7 +20,7 @@ package Densetu::Tools::Util {
     binmode STDOUT, ':utf8';
 
     my $ua = LWP::UserAgent->new();
-    $ua->timeout(60);
+    $ua->timeout(5);
 
     say '情報取得中...';
     my $response = $ua->get($url);
@@ -29,7 +29,7 @@ package Densetu::Tools::Util {
       say '完了';
       return decode('shift-jis', $response->content);
     } else {
-      croak 'ログ情報の取得に失敗、', $response->status_line;
+      croak '情報の取得に失敗、', $response->status_line;
     }
   }
 

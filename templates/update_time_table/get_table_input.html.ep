@@ -2,8 +2,12 @@
       <div>
         <h2>国を指定して出力</h2>
         <div>
-            <label>国名</label>
-            <input id="country" class="form-control" type="text">
+            <label>国名を選択してください</label>
+            <select id="country" class="form-control">
+            % for my $country (@$countries) {
+              <option value="<%= $country->name %>"><%= $country->name %></option>
+            % }
+            </select>
         </div>
         <input type="button" id="submit" class="btn btn-empty" value="出力">
 <pre id="result">
@@ -16,7 +20,10 @@
   "use strict";
 
   document.getElementById('submit').addEventListener('click', function(eve) {
-    var json = {country : document.getElementById('country').value};
+    var countryForm = document.getElementById('country');
+    var json = {
+      country : countryForm.getElementsByTagName('option')[ countryForm.selectedIndex ].value,
+    };
     sendJson(json, '<%= url_for('/update_time_table/get_table') %>');
   }, false);
 
