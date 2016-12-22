@@ -37,27 +37,28 @@ package Densetu::Tools::UpdateTimeTable {
 
   sub _lines_to_players {
     my ($class, $lines) = @_;
-    my %players = map {
+    my @players = map {
       my $line = $_;
       my $player = Densetu::Tools::UpdateTimeTable::Player->new;
       $player->parse($line);
-      $player->name => $player;
+      $player;
     } @$lines;
-    return \%players;
+    return \@players;
   }
 
   sub new_update_time_table {
     my ($class) = @_;
 
-    my $map_log = get_data(MAP_LOG_URL);
+    my $map_log        = get_data(MAP_LOG_URL);
     my $parsed_map_log = $class->_extract_update_time($map_log);
 
-    my $players = $class->_lines_to_players($parsed_map_log);
+    my $players      = $class->_lines_to_players($parsed_map_log);
+    my %players_hash = map { $_->name => $_ } @$players;
 
     # リセット直後のみ更新時間データを生成
     if ($map_log =~ /ゲームプログラムを開始しました。/) {
       my $record = $RECORD;
-      $record->data($players);
+      $record->data(\%players_hash);
       $record->make;
     } else {
       croak 'ゲーム開始から時間が経ちすぎているようなので更新時間データの生成を中止します。'
@@ -73,9 +74,8 @@ package Densetu::Tools::UpdateTimeTable {
 
     my $players = $class->_lines_to_players($parsed_map_log);
     my $record  = $RECORD->open('LOCK_EX');
-    for my $key (keys %$players) {
+    for my $new_player (@$players) {
 
-      my $new_player = $players->{$key};
       my $old_player = eval {
         $record->find( $new_player->name );
       };
@@ -110,6 +110,7 @@ package Densetu::Tools::UpdateTimeTable {
     my ($record, $old_player, $new_player) = map { $args{$_} } @args_name;
 
     my $delay_time = $new_player->min_sec - $old_player->min_sec;
+
     if ($delay_time > JUDGE_DELAY_SEC) {
         _warn_update_time($old_player, $new_player);
       $old_player->update_time( $new_player->time );
@@ -148,9 +149,9 @@ package Densetu::Tools::UpdateTimeTable {
 
     my $players = $class->_lines_to_players($parsed_map_log);
     my $record = $RECORD->open('LOCK_EX');
-    for my $key (keys %$players) {
-      warn "新しく${key}が追加されました ";
-      $record->add($key => $players->{$key});
+    for my $player (@$players) {
+      warn "新しく@{[ $player->name ]}が追加されました ";
+      $record->add($player->name => $player);
     }
     $record->close();
 

@@ -106,7 +106,7 @@ package Densetu::Tools::UpdateTimeTable::Player {
       $time->strftime("%M"),
       $time->strftime("%S")
     };
-    return $@ ? 3600 : "$hour$sec";
+    return $@ ? 3600 : $hour * 60 + $sec;
   }
 
   sub update_time {
