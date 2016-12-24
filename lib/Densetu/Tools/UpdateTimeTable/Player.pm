@@ -96,7 +96,7 @@ package Densetu::Tools::UpdateTimeTable::Player {
   # origin 
   sub origin_min_sec {
     my ($self) = @_;
-    _min_sec( $self->{time} );
+    _min_sec( $self->{time_origin} );
   }
 
   # あとでtest
@@ -112,7 +112,9 @@ package Densetu::Tools::UpdateTimeTable::Player {
   sub update_time {
     my ($self, $new_time) = @_;
     $self->{time_origin} = $self->{time};
+    warn " $self->{name} no time origin id $self->{time_origin} ";
     $self->{time}        = $new_time;
+    warn " $self->{name} no time origin id $self->{time_origin} ";
   }
 
   sub show_time {
