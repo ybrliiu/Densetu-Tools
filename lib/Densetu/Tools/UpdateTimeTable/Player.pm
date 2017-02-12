@@ -63,7 +63,7 @@ package Densetu::Tools::UpdateTimeTable::Player {
       croak "reparseできない文字列です ($self->{line})" if $self->{line} !~ /へ攻め込みました！/;
       $self->{line} =~ s/$country_name//;
       my ($name, $target_town, $target_country, $time)
-        = ($self->{line} =~ /・の(.*)は(.*?)（(.*?)）へ攻め込みました！\((.*?)\) /);
+        = ($self->{line} =~ /・の(.*)は(.*?)（(.*?)）へ攻め込みました！\((.*?)\)/);
       my ($position) = $name =~ /【(.*?)】/;
       $position //= '';
       $name =~ s/【${position}】//;

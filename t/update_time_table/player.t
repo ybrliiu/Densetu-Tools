@@ -40,4 +40,16 @@ subtest 'parse irregular attack log' => sub {
   is $player->show_time, '35:35';
 };
 
+###
+
+subtest 'parse irregular attack log 2' => sub {
+  my $country_name = '風邪の谷';
+  ok( my $player = Densetu::Tools::UpdateTimeTable::Player->new );
+  ok $player->parse("・風邪の谷のユハ様【軍師】は武都（☆ちぇるちぇるらんど☆）へ攻め込みました！(12日15時37分24秒)");
+  ok $player->reparse($country_name);
+  is $player->name, 'ユハ様';
+  is $player->country, $country_name;
+  is $player->show_time, '37:24';
+};
+
 done_testing;
