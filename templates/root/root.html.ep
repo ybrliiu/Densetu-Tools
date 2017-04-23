@@ -5,4 +5,5 @@
   ・<a href="<%= url_for('/parse_battle_log') %>">戦闘ログ解析(武将情報抽出)</a><br>
   ・<a href="<%= url_for('/update_time_table') %>">更新表出力</a><br>
   ・<a href="<%= url_for('/calc_slary') %>">給料計算</a><br>
+  ・バグ、不具合、要望などありましたら<a href="https://twitter.com/mp0liiu">@mp0liiu</a>までお願いします。<br>
 </div>
