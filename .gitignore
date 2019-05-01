@@ -7,3 +7,6 @@ etc/config/ftp.conf
 
 # remove update_time_table.dat
 etc/record/player_map_log.dat
+
+local/
+tag
