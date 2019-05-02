@@ -2,9 +2,14 @@ package Record::Base {
 
   use Record;
   use Record::Exception;
-  use Carp qw/croak/;
-  use Class::Accessor::Lite new => 0;
-  use Storable qw/fd_retrieve nstore_fd nstore/;
+  use Record::SystemErrorException;
+  use Carp qw/ croak /;
+  use Storable qw/ fd_retrieve nstore_fd nstore /;
+
+  use Class::Accessor::Lite (
+    new => 0,
+    rw  => [qw/ file fh /],
+  );
   
   sub data {
     my $self = shift;
@@ -18,8 +23,8 @@ package Record::Base {
     my ($class, $key) = @_;
     $key //= '';
     state $mode = {
-      LOCK_SH => 1,    # 共有ロック
-      LOCK_EX => 2,    # 排他ロック
+      LOCK_SH    => 1, # 共有ロック
+      LOCK_EX    => 2, # 排他ロック
       NB_LOCK_SH => 5, # ノンブロックな共有ロック(ノンブロックの場合、ロックできなければdie）
       NB_LOCK_EX => 6, # ノンブロックな排他ロック
     };
@@ -33,18 +38,26 @@ package Record::Base {
     return bless $self, $class;
   }
 
-  Class::Accessor::Lite->mk_accessors(qw/file fh/);
-
   # ファイルオープン
-  sub open {
+  sub open :method {
     my ($self, $lock_type) = @_;
 
     if ( $self->mode($lock_type) ) {
-      open($self->{fh}, '+<', $self->{file}) or Record::Exception->throw("fileopen失敗:$!", $self);
-      flock($self->{fh}, $self->mode($lock_type)) or Record::Exception->throw("flock失敗:$!", $self);
+
+      unless ( open($self->{fh}, '+<', $self->{file}) ) {
+        undef $self->{fh};
+        Record::SystemErrorException->throw('fileopen失敗', $!);
+      }
+
+      unless ( flock($self->{fh}, $self->mode($lock_type)) ) {
+        $self->{fh}->close();
+        Record::SystemErrorException->throw('flock失敗', $!);
+      }
+
       $self->data(fd_retrieve $self->{fh});
     } else {
-      open(my $fh, '<', $self->{file}) or Record::Exception->throw("fileopen失敗:$!", $self);
+      open(my $fh, '<', $self->{file})
+        or Record::SystemErrorException->throw('fileopen失敗', $!);
       $self->data(fd_retrieve $fh);
       $fh->close;
     }
@@ -60,18 +73,31 @@ package Record::Base {
   }
   
   # ファイル閉じる
-  sub close {
+  sub close :method {
     my $self = shift;
-    truncate($self->{fh}, 0)
-      or Record::Exception->throw(
-        '多分書き込みモードでファイルを開いていないか、書き込みモードで2度ファイルを開いています',
-        $self,
+
+    unless ( truncate($self->{fh}, 0) ) {
+      $self->{fh}->close();
+      Record::SystemErrorException->throw(
+        'truncate失敗, おそらく書き込みモードでファイルを開いていないか、書き込みモードで2度ファイルを開いています',
+        $!
       );
-    seek($self->{fh}, 0, 0) or Record::Exception->throw('seek失敗', $self);
-    nstore_fd($self->data, $self->{fh}) or Record::Exception->throw('nstore_fd失敗', $self);
+    }
+
+    unless ( seek($self->{fh}, 0, 0) ) {
+      $self->{fh}->close();
+      Record::SystemErrorException->throw('seek失敗', $!);
+    }
+
+    unless ( nstore_fd($self->data, $self->{fh}) ) {
+      $self->{fh}->close();
+      Record::SystemErrorException->throw('nstore_fd失敗', $!);
+    }
+
     $self->data(undef);
-    close($self->{fh}) or Record::Exception->throw('close失敗', $self);
+    close($self->{fh}) or Record::SystemErrorException->throw('close失敗', $!);
     $self->{fh} = undef;
+
     return 1;
   }
   

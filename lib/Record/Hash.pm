@@ -8,7 +8,9 @@ package Record::Hash {
   sub find {
     my ($self, $key) = @_;
     my $data = $self->data;
-    return exists($data->{$key}) ? $data->{$key} : Record::Exception->throw('キーが存在しません', $self);
+    return exists($data->{$key})
+      ? $data->{$key}
+      : Record::Exception->throw("キーが存在しません (key : $key)");
   }
 
   # キーに対応するデータの存在確認
@@ -44,8 +46,8 @@ package Record::Hash {
   sub add {
     my ($self, $key, $obj) = @_;
     my $data = $self->data;
-    Record::Exception->throw('空文字列をキーとして使用することはできません', $self) if $key eq '';
-    Record::Exception->throw('既に同じキーのデータがあります', $self) if exists $data->{$key};
+    Record::Exception->throw('空文字列をキーとして使用することはできません') if $key eq '';
+    Record::Exception->throw("既に同じキーのデータがあります (key : $key)") if exists $data->{$key};
     $data->{$key} = $obj;
     $self->data($data);
     return $self;
